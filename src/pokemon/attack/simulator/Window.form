@@ -1,0 +1,745 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+  <NonVisualComponents>
+    <Container class="javax.swing.JPanel" name="jPanel3">
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <EmptySpace min="0" pref="100" max="32767" attributes="0"/>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <EmptySpace min="0" pref="100" max="32767" attributes="0"/>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+    </Container>
+    <Component class="javax.swing.JCheckBox" name="jCheckBox3">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="jCheckBox3"/>
+      </Properties>
+    </Component>
+  </NonVisualComponents>
+  <Properties>
+    <Property name="defaultCloseOperation" type="int" value="3"/>
+    <Property name="title" type="java.lang.String" value="DnP Angriffrechner"/>
+  </Properties>
+  <SyntheticProperties>
+    <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
+    <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
+  </SyntheticProperties>
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+  </AuxValues>
+
+  <Layout>
+    <DimensionLayout dim="0">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="p_schadeninfo" max="32767" attributes="0"/>
+                  <Component id="p_basisinfo" max="32767" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="p_f1" max="32767" attributes="0"/>
+                  <Component id="p_f2" max="32767" attributes="0"/>
+                  <Component id="p_f3" max="32767" attributes="0"/>
+                  <Component id="jPanel6" max="32767" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+    <DimensionLayout dim="1">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Component id="p_f1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" max="-2" attributes="0"/>
+                      <Component id="p_f2" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="p_f3" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jPanel6" max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <Component id="p_basisinfo" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="p_schadeninfo" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  </Group>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+  </Layout>
+  <SubComponents>
+    <Container class="javax.swing.JPanel" name="p_f1">
+      <Properties>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+            <TitledBorder title="F1"/>
+          </Border>
+        </Property>
+      </Properties>
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="cb_brt" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="cb_ff" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <Component id="cb_rl" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="lb_sr" min="-2" pref="21" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="combo_sr" min="-2" pref="64" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <EmptySpace min="0" pref="6" max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="cb_brt" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="cb_ff" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="combo_sr" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lb_sr" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="cb_rl" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace pref="16" max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JCheckBox" name="cb_brt">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="BRT"/>
+            <Property name="toolTipText" type="java.lang.String" value="aktivieren, wenn Angreifer brennt und physischen Schaden austeilt"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="cb_rl">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="RL"/>
+            <Property name="toolTipText" type="java.lang.String" value="&lt;html&gt;&#xa;ankreuzen, wenn Reflektor (phyischer Schaden) oder Lichtschild (spezieller Schaden) aktiviert ist&lt;br&gt;&#xa;nicht ankreuzen, wenn der Angreifer einen Volltreffer landet&#xa;&lt;/html&gt;"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JComboBox" name="combo_sr">
+          <Properties>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="3">
+                <StringItem index="0" value="1"/>
+                <StringItem index="1" value="0.5"/>
+                <StringItem index="2" value="1.5"/>
+              </StringArray>
+            </Property>
+            <Property name="toolTipText" type="java.lang.String" value="starke Sonneneinstrahlung bzw. starker Regen&#xa;&#xa;Wenn Sonne: Feuer-Attacke 1,5 - Wasser-Attacke 0,5&#xa;Wenn Regen: Wasser-Attacke 1,5 - Feuer-Attacke 0,5&#xa;&#xa;ansonsten: 1"/>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+          </AuxValues>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lb_sr">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="SR"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="cb_ff">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="FF"/>
+            <Property name="toolTipText" type="java.lang.String" value="nur ankreuzen, wenn Angreifer Feuerf&#xe4;nger hat und davor von einer Feuer-Attacke getroffen wurde"/>
+          </Properties>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Container class="javax.swing.JPanel" name="p_f2">
+      <Properties>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+            <TitledBorder title="F2"/>
+          </Border>
+        </Property>
+        <Property name="toolTipText" type="java.lang.String" value="&lt;html&gt;&#xa;Wenn Angreifer Lebenorb tr&#xe4;gt: 1,3&lt;br&gt;&#xa;Wenn Angreifer Metronom h&#xe4;lt: siehe DM-Doc&lt;br&gt;&#xa;Wenn Angriff Egotrip: ist 1,5&lt;br&gt;&#xa;&lt;br&gt;&#xa;Wenn Egotrip eingesetzt wird und der Angreifer eines der genannten Items tr&#xe4;gt: 1,5 * Itemwert"/>
+      </Properties>
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="1" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="tf_f2" max="32767" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="tf_f2" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JTextField" name="tf_f2">
+        </Component>
+      </SubComponents>
+    </Container>
+    <Container class="javax.swing.JPanel" name="p_f3">
+      <Properties>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+            <TitledBorder title="F3"/>
+          </Border>
+        </Property>
+      </Properties>
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="cb_fkf" min="-2" max="-2" attributes="0"/>
+                      <Component id="cb_eg" alignment="0" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="cb_b" min="-2" max="-2" attributes="0"/>
+                      <Component id="cb_a" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="cb_fkf" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="cb_a" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="cb_b" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="cb_eg" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="0" pref="6" max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JCheckBox" name="cb_fkf">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="FKF"/>
+            <Property name="toolTipText" type="java.lang.String" value="&lt;html&gt;&#xa;ankreuzen, wenn alles zutrifft:&lt;br&gt;&lt;br&gt;&#xa;das Ziel eine der folgenden F&#xe4;higkeiten: Felskern, Filter&lt;br&gt;&#xa;die Attacke ist sehr effektiv"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="cb_eg">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="EG"/>
+            <Property name="toolTipText" type="java.lang.String" value="&lt;html&gt;&#xa;ankreuzen, wenn folgendes Zutrifft:&lt;br&gt;&#xa;&lt;br&gt;&#xa;Der Angreifer tr&#xe4;gt das Item Expertengurt&lt;br&gt;&#xa;Der Angriff ist sehr effektiv"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="cb_a">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="A"/>
+            <Property name="toolTipText" type="java.lang.String" value="&lt;html&gt;&#xa;ankreuzen, wenn folgendes zutrifft:&lt;br&gt;&#xa;&lt;br&gt;&#xa;Der Angreifer hat die F&#xe4;higkeit Aufwertung&lt;br&gt;&#xa;Die Attacke ist nicht sehr effektiv"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="cb_b">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="B"/>
+            <Property name="toolTipText" type="java.lang.String" value="ankreuzen, wenn das Ziel eine schadensreduzierende Beere tr&#xe4;gt"/>
+          </Properties>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Container class="javax.swing.JPanel" name="p_basisinfo">
+      <Properties>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+            <TitledBorder title="Basisinfo"/>
+          </Border>
+        </Property>
+      </Properties>
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="lb_level" min="-2" max="-2" attributes="0"/>
+                      <Component id="lb_ap" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="lb_dp" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="lb_z" alignment="0" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <Component id="sld_level" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="lb_levelzahl" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                      <Component id="tf_dp" alignment="0" pref="74" max="32767" attributes="0"/>
+                                      <Component id="tf_ap" alignment="0" max="32767" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="lb_sr1" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lb_stab" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="tf_z" min="-2" pref="74" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="lb_typ2" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lb_typ1" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lb_typ3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                          </Group>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <EmptySpace min="-2" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="combo_typ2" min="-2" pref="64" max="-2" attributes="0"/>
+                                      <Component id="combo_stab" min="-2" pref="64" max="-2" attributes="0"/>
+                                      <Component id="combo_voll" min="-2" pref="64" max="-2" attributes="0"/>
+                                      <Component id="combo_typ1" alignment="0" min="-2" pref="64" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="combo_typ3" min="-2" pref="64" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
+                  </Group>
+                  <EmptySpace max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="sld_level" max="32767" attributes="0"/>
+                      <Component id="lb_level" max="32767" attributes="0"/>
+                      <Component id="lb_levelzahl" max="32767" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="tf_ap" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lb_ap" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="combo_voll" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lb_sr1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="lb_dp" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="tf_dp" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="combo_stab" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lb_stab" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="lb_z" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="tf_z" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="combo_typ1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lb_typ1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="combo_typ2" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lb_typ2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="combo_typ3" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lb_typ3" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JSlider" name="sld_level">
+          <Events>
+            <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="sld_levelStateChanged"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lb_level">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Level"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lb_levelzahl">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="100"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="tf_ap">
+          <Properties>
+            <Property name="toolTipText" type="java.lang.String" value="Den Attacken-Stat vom Anwender, mit Formel auf DM-Doc ausrechnen"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lb_ap">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="AP"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lb_dp">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="DP"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="tf_dp">
+          <Properties>
+            <Property name="toolTipText" type="java.lang.String" value="Den Verteidigungs-Stat vom Ziel, mit Formel auf DM-Doc ausrechnen"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JComboBox" name="combo_voll">
+          <Properties>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="3">
+                <StringItem index="0" value="1"/>
+                <StringItem index="1" value="1.5"/>
+                <StringItem index="2" value="2"/>
+              </StringArray>
+            </Property>
+            <Property name="toolTipText" type="java.lang.String" value="starke Sonneneinstrahlung bzw. starker Regen&#xa;&#xa;Wenn Sonne: Feuer-Attacke 1,5 - Wasser-Attacke 0,5&#xa;Wenn Regen: Wasser-Attacke 1,5 - Feuer-Attacke 0,5&#xa;&#xa;ansonsten: 1"/>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+          </AuxValues>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lb_sr1">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Volltreffer"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lb_z">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Z"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="tf_z">
+          <Properties>
+            <Property name="toolTipText" type="java.lang.String" value="2 d8-1 w&#xfc;rfeln und hier eintragen"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lb_stab">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="STAB"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JComboBox" name="combo_stab">
+          <Properties>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="3">
+                <StringItem index="0" value="1"/>
+                <StringItem index="1" value="1.5"/>
+                <StringItem index="2" value="2"/>
+              </StringArray>
+            </Property>
+            <Property name="toolTipText" type="java.lang.String" value="starke Sonneneinstrahlung bzw. starker Regen&#xa;&#xa;Wenn Sonne: Feuer-Attacke 1,5 - Wasser-Attacke 0,5&#xa;Wenn Regen: Wasser-Attacke 1,5 - Feuer-Attacke 0,5&#xa;&#xa;ansonsten: 1"/>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+          </AuxValues>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lb_typ2">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Typ 2"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lb_typ1">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Typ 1"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JComboBox" name="combo_typ2">
+          <Properties>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="4">
+                <StringItem index="0" value="1"/>
+                <StringItem index="1" value="0.5"/>
+                <StringItem index="2" value="2"/>
+                <StringItem index="3" value="0"/>
+              </StringArray>
+            </Property>
+            <Property name="toolTipText" type="java.lang.String" value="starke Sonneneinstrahlung bzw. starker Regen&#xa;&#xa;Wenn Sonne: Feuer-Attacke 1,5 - Wasser-Attacke 0,5&#xa;Wenn Regen: Wasser-Attacke 1,5 - Feuer-Attacke 0,5&#xa;&#xa;ansonsten: 1"/>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+          </AuxValues>
+        </Component>
+        <Component class="javax.swing.JComboBox" name="combo_typ1">
+          <Properties>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="4">
+                <StringItem index="0" value="1"/>
+                <StringItem index="1" value="0.5"/>
+                <StringItem index="2" value="2"/>
+                <StringItem index="3" value="0"/>
+              </StringArray>
+            </Property>
+            <Property name="toolTipText" type="java.lang.String" value="starke Sonneneinstrahlung bzw. starker Regen&#xa;&#xa;Wenn Sonne: Feuer-Attacke 1,5 - Wasser-Attacke 0,5&#xa;Wenn Regen: Wasser-Attacke 1,5 - Feuer-Attacke 0,5&#xa;&#xa;ansonsten: 1"/>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+          </AuxValues>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lb_typ3">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Typ 3"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JComboBox" name="combo_typ3">
+          <Properties>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="4">
+                <StringItem index="0" value="1"/>
+                <StringItem index="1" value="0.5"/>
+                <StringItem index="2" value="2"/>
+                <StringItem index="3" value="0"/>
+              </StringArray>
+            </Property>
+            <Property name="toolTipText" type="java.lang.String" value="starke Sonneneinstrahlung bzw. starker Regen&#xa;&#xa;Wenn Sonne: Feuer-Attacke 1,5 - Wasser-Attacke 0,5&#xa;Wenn Regen: Wasser-Attacke 1,5 - Feuer-Attacke 0,5&#xa;&#xa;ansonsten: 1"/>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+          </AuxValues>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Container class="javax.swing.JPanel" name="p_schadeninfo">
+      <Properties>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+            <TitledBorder title="Schdeninfo"/>
+          </Border>
+        </Property>
+      </Properties>
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <Component id="cb_rh" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="cb_lv" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="cb_ls" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="cb_nm" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+              </Group>
+              <Group type="102" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="lb_basisschaden" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="tf_basisschaden" min="-2" pref="50" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="lb_itemf" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="tf_itemf" min="-2" pref="50" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="lb_zielf" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="tf_zielf" min="-2" pref="50" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="lb_angrf" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="tf_angrf" min="-2" pref="50" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="cb_rh" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="cb_lv" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="cb_ls" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="cb_nm" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="lb_basisschaden" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="tf_basisschaden" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" alignment="3" groupAlignment="3" attributes="0">
+                          <Component id="lb_itemf" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="tf_itemf" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="lb_angrf" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="tf_angrf" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="lb_zielf" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="tf_zielf" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="0" pref="11" max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JCheckBox" name="cb_rh">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="RH"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lb_basisschaden">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Basisschaden"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="tf_angrf">
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="cb_lv">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="LV"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="cb_ls">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="LS"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="cb_nm">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="NM"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lb_angrf">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Angreifer-F."/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lb_zielf">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Ziel-F."/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="tf_basisschaden">
+        </Component>
+        <Component class="javax.swing.JTextField" name="tf_zielf">
+        </Component>
+        <Component class="javax.swing.JLabel" name="lb_itemf">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Item-Faktor"/>
+            <Property name="toolTipText" type="java.lang.String" value=""/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="tf_itemf">
+        </Component>
+      </SubComponents>
+    </Container>
+    <Container class="javax.swing.JPanel" name="jPanel6">
+      <Properties>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+            <TitledBorder title="Berechnen"/>
+          </Border>
+        </Property>
+      </Properties>
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="btn_calc" max="32767" attributes="0"/>
+                      <Component id="lb_erg" max="32767" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="btn_calc" min="-2" pref="41" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="lb_erg" max="32767" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JButton" name="btn_calc">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Berechnen"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_calcActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lb_erg">
+          <Properties>
+            <Property name="horizontalAlignment" type="int" value="0"/>
+          </Properties>
+        </Component>
+      </SubComponents>
+    </Container>
+  </SubComponents>
+</Form>
