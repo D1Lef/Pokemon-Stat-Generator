@@ -1113,12 +1113,94 @@ public class Model {
                 "<html><body>1 Atk</body></html>"));
         
         p.add(new Pokemon(
-                161, "https://www.pokewiki.de/images/a/a4/Pokémonsprite_161_XY.gif",
+                162, "https://www.pokewiki.de/images/d/d9/Pokémonsprite_162_XY.gif",
                 "Wiesenior", 85, 76, 64, 45, 55, 90, 
                 new ArrayList<>(Arrays.asList("Angsthase", "Adlerauge", "Schnüffler (VF)")), 145, 101, 
                 "<html><body>2 Ini</body></html>"));
         
+        p.add(new Pokemon(
+                163, "https://pokewiki.de/images/0/00/Pok%C3%A9monsprite_163_XY.gif",
+                "Hoothoot", 60, 30, 30, 36, 56, 50, 
+                new ArrayList<>(Arrays.asList("Insomnia", "Adlerauge", "Aufwertung (VF)")), 52, 20, 
+                "<html><body>1 KP</body></html>"));
         
+        p.add(new Pokemon(
+                164, "https://pokewiki.de/images/3/37/Pok%C3%A9monsprite_164_XY.gif",
+                "Noctuh", 100, 50, 50, 86, 96, 70, 
+                new ArrayList<>(Arrays.asList("Insomnia", "Adlerauge", "Aufwertung (VF)")), 158, 101, 
+                "<html><body>2 KP</body></html>"));
+        
+        p.add(new Pokemon(
+                165, "https://pokewiki.de/images/0/02/Pok%C3%A9monsprite_165_XY.gif",
+                "Ledyba", 40, 20, 30, 40, 80, 55, 
+                new ArrayList<>(Arrays.asList("Hexaplaga", "Frühwecker", "Hasenfuß (VF)")), 53, 18, 
+                "<html><body>1 SpD</body></html>"));
+        
+        p.add(new Pokemon(
+                166, "https://pokewiki.de/images/0/06/Pok%C3%A9monsprite_166_XY.gif",
+                "Ledian", 55, 35, 50, 55, 110, 85, 
+                new ArrayList<>(Arrays.asList("Hexaplaga", "Frühwecker", "Eisenfaust (VF)")), 137, 101, 
+                "<html><body>2 SpD</body></html>"));
+        
+        p.add(new Pokemon(
+                167, "https://pokewiki.de/images/4/49/Pok%C3%A9monsprite_167_XY.gif",
+                "Webarak", 40, 60, 40, 40, 40, 30, 
+                new ArrayList<>(Arrays.asList("Insomnia", "Hexaplaga", "Superschütze (VF)")), 50, 22, 
+                "<html><body>1 Atk</body></html>"));
+        
+        p.add(new Pokemon(
+                168, "https://pokewiki.de/images/f/f1/Pok%C3%A9monsprite_168_XY.gif",
+                "Ariados", 70, 90, 70, 60, 70, 40, 
+                new ArrayList<>(Arrays.asList("Insomnia", "Hexaplaga", "Superschütze (VF)")), 140, 101, 
+                "<html><body>2 Atk</body></html>"));
+        
+        p.add(new Pokemon(
+                169, "https://pokewiki.de/images/7/78/Pok%C3%A9monsprite_169_XY.gif",
+                "Iksbat", 85, 90, 80, 70, 80, 130, 
+                new ArrayList<>(Arrays.asList("Konzentrator", "Schwebedurch (VF)")), 241, 101, 
+                "<html><body>3 Ini</body></html>"));
+        
+        p.add(new Pokemon(
+                170, "https://pokewiki.de/images/c/c0/Pok%C3%A9monsprite_170_XY.gif",
+                "Lampi", 75, 38, 38, 56, 56, 67, 
+                new ArrayList<>(Arrays.asList("Voltabsorber", "Erleuchtung", "H2O-Absorber (VF)")), 66, 27, 
+                "<html><body>1 HP</body></html>"));
+        
+        p.add(new Pokemon(
+                171, "https://pokewiki.de/images/7/71/Pok%C3%A9monsprite_171_XY.gif",
+                "Lanturn", 125, 58, 38, 76, 76, 67, 
+                new ArrayList<>(Arrays.asList("Voltabsorber", "Erleuchtung", "H2O-Absorber (VF)")), 161, 101, 
+                "<html><body>2 HP</body></html>"));
+        
+        p.add(new Pokemon(
+                172, "https://pokewiki.de/images/f/f9/Pok%C3%A9monsprite_172_XY.gif",
+                "Pichu", 20, 40, 15, 35, 35, 60, 
+                new ArrayList<>(Arrays.asList("Statik", "Blitzfänger (VF)")), 41, 101, 
+                "<html><body>1 Ini</body></html>"));
+        
+        p.add(new Pokemon(
+                173, "https://pokewiki.de/images/e/e0/Pok%C3%A9monsprite_173_XY.gif",
+                "Pii", 50, 25, 28, 45, 55, 15, 
+                new ArrayList<>(Arrays.asList("Charmebolzen", "Magieschild", "Freundeshut (VF)")), 44, 101, 
+                "<html><body>1 SpD</body></html>"));
+        
+        p.add(new Pokemon(
+                174, "https://pokewiki.de/images/7/7a/Pok%C3%A9monsprite_174_XY.gif",
+                "Fluffeluff", 90, 30, 15, 40, 20, 15, 
+                new ArrayList<>(Arrays.asList("Charmebolzen", "Unbeugsamkeit", "Freundeshut (VF)")), 42, 101, 
+                "<html><body>1 HP</body></html>"));
+        
+        p.add(new Pokemon(
+                175, "https://pokewiki.de/images/7/71/Pok%C3%A9monsprite_175_XY.gif",
+                "Togepi", 35, 20, 65, 40, 65, 20, 
+                new ArrayList<>(Arrays.asList("Übereifer", "Edelmut", "Glückspilz (VF)")), 49, 101, 
+                "<html><body>1 SpD</body></html>"));
+        
+        p.add(new Pokemon(
+                176, "https://pokewiki.de/images/7/71/Pok%C3%A9monsprite_175_XY.gif",
+                "Togepi", 35, 20, 65, 40, 65, 20, 
+                new ArrayList<>(Arrays.asList("Übereifer", "Edelmut", "Glückspilz (VF)")), 49, 101, 
+                "<html><body>1 SpD</body></html>"));
         
         
         
