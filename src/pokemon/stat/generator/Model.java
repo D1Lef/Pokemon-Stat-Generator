@@ -44,667 +44,667 @@ public class Model {
         p = new ArrayList<>();
         
         p.add(new Pokemon(
-                1, "http://www.pokewiki.de/images/a/a9/Pokémonsprite_001_XY.gif",
+                1, "https://www.pokewiki.de/images/a/a9/Pokémonsprite_001_XY.gif",
                 "Bisasam", 45, 49, 49, 65, 65, 45, 
                 new ArrayList<>(Arrays.asList("Notdünger", 
                         "Chlorophyll (VF)")), 64, 16, 
                 "<html><body>1 SpA</body></html>"));
         
         p.add(new Pokemon(
-                2, "http://www.pokewiki.de/images/4/49/Pokémonsprite_002_XY.gif",
+                2, "https://www.pokewiki.de/images/4/49/Pokémonsprite_002_XY.gif",
                 "Bisaknosp", 60, 62, 63, 80, 80, 60, 
                 new ArrayList<>(Arrays.asList("Notdünger", 
                         "Chlorophyll (VF)")), 142, 32, 
                 "<html><body>1 SpA<br>1 SpD</body></html>"));
         
         p.add(new Pokemon(
-                3, "http://www.pokewiki.de/images/4/46/Pokémonsprite_003_XY.gif",
+                3, "https://www.pokewiki.de/images/4/46/Pokémonsprite_003_XY.gif",
                 "Bisaflor", 80, 82, 83, 100, 100, 80, 
                 new ArrayList<>(Arrays.asList("Notdünger", 
                         "Chlorophyll (VF)")), 236, 101, 
                 "<html><body>2 SpA<br>1 SpD</body></html>"));
         
         p.add(new Pokemon(
-                4, "http://www.pokewiki.de/images/5/55/Pokémonsprite_004_XY.gif",
+                4, "https://www.pokewiki.de/images/5/55/Pokémonsprite_004_XY.gif",
                 "Glumanda", 39, 52, 43, 60, 50, 65, 
                 new ArrayList<>(Arrays.asList("Großbrand", 
                         "Solarkraft (VF)")), 62, 16, 
                 "<html><body>1 Ini</body></html>"));
         
         p.add(new Pokemon(
-                5, "http://www.pokewiki.de/images/4/4b/Pokémonsprite_005_XY.gif",
+                5, "https://www.pokewiki.de/images/4/4b/Pokémonsprite_005_XY.gif",
                 "Glutexo", 58, 64, 58, 80, 65, 80, 
                 new ArrayList<>(Arrays.asList("Großbrand", 
                         "Solarkraft (VF)")), 142, 36, 
                 "<html><body>1 SpA<br>1 Ini</body></html>"));
         
         p.add(new Pokemon(
-                6, "http://www.pokewiki.de/images/9/9e/Pokémonsprite_006_XY.gif",
+                6, "https://www.pokewiki.de/images/9/9e/Pokémonsprite_006_XY.gif",
                 "Glurak", 78, 84, 78, 109, 85, 100, 
                 new ArrayList<>(Arrays.asList("Großbrand", 
                         "Solarkraft (VF)")), 240, 101, 
                 "<html><body>3 SpA</body></html>"));
         
         p.add(new Pokemon(
-                7, "http://www.pokewiki.de/images/a/a3/Pokémonsprite_007_XY.gif",
+                7, "https://www.pokewiki.de/images/a/a3/Pokémonsprite_007_XY.gif",
                 "Schiggy", 44, 48, 65, 50, 64, 43, 
                 new ArrayList<>(Arrays.asList("Sturzbach", 
                         "Regengenuss (VF)")), 63, 16, 
                 "<html><body>1 Def</body></html>"));
         
         p.add(new Pokemon(
-                8, "http://www.pokewiki.de/images/c/c2/Pokémonsprite_008_XY.gif",
+                8, "https://www.pokewiki.de/images/c/c2/Pokémonsprite_008_XY.gif",
                 "Schillok", 59, 63, 80, 65, 80, 58, 
                 new ArrayList<>(Arrays.asList("Sturzbach", 
                         "Regengenuss (VF)")), 142, 36, 
                 "<html><body>1 Def<br>1 SpD</body></html>"));
         
         p.add(new Pokemon(
-                9, "http://www.pokewiki.de/images/c/cd/Pokémonsprite_009_XY.gif",
+                9, "https://www.pokewiki.de/images/c/cd/Pokémonsprite_009_XY.gif",
                 "Turtok", 79, 83, 100, 85, 105, 78, 
                 new ArrayList<>(Arrays.asList("Sturzbach", 
                         "Regengenuss (VF)")), 239, 101, 
                 "<html><body>3 SpD</body></html>"));
         
         p.add(new Pokemon(
-                10, "http://www.pokewiki.de/images/1/1d/Pokémonsprite_010_XY.gif",
+                10, "https://www.pokewiki.de/images/1/1d/Pokémonsprite_010_XY.gif",
                 "Raupy", 45, 30, 35, 20, 20, 45, 
                 new ArrayList<>(Arrays.asList("Puderabwehr", 
                         "Angsthase (VF)")), 39, 7, 
                 "<html><body>1 HP</body></html>"));
         
         p.add(new Pokemon(
-                11, "http://www.pokewiki.de/images/9/9b/Pokémonsprite_011_XY.gif",
+                11, "https://www.pokewiki.de/images/9/9b/Pokémonsprite_011_XY.gif",
                 "Safcon", 50, 20, 55, 25, 25, 30, 
                 new ArrayList<>(Arrays.asList("Expidermis")), 72, 10, 
                 "<html><body>2 Def</body></html>"));
         
         p.add(new Pokemon(
-                12, "http://www.pokewiki.de/images/2/2d/Pokémonsprite_012_XY.gif",
+                12, "https://www.pokewiki.de/images/2/2d/Pokémonsprite_012_XY.gif",
                 "Smettbo", 60, 45, 50, 90, 80, 70, 
                 new ArrayList<>(Arrays.asList("Facettenauge", 
                         "Aufwertung (VF)")), 178, 101, 
                 "<html><body>2 SpA<br>1 SpD</body></html>"));
         
         p.add(new Pokemon(
-                13, "http://www.pokewiki.de/images/e/eb/Pokémonsprite_013_XY.gif",
+                13, "https://www.pokewiki.de/images/e/eb/Pokémonsprite_013_XY.gif",
                 "Hornliu", 40, 35, 30, 20, 20, 50, 
                 new ArrayList<>(Arrays.asList("Puderabwehr", 
                         "Angsthase (VF)")), 39, 7, 
                 "<html><body>1 Ini</body></html>"));
         
         p.add(new Pokemon(
-                14, "http://www.pokewiki.de/images/a/a5/Pokémonsprite_014_XY.gif",
+                14, "https://www.pokewiki.de/images/a/a5/Pokémonsprite_014_XY.gif",
                 "Kokuna", 45, 25, 50, 25, 25, 35, 
                 new ArrayList<>(Arrays.asList("Expidermis")), 72, 10, 
                 "<html><body>2 Def</body></html>"));
         
         p.add(new Pokemon(
-                15, "http://www.pokewiki.de/images/a/a4/Pokémonsprite_015_XY.gif",
+                15, "https://www.pokewiki.de/images/a/a4/Pokémonsprite_015_XY.gif",
                 "Bibor", 65, 90, 40, 45, 80, 75, 
                 new ArrayList<>(Arrays.asList("Hexaplaga", 
                         "Superschütze (VF)")), 178, 101, 
                 "<html><body>2 Atk<br>1 SpD</body></html>"));
         
         p.add(new Pokemon(
-                16, "http://www.pokewiki.de/images/7/76/Pokémonsprite_016_XY.gif",
+                16, "https://www.pokewiki.de/images/7/76/Pokémonsprite_016_XY.gif",
                 "Taubsi", 40, 45, 40, 35, 35, 56, 
                 new ArrayList<>(Arrays.asList("Adlerauge", "Fußangel",
                         "Brustbieter (VF)")), 50, 18, 
                 "<html><body>1 Ini</body></html>"));
         
         p.add(new Pokemon(
-                17, "http://www.pokewiki.de/images/f/f2/Pokémonsprite_017_XY.gif",
+                17, "https://www.pokewiki.de/images/f/f2/Pokémonsprite_017_XY.gif",
                 "Tauboga", 63, 60, 55, 50, 50, 71, 
                 new ArrayList<>(Arrays.asList("Adlerauge", "Fußangel",
                         "Brustbieter (VF)")), 122, 36, 
                 "<html><body>2 Ini</body></html>"));
        
         p.add(new Pokemon(
-                18, "http://www.pokewiki.de/images/a/a4/Pokémonsprite_018_XY.gif",
+                18, "https://www.pokewiki.de/images/a/a4/Pokémonsprite_018_XY.gif",
                 "Tauboss", 83, 80, 75, 70, 70, 101, 
                 new ArrayList<>(Arrays.asList("Adlerauge", "Fußangel",
                         "Brustbieter (VF)")), 216, 101, 
                 "<html><body>3 Ini</body></html>"));
        
         p.add(new Pokemon(
-                19, "http://www.pokewiki.de/images/f/fa/Pokémonsprite_019_XY.gif",
+                19, "https://www.pokewiki.de/images/f/fa/Pokémonsprite_019_XY.gif",
                 "Rattfratz", 30, 56, 35, 25, 35, 72, 
                 new ArrayList<>(Arrays.asList("Angsthase", "Adrenalin",
                         "Übereifer (VF)")), 51, 20, 
                 "<html><body>1 Ini</body></html>"));
        
         p.add(new Pokemon(
-                20, "http://www.pokewiki.de/images/8/82/Pokémonsprite_020_XY.gif",
+                20, "https://www.pokewiki.de/images/8/82/Pokémonsprite_020_XY.gif",
                 "Rattikarl", 55, 81, 60, 50, 70, 97, 
                 new ArrayList<>(Arrays.asList("Angsthase", "Adrenalin",
                         "Übereifer (VF)")), 145, 101, 
                 "<html><body>2 Ini</body></html>"));
        
         p.add(new Pokemon(
-                21, "http://www.pokewiki.de/images/c/c7/Pokémonsprite_021_XY.gif",
+                21, "https://www.pokewiki.de/images/c/c7/Pokémonsprite_021_XY.gif",
                 "Habitak", 40, 60, 30, 31, 31, 70, 
                 new ArrayList<>(Arrays.asList("Adlerauge", 
                         "Superschütze (VF)")), 52, 20, 
                 "<html><body>1 Ini</body></html>"));
        
         p.add(new Pokemon(
-                22, "http://www.pokewiki.de/images/3/32/Pokémonsprite_022_XY.gif",
+                22, "https://www.pokewiki.de/images/3/32/Pokémonsprite_022_XY.gif",
                 "Ibitak", 85, 90, 65, 61, 61, 100, 
                 new ArrayList<>(Arrays.asList("Adlerauge", 
                         "Superschütze (VF)")), 155, 101, 
                 "<html><body>2 Ini</body></html>"));
        
         p.add(new Pokemon(
-                23, "http://www.pokewiki.de/images/8/80/Pokémonsprite_023_XY.gif",
+                23, "https://www.pokewiki.de/images/8/80/Pokémonsprite_023_XY.gif",
                 "Rettan", 35, 60, 44, 40, 54, 55, 
                 new ArrayList<>(Arrays.asList("Bedroher", "Expidermis",
                         "Anspannung (VF)")), 58, 22, 
                 "<html><body>1 Atk</body></html>"));
        
         p.add(new Pokemon(
-                24, "http://www.pokewiki.de/images/8/8f/Pokémonsprite_024_XY.gif",
+                24, "https://www.pokewiki.de/images/8/8f/Pokémonsprite_024_XY.gif",
                 "Arbok", 60, 95, 69, 65, 79, 80, 
                 new ArrayList<>(Arrays.asList("Bedroher", "Expidermis",
                         "Anspannung (VF)")), 157, 101, 
                 "<html><body>2 Atk</body></html>"));
        
         p.add(new Pokemon(
-                25, "http://www.pokewiki.de/images/c/c7/Pokémonsprite_025_XY.gif",
+                25, "https://www.pokewiki.de/images/c/c7/Pokémonsprite_025_XY.gif",
                 "Pikachu", 35, 55, 40, 50, 50, 90, 
                 new ArrayList<>(Arrays.asList("Statik", 
                         "Blitzfänger (VF)")), 112, 101, 
                 "<html><body>2 Ini</body></html>"));
        
         p.add(new Pokemon(
-                26, "http://www.pokewiki.de/images/f/f2/Pokémonsprite_026_XY.gif",
+                26, "https://www.pokewiki.de/images/f/f2/Pokémonsprite_026_XY.gif",
                 "Raichu", 60, 90, 55, 90, 80, 110, 
                 new ArrayList<>(Arrays.asList("Statik", 
                         "Blitzfänger (VF)")), 218, 101, 
                 "<html><body>3 Ini</body></html>"));
        
         p.add(new Pokemon(
-                27, "http://www.pokewiki.de/images/f/f0/Pokémonsprite_027_XY.gif",
+                27, "https://www.pokewiki.de/images/f/f0/Pokémonsprite_027_XY.gif",
                 "Sandan", 50, 75, 85, 20, 30, 40, 
                 new ArrayList<>(Arrays.asList("Sandschleier", 
                         "Sandscharrer (VF)")), 60, 22, 
                 "<html><body>1 Def</body></html>"));
        
         p.add(new Pokemon(
-                28, "http://www.pokewiki.de/images/7/78/Pokémonsprite_028_XY.gif",
+                28, "https://www.pokewiki.de/images/7/78/Pokémonsprite_028_XY.gif",
                 "Sandamer", 75, 100, 110, 45, 55, 65, 
                 new ArrayList<>(Arrays.asList("Sandschleier", 
                         "Sandscharrer (VF)")), 158, 101, 
                 "<html><body>2 Def</body></html>"));
        
         p.add(new Pokemon(
-                29, "http://www.pokewiki.de/images/e/ed/Pokémonsprite_029_XY.gif",
+                29, "https://www.pokewiki.de/images/e/ed/Pokémonsprite_029_XY.gif",
                 "Nidoran ♀", 55, 47, 52, 40, 40, 41, 
                 new ArrayList<>(Arrays.asList("Giftdorn", "Rivalität", 
                         "Übereifer (VF)")), 55, 16, 
                 "<html><body>1 HP</body></html>"));
        
         p.add(new Pokemon(
-                30, "http://www.pokewiki.de/images/8/81/Pokémonsprite_030_XY.gif",
+                30, "https://www.pokewiki.de/images/8/81/Pokémonsprite_030_XY.gif",
                 "Nidorina", 70, 62, 67, 55, 55, 56, 
                 new ArrayList<>(Arrays.asList("Giftdorn", "Rivalität", 
                         "Übereifer (VF)")), 128, 101, 
                 "<html><body>2 HP</body></html>"));
        
         p.add(new Pokemon(
-                31, "http://www.pokewiki.de/images/7/7b/Pokémonsprite_031_XY.gif",
+                31, "https://www.pokewiki.de/images/7/7b/Pokémonsprite_031_XY.gif",
                 "Nidoqueen", 90, 92, 87, 75, 85, 76, 
                 new ArrayList<>(Arrays.asList("Giftdorn", "Rivalität", 
                         "Rohe Gewalt (VF)")), 227, 101, 
                 "<html><body>3 HP</body></html>"));
        
         p.add(new Pokemon(
-                32, "http://www.pokewiki.de/images/8/8a/Pokémonsprite_032_XY.gif",
+                32, "https://www.pokewiki.de/images/8/8a/Pokémonsprite_032_XY.gif",
                 "Nidoran ♂", 46, 57, 40, 40, 40, 50, 
                 new ArrayList<>(Arrays.asList("Giftdorn", "Rivalität", 
                         "Übereifer (VF)")), 55, 16, 
                 "<html><body>1 Atk</body></html>"));
        
         p.add(new Pokemon(
-                33, "http://www.pokewiki.de/images/6/63/Pokémonsprite_033_XY.gif",
+                33, "https://www.pokewiki.de/images/6/63/Pokémonsprite_033_XY.gif",
                 "Nidorino", 61, 72, 57, 55, 55, 65, 
                 new ArrayList<>(Arrays.asList("Giftdorn", "Rivalität", 
                         "Übereifer (VF)")), 128, 101, 
                 "<html><body>2 Atk</body></html>"));
        
         p.add(new Pokemon(
-                34, "http://www.pokewiki.de/images/f/f6/Pokémonsprite_034_XY.gif",
+                34, "https://www.pokewiki.de/images/f/f6/Pokémonsprite_034_XY.gif",
                 "Nidoking", 81, 102, 77, 85, 75, 85, 
                 new ArrayList<>(Arrays.asList("Giftdorn", "Rivalität", 
                         "Rohe Gewalt (VF)")), 227, 101, 
                 "<html><body>3 Atk</body></html>"));
        
         p.add(new Pokemon(
-                35, "http://www.pokewiki.de/images/7/79/Pokémonsprite_035_XY.gif",
+                35, "https://www.pokewiki.de/images/7/79/Pokémonsprite_035_XY.gif",
                 "Piepi", 70, 45, 48, 60, 65, 35, 
                 new ArrayList<>(Arrays.asList("Charmebolzen", "Magieschild", 
                         "Freundeshut (VF)")), 115, 101, 
                 "<html><body>2 HP</body></html>"));
        
         p.add(new Pokemon(
-                36, "http://www.pokewiki.de/images/a/ad/Pokémonsprite_036_XY.gif",
+                36, "https://www.pokewiki.de/images/a/ad/Pokémonsprite_036_XY.gif",
                 "Pixi", 95, 70, 73, 95, 90, 60, 
                 new ArrayList<>(Arrays.asList("Charmebolzen", "Magieschild", 
                         "Unkenntnis (VF)")), 217, 101, 
                 "<html><body>3 HP</body></html>"));
        
         p.add(new Pokemon(
-                37, "http://www.pokewiki.de/images/a/a2/Pokémonsprite_037_XY.gif",
+                37, "https://www.pokewiki.de/images/a/a2/Pokémonsprite_037_XY.gif",
                 "Vulpix", 38, 41, 40, 50, 65, 65, 
                 new ArrayList<>(Arrays.asList("Feuerfänger",  
                         "Dürre (VF)")), 60, 101, 
                 "<html><body>1 Ini</body></html>"));
        
         p.add(new Pokemon(
-                38, "http://www.pokewiki.de/images/5/5d/Pokémonsprite_038_XY.gif",
+                38, "https://www.pokewiki.de/images/5/5d/Pokémonsprite_038_XY.gif",
                 "Vulnona", 73, 76, 75, 81, 100, 100, 
                 new ArrayList<>(Arrays.asList("Feuerfänger",  
                         "Dürre (VF)")), 177, 101, 
                 "<html><body>1 SpD<br>1 Ini</body></html>"));
        
         p.add(new Pokemon(
-                39, "http://www.pokewiki.de/images/3/37/Pokémonsprite_039_XY.gif",
+                39, "https://www.pokewiki.de/images/3/37/Pokémonsprite_039_XY.gif",
                 "Pummeluff", 115, 45, 20, 45, 25, 20, 
                 new ArrayList<>(Arrays.asList("Charmebolzen", "Unbeugsamkeit",  
                         "Freundeshut (VF)")), 95, 101, 
                 "<html><body>2 HP</body></html>"));
        
         p.add(new Pokemon(
-                40, "http://www.pokewiki.de/images/2/27/Pokémonsprite_040_XY.gif",
+                40, "https://www.pokewiki.de/images/2/27/Pokémonsprite_040_XY.gif",
                 "Knuddeluff", 140, 70, 45, 85, 50, 45, 
                 new ArrayList<>(Arrays.asList("Charmebolzen", "Unbeugsamkeit",  
                         "Schnüffler (VF)")), 196, 101, 
                 "<html><body>3 HP</body></html>"));
        
         p.add(new Pokemon(
-                41, "http://www.pokewiki.de/images/1/14/Pokémonsprite_041_XY.gif",
+                41, "https://www.pokewiki.de/images/1/14/Pokémonsprite_041_XY.gif",
                 "Zubat", 40, 45, 30, 30, 40, 55, 
                 new ArrayList<>(Arrays.asList("Konzentrator",  
                         "Schwebedurch (VF)")), 49, 22, 
                 "<html><body>1 Ini</body></html>"));
        
         p.add(new Pokemon(
-                42, "http://www.pokewiki.de/images/4/4e/Pokémonsprite_042_XY.gif",
+                42, "https://www.pokewiki.de/images/4/4e/Pokémonsprite_042_XY.gif",
                 "Golbat", 75, 80, 70, 65, 75, 90, 
                 new ArrayList<>(Arrays.asList("Konzentrator",  
                         "Schwebedurch (VF)")), 159, 101, 
                 "<html><body>2 Ini</body></html>"));
        
         p.add(new Pokemon(
-                43, "http://www.pokewiki.de/images/a/a2/Pokémonsprite_043_XY.gif",
+                43, "https://www.pokewiki.de/images/a/a2/Pokémonsprite_043_XY.gif",
                 "Myrapla", 45, 50, 55, 75, 65, 30, 
                 new ArrayList<>(Arrays.asList("Chlorophyll",  
                         "Angsthase (VF)")), 64, 21, 
                 "<html><body>1 SpA</body></html>"));
        
         p.add(new Pokemon(
-                44, "http://www.pokewiki.de/images/1/1c/Pokémonsprite_044_XY.gif",
+                44, "https://www.pokewiki.de/images/1/1c/Pokémonsprite_044_XY.gif",
                 "Duflor", 60, 65, 70, 85, 75, 40, 
                 new ArrayList<>(Arrays.asList("Chlorophyll",  
                         "Duftnote (VF)")), 138, 101, 
                 "<html><body>2 SpA</body></html>"));
        
         p.add(new Pokemon(
-                45, "http://www.pokewiki.de/images/8/89/Pokémonsprite_045_XY.gif",
+                45, "https://www.pokewiki.de/images/8/89/Pokémonsprite_045_XY.gif",
                 "Giflor", 75, 80, 85, 110, 90, 50, 
                 new ArrayList<>(Arrays.asList("Chlorophyll",  
                         "Sporenwirt (VF)")), 221, 101, 
                 "<html><body>3 SpA</body></html>"));
        
         p.add(new Pokemon(
-                46, "http://www.pokewiki.de/images/9/97/Pokémonsprite_046_XY.gif",
+                46, "https://www.pokewiki.de/images/9/97/Pokémonsprite_046_XY.gif",
                 "Paras", 35, 70, 55, 45, 55, 25, 
                 new ArrayList<>(Arrays.asList("Sporenwirt", "Trockenheit",  
                         "Feuchtigkeit (VF)")), 57, 24, 
                 "<html><body>1 Atk</body></html>"));
        
         p.add(new Pokemon(
-                47, "http://www.pokewiki.de/images/1/16/Pokémonsprite_047_XY.gif",
+                47, "https://www.pokewiki.de/images/1/16/Pokémonsprite_047_XY.gif",
                 "Parasek", 60, 95, 80, 60, 80, 30, 
                 new ArrayList<>(Arrays.asList("Sporenwirt", "Trockenheit",  
                         "Feuchtigkeit (VF)")), 142, 101, 
                 "<html><body>2 Atk<br>1 Def</body></html>"));
        
         p.add(new Pokemon(
-                48, "http://www.pokewiki.de/images/3/34/Pokémonsprite_048_XY.gif",
+                48, "https://www.pokewiki.de/images/3/34/Pokémonsprite_048_XY.gif",
                 "Bluzuk", 60, 55, 50, 40, 55, 45, 
                 new ArrayList<>(Arrays.asList("Facettenauge", "Aufwertung",  
                         "Angsthase (VF)")), 61, 31, 
                 "<html><body>1 SpD</body></html>"));
        
         p.add(new Pokemon(
-                49, "http://www.pokewiki.de/images/f/f8/Pokémonsprite_049_XY.gif",
+                49, "https://www.pokewiki.de/images/f/f8/Pokémonsprite_049_XY.gif",
                 "Omot", 70, 65, 60, 90, 75, 90, 
                 new ArrayList<>(Arrays.asList("Puderabwehr", "Aufwertung",  
                         "Wunderhaut (VF)")), 158, 101, 
                 "<html><body>1 SpD<br>1 Ini</body></html>"));
        
         p.add(new Pokemon(
-                50, "http://www.pokewiki.de/images/1/18/Pokémonsprite_050_XY.gif",
+                50, "https://www.pokewiki.de/images/1/18/Pokémonsprite_050_XY.gif",
                 "Digda", 10, 55, 25, 35, 45, 95, 
                 new ArrayList<>(Arrays.asList("Sandschleier", "Ausweglos",  
                         "Sandgewalt (VF)")), 53, 26, 
                 "<html><body>1 Ini</body></html>"));
        
         p.add(new Pokemon(
-                51, "http://www.pokewiki.de/images/4/47/Pokémonsprite_051_XY.gif",
+                51, "https://www.pokewiki.de/images/4/47/Pokémonsprite_051_XY.gif",
                 "Digdri", 35, 100, 50, 50, 70, 120, 
                 new ArrayList<>(Arrays.asList("Sandschleier", "Ausweglos",  
                         "Sandgewalt (VF)")), 149, 101, 
                 "<html><body>2 Ini</body></html>"));
        
         p.add(new Pokemon(
-                52, "http://www.pokewiki.de/images/f/f4/Pokémonsprite_052_XY.gif",
+                52, "https://www.pokewiki.de/images/f/f4/Pokémonsprite_052_XY.gif",
                 "Mauzi", 40, 45, 35, 40, 40, 90, 
                 new ArrayList<>(Arrays.asList("Mitnahme", "Techniker",  
                         "Anspannung (VF)")), 58, 28, 
                 "<html><body>1 Ini</body></html>"));
        
         p.add(new Pokemon(
-                53, "http://www.pokewiki.de/images/c/cf/Pokémonsprite_053_XY.gif",
+                53, "https://www.pokewiki.de/images/c/cf/Pokémonsprite_053_XY.gif",
                 "Snobilikat", 65, 70, 60, 65, 65, 115, 
                 new ArrayList<>(Arrays.asList("Flexibilität", "Techniker",  
                         "Anspannung (VF)")), 154, 101, 
                 "<html><body>2 Ini</body></html>"));
        
         p.add(new Pokemon(
-                54, "http://www.pokewiki.de/images/6/65/Pokémonsprite_054_XY.gif",
+                54, "https://www.pokewiki.de/images/6/65/Pokémonsprite_054_XY.gif",
                 "Enton", 50, 52, 48, 65, 50, 55, 
                 new ArrayList<>(Arrays.asList("Feuchtigkeit", "Wolke Sieben",  
                         "Wassertempo (VF)")), 64, 33, 
                 "<html><body>1 SpA</body></html>"));
        
         p.add(new Pokemon(
-                55, "http://www.pokewiki.de/images/7/77/Pokémonsprite_055_XY.gif",
+                55, "https://www.pokewiki.de/images/7/77/Pokémonsprite_055_XY.gif",
                 "Entoron", 80, 82, 78, 95, 80, 85, 
                 new ArrayList<>(Arrays.asList("Feuchtigkeit", "Wolke Sieben",  
                         "Wassertempo (VF)")), 175, 101, 
                 "<html><body>2 SpA</body></html>"));
        
         p.add(new Pokemon(
-                56, "http://www.pokewiki.de/images/3/3f/Pokémonsprite_056_XY.gif",
+                56, "https://www.pokewiki.de/images/3/3f/Pokémonsprite_056_XY.gif",
                 "Menki", 40, 80, 35, 35, 45, 70, 
                 new ArrayList<>(Arrays.asList("Munterkeit", "Kurzschluss",  
                         "Siegeswille (VF)")), 61, 28, 
                 "<html><body>1 Atk</body></html>"));
        
         p.add(new Pokemon(
-                57, "http://www.pokewiki.de/images/7/7d/Pokémonsprite_057_XY.gif",
+                57, "https://www.pokewiki.de/images/7/7d/Pokémonsprite_057_XY.gif",
                 "Rasaff", 65, 105, 60, 60, 70, 95, 
                 new ArrayList<>(Arrays.asList("Munterkeit", "Kurzschluss",  
                         "Siegeswille (VF)")), 159, 101, 
                 "<html><body>2 Atk</body></html>"));
        
         p.add(new Pokemon(
-                58, "http://www.pokewiki.de/images/c/cb/Pokémonsprite_058_XY.gif",
+                58, "https://www.pokewiki.de/images/c/cb/Pokémonsprite_058_XY.gif",
                 "Fukano", 55, 70, 45, 70, 50, 60, 
                 new ArrayList<>(Arrays.asList("Bedroher", "Feuerfänger",  
                         "Redlichkeit (VF)")), 70, 101, 
                 "<html><body>1 Atk</body></html>"));
        
         p.add(new Pokemon(
-                59, "http://www.pokewiki.de/images/7/74/Pokémonsprite_059_XY.gif",
+                59, "https://www.pokewiki.de/images/7/74/Pokémonsprite_059_XY.gif",
                 "Arkani", 90, 110, 80, 100, 80, 95, 
                 new ArrayList<>(Arrays.asList("Bedroher", "Feuerfänger",  
                         "Redlichkeit (VF)")), 194, 101, 
                 "<html><body>2 Atk</body></html>"));
        
         p.add(new Pokemon(
-                60, "http://www.pokewiki.de/images/b/ba/Pokémonsprite_060_XY.gif",
+                60, "https://www.pokewiki.de/images/b/ba/Pokémonsprite_060_XY.gif",
                 "Quapsel", 40, 50, 40, 40, 40, 90, 
                 new ArrayList<>(Arrays.asList("H2O-Absorber", "Feuchtigkeit",  
                         "Wassertempo (VF)")), 60, 25, 
                 "<html><body>1 Ini</body></html>"));
        
         p.add(new Pokemon(
-                61, "http://www.pokewiki.de/images/d/d6/Pokémonsprite_061_XY.gif",
+                61, "https://www.pokewiki.de/images/d/d6/Pokémonsprite_061_XY.gif",
                 "Quaputzi", 65, 65, 65, 50, 50, 90, 
                 new ArrayList<>(Arrays.asList("H2O-Absorber", "Feuchtigkeit",  
                         "Wassertempo (VF)")), 135, 101, 
                 "<html><body>2 Ini</body></html>"));
        
         p.add(new Pokemon(
-                62, "http://www.pokewiki.de/images/0/00/Pokémonsprite_062_XY.gif",
+                62, "https://www.pokewiki.de/images/0/00/Pokémonsprite_062_XY.gif",
                 "Quappo", 90, 95, 95, 70, 90, 70, 
                 new ArrayList<>(Arrays.asList("H2O-Absorber", "Feuchtigkeit",  
                         "Wassertempo (VF)")), 230, 101, 
                 "<html><body>3 Def</body></html>"));
        
         p.add(new Pokemon(
-                63, "http://www.pokewiki.de/images/4/41/Pokémonsprite_063_XY.gif",
+                63, "https://www.pokewiki.de/images/4/41/Pokémonsprite_063_XY.gif",
                 "Abra", 25, 20, 15, 105, 55, 90, 
                 new ArrayList<>(Arrays.asList("Synchro", "Konzentrator",  
                         "Magieschild (VF)")), 62, 16, 
                 "<html><body>1 SpA</body></html>"));
        
         p.add(new Pokemon(
-                64, "http://www.pokewiki.de/images/4/4b/Pokémonsprite_064_XY.gif",
+                64, "https://www.pokewiki.de/images/4/4b/Pokémonsprite_064_XY.gif",
                 "Kadabra", 40, 35, 30, 120, 70, 105, 
                 new ArrayList<>(Arrays.asList("Synchro", "Konzentrator",  
                         "Magieschild (VF)")), 140, 101, 
                 "<html><body>2 SpA</body></html>"));
        
         p.add(new Pokemon(
-                65, "http://www.pokewiki.de/images/0/0d/Pokémonsprite_065_XY.gif",
+                65, "https://www.pokewiki.de/images/0/0d/Pokémonsprite_065_XY.gif",
                 "Simsala", 55, 50, 45, 135, 95, 120, 
                 new ArrayList<>(Arrays.asList("Synchro", "Konzentrator",  
                         "Magieschild (VF)")), 225, 101, 
                 "<html><body>3 SpA</body></html>"));
        
         p.add(new Pokemon(
-                66, "http://www.pokewiki.de/images/b/bc/Pokémonsprite_066_XY.gif",
+                66, "https://www.pokewiki.de/images/b/bc/Pokémonsprite_066_XY.gif",
                 "Machollo", 70, 80, 50, 35, 35, 35, 
                 new ArrayList<>(Arrays.asList("Adrenalin", "Schildlos",  
                         "Felsenfest (VF)")), 61, 28, 
                 "<html><body>1 Atk</body></html>"));
        
         p.add(new Pokemon(
-                67, "http://www.pokewiki.de/images/4/4c/Pokémonsprite_067_XY.gif",
+                67, "https://www.pokewiki.de/images/4/4c/Pokémonsprite_067_XY.gif",
                 "Maschock", 80, 100, 70, 50, 60, 45, 
                 new ArrayList<>(Arrays.asList("Adrenalin", "Schildlos",  
                         "Felsenfest (VF)")), 142, 101, 
                 "<html><body>2 Atk</body></html>"));
        
         p.add(new Pokemon(
-                68, "http://www.pokewiki.de/images/0/09/Pokémonsprite_068_XY.gif",
+                68, "https://www.pokewiki.de/images/0/09/Pokémonsprite_068_XY.gif",
                 "Machomei", 90, 130, 80, 65, 65, 55, 
                 new ArrayList<>(Arrays.asList("Adrenalin", "Schildlos",  
                         "Felsenfest (VF)")), 227, 101, 
                 "<html><body>3 Atk</body></html>"));
        
         p.add(new Pokemon(
-                69, "http://www.pokewiki.de/images/f/f8/Pokémonsprite_069_XY.gif",
+                69, "https://www.pokewiki.de/images/f/f8/Pokémonsprite_069_XY.gif",
                 "Knofensa", 50, 75, 35, 70, 30, 40, 
                 new ArrayList<>(Arrays.asList("Chlorophyll", "Völlerei (VF)"  
                         )), 60, 21, 
                 "<html><body>1 Atk</body></html>"));
        
         p.add(new Pokemon(
-                70, "http://www.pokewiki.de/images/e/e8/Pokémonsprite_070_XY.gif",
+                70, "https://www.pokewiki.de/images/e/e8/Pokémonsprite_070_XY.gif",
                 "Ultrigaria", 65, 90, 50, 85, 45, 55, 
                 new ArrayList<>(Arrays.asList("Chlorophyll", "Völlerei (VF)"  
                         )), 137, 101, 
                 "<html><body>2 Atk</body></html>"));
        
         p.add(new Pokemon(
-                71, "http://www.pokewiki.de/images/7/71/Pokémonsprite_071_XY.gif",
+                71, "https://www.pokewiki.de/images/7/71/Pokémonsprite_071_XY.gif",
                 "Sarzenia", 80, 105, 65, 100, 70, 70, 
                 new ArrayList<>(Arrays.asList("Chlorophyll", "Völlerei (VF)"  
                         )), 221, 101, 
                 "<html><body>3 Atk</body></html>"));
        
         p.add(new Pokemon(
-                72, "http://www.pokewiki.de/images/1/1b/Pokémonsprite_072_XY.gif",
+                72, "https://www.pokewiki.de/images/1/1b/Pokémonsprite_072_XY.gif",
                 "Tentacha", 40, 40, 35, 50, 100, 70, 
                 new ArrayList<>(Arrays.asList("Neutraltorso", "Kloakensoße",
                         "Regengenuss (VF)")), 67, 30, 
                 "<html><body>1 SpD</body></html>"));
        
         p.add(new Pokemon(
-                73, "http://www.pokewiki.de/images/3/37/Pokémonsprite_073_XY.gif",
+                73, "https://www.pokewiki.de/images/3/37/Pokémonsprite_073_XY.gif",
                 "Tentoxa", 80, 70, 65, 80, 120, 100, 
                 new ArrayList<>(Arrays.asList("Neutraltorso", "Kloakensoße",
                         "Regengenuss (VF)")), 180, 101, 
                 "<html><body>2 SpD</body></html>"));
        
         p.add(new Pokemon(
-                74, "http://www.pokewiki.de/images/e/ef/Pokémonsprite_074_XY.gif",
+                74, "https://www.pokewiki.de/images/e/ef/Pokémonsprite_074_XY.gif",
                 "Kleinstein", 40, 80, 100, 30, 30, 20, 
                 new ArrayList<>(Arrays.asList("Robustheit", "Steinhaupt",
                         "Sandschleier (VF)")), 60, 25, 
                 "<html><body>1 Def</body></html>"));
        
         p.add(new Pokemon(
-                75, "http://www.pokewiki.de/images/2/21/Pokémonsprite_075_XY.gif",
+                75, "https://www.pokewiki.de/images/2/21/Pokémonsprite_075_XY.gif",
                 "Georok", 55, 95, 115, 45, 45, 35, 
                 new ArrayList<>(Arrays.asList("Robustheit", "Steinhaupt",
                         "Sandschleier (VF)")), 137, 101, 
                 "<html><body>2 Def</body></html>"));
               
         p.add(new Pokemon(
-                76, "http://www.pokewiki.de/images/9/9f/Pokémonsprite_076_XY.gif",
+                76, "https://www.pokewiki.de/images/9/9f/Pokémonsprite_076_XY.gif",
                 "Geowaz", 80, 120, 130, 55, 65, 45, 
                 new ArrayList<>(Arrays.asList("Robustheit", "Steinhaupt",
                         "Sandschleier (VF)")), 223, 101, 
                 "<html><body>3 Def</body></html>"));
              
         p.add(new Pokemon(
-                77, "http://www.pokewiki.de/images/9/97/Pokémonsprite_077_XY.gif",
+                77, "https://www.pokewiki.de/images/9/97/Pokémonsprite_077_XY.gif",
                 "Ponita", 50, 85, 55, 65, 65, 90, 
                 new ArrayList<>(Arrays.asList("Angsthase", "Feuerfänger",
                         "Flammkörper (VF)")), 82, 40, 
                 "<html><body>1 Ini</body></html>"));
             
         p.add(new Pokemon(
-                78, "http://www.pokewiki.de/images/8/82/Pokémonsprite_078_XY.gif",
+                78, "https://www.pokewiki.de/images/8/82/Pokémonsprite_078_XY.gif",
                 "Gallopa", 65, 100, 70, 80, 80, 105, 
                 new ArrayList<>(Arrays.asList("Angsthase", "Feuerfänger",
                         "Flammkörper (VF)")), 175, 101, 
                 "<html><body>2 Ini</body></html>"));
        
         p.add(new Pokemon(
-                79, "http://pokewiki.de/images/9/9c/Pokémonsprite_079_XY.gif",
+                79, "https://pokewiki.de/images/9/9c/Pokémonsprite_079_XY.gif",
                 "Flegmon", 90, 65, 65, 40, 40, 15, 
                 new ArrayList<>(Arrays.asList("Dösigkeit", "Tempomacher",
                         "Belebekraft (VF)")), 63, 37, 
                 "<html><body>1 HP</body></html>"));
        
         p.add(new Pokemon(
-                80, "http://pokewiki.de/images/2/2d/Pokémonsprite_080_XY.gif",
+                80, "https://pokewiki.de/images/2/2d/Pokémonsprite_080_XY.gif",
                 "Lahmus", 97, 75, 110, 100, 80, 30, 
                 new ArrayList<>(Arrays.asList("Dösigkeit", "Tempomacher",
                         "Belebekraft (VF)")), 172, 101, 
                 "<html><body>2 Def</body></html>"));
        
         p.add(new Pokemon(
-                81, "http://pokewiki.de/images/5/5f/Pokémonsprite_081_XY.gif",
+                81, "https://pokewiki.de/images/5/5f/Pokémonsprite_081_XY.gif",
                 "Magnetilo", 25, 35, 70, 95, 55, 45, 
                 new ArrayList<>(Arrays.asList("Magnetfalle", "Robustheit",
                         "Analyse (VF)")), 65, 30, 
                 "<html><body>1 SpA</body></html>"));
        
         p.add(new Pokemon(
-                82, "http://pokewiki.de/images/0/02/Pokémonsprite_082_XY.gif",
+                82, "https://pokewiki.de/images/0/02/Pokémonsprite_082_XY.gif",
                 "Magneton", 50, 60, 95, 120, 70, 70, 
                 new ArrayList<>(Arrays.asList("Magnetfalle", "Robustheit",
                         "Analyse (VF)")), 163, 101, 
                 "<html><body>2 SpA</body></html>"));
        
         p.add(new Pokemon(
-                83, "http://pokewiki.de/images/f/f1/Pokémonsprite_083_XY.gif",
+                83, "https://pokewiki.de/images/f/f1/Pokémonsprite_083_XY.gif",
                 "Porenta", 52, 90, 55, 58, 62, 60, 
                 new ArrayList<>(Arrays.asList("Adlerauge", "Konzentrator",
                         "Siegeswille (VF)")), 132, 101, 
                 "<html><body>1 Atk</body></html>"));
        
         p.add(new Pokemon(
-                84, "http://pokewiki.de/images/9/98/Pokémonsprite_084_XY.gif",
+                84, "https://pokewiki.de/images/9/98/Pokémonsprite_084_XY.gif",
                 "Dodu", 35, 85, 45, 35, 35, 75, 
                 new ArrayList<>(Arrays.asList("Angsthase", "Frühwecker",
                         "Fußangel (VF)")), 62, 31, 
                 "<html><body>1 Atk</body></html>"));
        
         p.add(new Pokemon(
-                85, "http://pokewiki.de/images/5/54/Pokémonsprite_085_XY.gif",
+                85, "https://pokewiki.de/images/5/54/Pokémonsprite_085_XY.gif",
                 "Dodri", 60, 110, 70, 60, 60, 110, 
                 new ArrayList<>(Arrays.asList("Angsthase", "Frühwecker",
                         "Fußangel (VF)")), 165, 101, 
                 "<html><body>2 Atk</body></html>"));
        
         p.add(new Pokemon(
-                86, "http://pokewiki.de/images/4/40/Pokémonsprite_086_XY.gif",
+                86, "https://pokewiki.de/images/4/40/Pokémonsprite_086_XY.gif",
                 "Jurob", 65, 45, 55, 45, 70, 45, 
                 new ArrayList<>(Arrays.asList("Speckschicht", "Hydration",
                         "Eishaut (VF)")), 65, 34, 
                 "<html><body>1 SpD</body></html>"));
        
         p.add(new Pokemon(
-                87, "http://pokewiki.de/images/3/3f/Pokémonsprite_087_XY.gif",
+                87, "https://pokewiki.de/images/3/3f/Pokémonsprite_087_XY.gif",
                 "Jugong", 90, 70, 80, 70, 95, 70, 
                 new ArrayList<>(Arrays.asList("Speckschicht", "Hydration",
                         "Eishaut (VF)")), 166, 101, 
                 "<html><body>2 SpD</body></html>"));
        
         p.add(new Pokemon(
-                88, "http://pokewiki.de/images/1/18/Pokémonsprite_088_XY.gif",
+                88, "https://pokewiki.de/images/1/18/Pokémonsprite_088_XY.gif",
                 "Sleima", 80, 80, 50, 40, 50, 25, 
                 new ArrayList<>(Arrays.asList("Duftnote", "Wertehalter",
                         "Giftgriff (VF)")), 65, 38, 
                 "<html><body>1 HP</body></html>"));
        
         p.add(new Pokemon(
-                89, "http://pokewiki.de/images/b/bc/Pokémonsprite_089_XY.gif",
+                89, "https://pokewiki.de/images/b/bc/Pokémonsprite_089_XY.gif",
                 "Sleimok", 105, 105, 75, 65, 100, 50, 
                 new ArrayList<>(Arrays.asList("Duftnote", "Wertehalter",
                         "Giftgriff (VF)")), 175, 101, 
                 "<html><body>1 HP<br>1 Atk</body></html>"));
        
         p.add(new Pokemon(
-                90, "http://pokewiki.de/images/7/78/Pokémonsprite_090_XY.gif",
+                90, "https://pokewiki.de/images/7/78/Pokémonsprite_090_XY.gif",
                 "Muschas", 30, 65, 100, 45, 25, 40, 
                 new ArrayList<>(Arrays.asList("Panzerhaut", "Wertelink",
                         "Wetterfest (VF)")), 61, 101, 
                 "<html><body>1 Def</body></html>"));
        
         p.add(new Pokemon(
-                91, "http://pokewiki.de/images/4/4a/Pokémonsprite_091_XY.gif",
+                91, "https://pokewiki.de/images/4/4a/Pokémonsprite_091_XY.gif",
                 "Austos", 50, 95, 180, 85, 45, 70, 
                 new ArrayList<>(Arrays.asList("Panzerhaut", "Wertelink",
                         "Wetterfest (VF)")), 184, 101, 
                 "<html><body>2 Def</body></html>"));
         
         p.add(new Pokemon(
-                92, "http://www.pokewiki.de/images/6/64/Pokémonsprite_092_XY.gif",
+                92, "https://www.pokewiki.de/images/6/64/Pokémonsprite_092_XY.gif",
                 "Nebulak", 30, 35, 30, 100, 35, 80, 
                 new ArrayList<>(Arrays.asList("Schwebe")), 62, 25, 
                 "<html><body>1 SpA</body></html>"));
         
         p.add(new Pokemon(
-                93, "http://pokewiki.de/images/d/de/Pokémonsprite_093_XY.gif",
+                93, "https://pokewiki.de/images/d/de/Pokémonsprite_093_XY.gif",
                 "Alpollo", 45, 50, 45, 115, 55, 95, 
                 new ArrayList<>(Arrays.asList("Schwebe")), 142, 101, 
                 "<html><body>2 SpA</body></html>"));
         
         p.add(new Pokemon(
-                94, "http://pokewiki.de/images/8/88/Pokémonsprite_094_XY.gif",
+                94, "https://pokewiki.de/images/8/88/Pokémonsprite_094_XY.gif",
                 "Gengar", 60, 65, 60, 130, 75, 110, 
                 new ArrayList<>(Arrays.asList("Schwebe", "Tastfluch")), 225, 101, 
                 "<html><body>3 SpA</body></html>"));
         
         p.add(new Pokemon(
-                95, "http://pokewiki.de/images/7/77/Pokémonsprite_095_XY.gif",
+                95, "https://pokewiki.de/images/7/77/Pokémonsprite_095_XY.gif",
                 "Onix", 35, 45, 160, 30, 45, 70, 
                 new ArrayList<>(Arrays.asList("Steinhaupt", "Robustheit",
                         "Bruchrüstung (VF)")), 77, 101, 
                 "<html><body>1 Def</body></html>"));
         
         p.add(new Pokemon(
-                96, "http://pokewiki.de/images/3/3e/Pokémonsprite_096_XY.gif",
+                96, "https://pokewiki.de/images/3/3e/Pokémonsprite_096_XY.gif",
                 "Traumato", 60, 48, 45, 43, 90, 42, 
                 new ArrayList<>(Arrays.asList("Insomnia", "Vorwarnung",
                         "Kontentrator (VF)")), 66, 26, 
@@ -1202,15 +1202,107 @@ public class Model {
                 new ArrayList<>(Arrays.asList("Übereifer", "Edelmut", "Glückspilz (VF)")), 142, 101, 
                 "<html><body>2 SpD</body></html>"));
         
+        p.add(new Pokemon(
+                177, "https://pokewiki.de/images/d/d9/Pok%C3%A9monsprite_177_XY.gif",
+                "Natu", 40, 50, 45, 70, 45, 70, 
+                new ArrayList<>(Arrays.asList("Synchro", "Frühwecker", "Magiespiegel (VF)")), 64, 25, 
+                "<html><body>1 SpA</body></html>"));
         
+        p.add(new Pokemon(
+                178, "https://pokewiki.de/images/b/bd/Pok%C3%A9monsprite_178_XY.gif",
+                "Xatu", 65, 75, 70, 95, 70, 95, 
+                new ArrayList<>(Arrays.asList("Synchro", "Frühwecker", "Magiespiegel (VF)")), 165, 101, 
+                "<html><body>1 SpA<br>1 Ini</body></html>"));
         
-        /**
-        **/
+        p.add(new Pokemon(
+                179, "https://pokewiki.de/images/3/3b/Pok%C3%A9monsprite_179_XY.gif",
+                "Voltilamm", 55, 40, 40, 65, 45, 35, 
+                new ArrayList<>(Arrays.asList("Statik", "Plus (VF)")), 56, 15, 
+                "<html><body>1 SpA</body></html>"));
         
+        p.add(new Pokemon(
+                180, "https://pokewiki.de/images/b/b2/Pok%C3%A9monsprite_180_XY.gif",
+                "Waaty", 70, 55, 55, 80, 60, 45, 
+                new ArrayList<>(Arrays.asList("Statik", "Plus (VF)")), 128, 30, 
+                "<html><body>2 SpA</body></html>"));
         
+        p.add(new Pokemon(
+                181, "https://pokewiki.de/images/b/bf/Pok%C3%A9monsprite_181_XY.gif",
+                "Ampharos", 90, 75, 85, 115, 90, 55, 
+                new ArrayList<>(Arrays.asList("Statik", "Plus (VF)")), 230, 101, 
+                "<html><body>3 SpA</body></html>"));
         
+        p.add(new Pokemon(
+                182, "https://pokewiki.de/images/b/b9/Pok%C3%A9monsprite_182_XY.gif",
+                "Blubella", 90, 75, 85, 115, 90, 55, 
+                new ArrayList<>(Arrays.asList("Chlorophyll", "Heilherz (VF)")), 221, 101, 
+                "<html><body>3 SpD</body></html>"));
         
+        p.add(new Pokemon(
+                183, "https://pokewiki.de/images/5/59/Pok%C3%A9monsprite_183_XY.gif",
+                "Marill", 70, 20, 50, 20, 50, 40, 
+                new ArrayList<>(Arrays.asList("Speckschicht", "Kraftkoloss", "Vegetarier (VF)")), 88, 18, 
+                "<html><body>2 HP</body></html>"));
         
+        p.add(new Pokemon(
+                184, "https://pokewiki.de/images/f/f7/Pok%C3%A9monsprite_184_XY.gif",
+                "Azumarill", 100, 50, 80, 60, 80, 50, 
+                new ArrayList<>(Arrays.asList("Speckschicht", "Kraftkoloss", "Vegetarier (VF)")), 189, 101, 
+                "<html><body>3 HP</body></html>"));
+        
+        p.add(new Pokemon(
+                185, "https://pokewiki.de/images/6/67/Pok%C3%A9monsprite_185_XY.gif",
+                "Mogelbaum", 70, 100, 115, 30, 65, 30, 
+                new ArrayList<>(Arrays.asList("Robustheit", "Steinhaupt", "Hasenfuß (VF)")), 144, 101, 
+                "<html><body>2 Def</body></html>"));
+        
+        p.add(new Pokemon(
+                186, "https://pokewiki.de/images/9/9d/Pok%C3%A9monsprite_186_XY.gif",
+                "Quaxo", 90, 75, 75, 90, 100, 70, 
+                new ArrayList<>(Arrays.asList("H2O-Absorber", "Feuchtigkeit", "Niesel (VF)")), 225, 101, 
+                "<html><body>3 SpD</body></html>"));
+        
+        p.add(new Pokemon(
+                187, "https://pokewiki.de/images/5/5e/Pok%C3%A9monsprite_187_XY.gif",
+                "Hoppspross", 35, 35, 40, 35, 55, 50, 
+                new ArrayList<>(Arrays.asList("Chlorophyll", "Floraschild", "Schwebedurch (VF)")), 50, 18, 
+                "<html><body>1 SpD</body></html>"));
+        
+        p.add(new Pokemon(
+                188, "https://pokewiki.de/images/d/df/Pok%C3%A9monsprite_188_XY.gif",
+                "Hubelupf", 55, 45, 50, 45, 65, 80, 
+                new ArrayList<>(Arrays.asList("Chlorophyll", "Floraschild", "Schwebedurch (VF)")), 119, 27, 
+                "<html><body>2 Ini</body></html>"));
+        
+        p.add(new Pokemon(
+                189, "https://pokewiki.de/images/c/ce/Pok%C3%A9monsprite_189_XY.gif",
+                "Papungha", 75, 55, 70, 55, 95, 110, 
+                new ArrayList<>(Arrays.asList("Chlorophyll", "Floraschild", "Schwebedurch (VF)")), 207, 27, 
+                "<html><body>3 Ini</body></html>"));
+        
+        p.add(new Pokemon(
+                190, "https://pokewiki.de/images/2/2e/Pok%C3%A9monsprite_190_XY.gif",
+                "Griffel", 55, 70, 55, 40, 55, 85, 
+                new ArrayList<>(Arrays.asList("Angsthase", "Mitnahme", "Wertelink (VF)")), 72, 101, 
+                "<html><body>1 Ini</body></html>"));
+        
+        p.add(new Pokemon(
+                191, "https://pokewiki.de/images/a/a0/Pok%C3%A9monsprite_191_XY.gif",
+                "Sonnkern", 30, 30, 30, 30, 30, 30, 
+                new ArrayList<>(Arrays.asList("Chlorophyll", "Solarkraft", "Frühwecker (VF)")), 36, 101, 
+                "<html><body>1 SpA</body></html>"));
+        
+        p.add(new Pokemon(
+                192, "https://pokewiki.de/images/b/bd/Pok%C3%A9monsprite_192_XY.gif",
+                "Sonnflora", 75, 75, 55, 105, 85, 30, 
+                new ArrayList<>(Arrays.asList("Chlorophyll", "Solarkraft", "Frühwecker (VF)")), 149, 101, 
+                "<html><body>2 SpA</body></html>"));
+        
+        p.add(new Pokemon(
+                193, "https://pokewiki.de/images/1/18/Pok%C3%A9monsprite_193_XY.gif",
+                "Yanma", 65, 65, 45, 75, 45, 95, 
+                new ArrayList<>(Arrays.asList("Temposchub", "Facettenauge", "Schnüffler (VF)")), 78, 101, 
+                "<html><body>1 Ini</body></html>"));
         
         p.add(new Pokemon(
                 194, "https://www.pokewiki.de/images/c/c4/Pokémonsprite_194_XY.gif",
@@ -1220,7 +1312,7 @@ public class Model {
                 "<html><body>1 HP</body></html>"));
         
         p.add(new Pokemon(
-                195, "http://www.pokewiki.de/images/1/12/Pokémonsprite_195_XY.gif",
+                195, "https://www.pokewiki.de/images/1/12/Pokémonsprite_195_XY.gif",
                 "Morlord", 95, 85, 85, 65, 65, 35, 
                 new ArrayList<>(Arrays.asList("Feuchtigkeit", 
                         "H2O-Absorber", "Unkenntnis (VF)")), 151, 101,
@@ -1234,11 +1326,43 @@ public class Model {
                 "<html><body>2 SpA</body></html>"));
         
         p.add(new Pokemon(
-                197, "http://www.pokewiki.de/images/8/8a/Pokémonsprite_197_XY.gif",
+                197, "https://www.pokewiki.de/images/8/8a/Pokémonsprite_197_XY.gif",
                 "Nachtara", 95, 65, 110, 60, 130, 65, 
                 new ArrayList<>(Arrays.asList("Synchro", "Konzentrator (VF)")), 
                 184, 101, 
                 "<html><body>2 SpD</body></html>"));
+        
+        p.add(new Pokemon(
+                198, "https://pokewiki.de/images/9/9b/Pok%C3%A9monsprite_198_XY.gif",
+                "Kramurx", 60, 85, 42, 85, 42, 91, 
+                new ArrayList<>(Arrays.asList("Insomnia", "Glückspilz", "Strolch (VF)")), 
+                81, 101, 
+                "<html><body>1 Ini</body></html>"));
+        
+        p.add(new Pokemon(
+                199, "https://pokewiki.de/images/2/2f/Pok%C3%A9monsprite_199_XY.gif",
+                "Laschoking", 95, 75, 80, 100, 110, 30, 
+                new ArrayList<>(Arrays.asList("Dösigkeit", "Tempomacher", "Belebekraft (VF)")), 
+                172, 101, 
+                "<html><body>3 SpD</body></html>"));
+        
+        p.add(new Pokemon(
+                200, "https://pokewiki.de/images/f/ff/Pok%C3%A9monsprite_200_XY.gif",
+                "Traunfugil", 60, 60, 60, 85, 85, 85, 
+                new ArrayList<>(Arrays.asList("Schwebe")), 
+                87, 101, 
+                "<html><body>3 SpD</body></html>"));
+        
+        
+        /**
+        **/
+        
+        
+        
+        
+        
+        
+        
         
         p.add(new Pokemon(
                 270, "https://www.pokewiki.de/images/b/bf/Pokémonsprite_270_XY.gif",
@@ -1301,7 +1425,7 @@ public class Model {
                 "<html><body>1 SpD</body></html>"));
         
         p.add(new Pokemon(
-                359, "http://www.pokewiki.de/images/0/07/Pokémonsprite_359_XY.gif",
+                359, "https://www.pokewiki.de/images/0/07/Pokémonsprite_359_XY.gif",
                 "Absol", 65, 130, 60, 75, 60, 75, 
                 new ArrayList<>(Arrays.asList("Erzwinger", "Glückspilz", 
                         "Redlichkeit (VF)")), 163, 101, 
@@ -1315,7 +1439,7 @@ public class Model {
                 "<html><body>1 Ini</body></html>"));
         
         p.add(new Pokemon(
-                397, "http://www.pokewiki.de/images/d/db/Pokémonsprite_397_XY.gif",
+                397, "https://www.pokewiki.de/images/d/db/Pokémonsprite_397_XY.gif",
                 "Staravia", 55, 75, 50, 40, 40, 80, 
                 new ArrayList<>(Arrays.asList("Bedroher", 
                         "Achtlos (VF)")), 119, 34, 
@@ -1359,7 +1483,7 @@ public class Model {
                 "<html><body>1 SpA</body></html>"));
         
         p.add(new Pokemon(
-                571, "http://www.pokewiki.de/images/0/0a/Pokémonsprite_571_XY.gif",
+                571, "https://www.pokewiki.de/images/0/0a/Pokémonsprite_571_XY.gif",
                 "Zoroark", 60, 105, 60, 120, 60, 105, 
                 new ArrayList<>(Arrays.asList("Trugbild")), 179, 30, 
                 "<html><body>2 SpA</body></html>"));
@@ -1383,7 +1507,7 @@ public class Model {
                 "<html><body>1 Atk</body></html>"));
                       
         p.add(new Pokemon(
-                633, "http://www.pokewiki.de/images/8/80/Pokémonsprite_633_XY.gif",
+                633, "https://www.pokewiki.de/images/8/80/Pokémonsprite_633_XY.gif",
                 "Kapuno", 52, 65, 50, 45, 50, 38, 
                 new ArrayList<>(Arrays.asList("Übereifer")), 60, 50, 
                 "<html><body>1 Atk</body></html>"));
