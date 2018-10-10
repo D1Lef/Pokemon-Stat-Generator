@@ -1197,10 +1197,10 @@ public class Model {
                 "<html><body>1 SpD</body></html>"));
         
         p.add(new Pokemon(
-                176, "https://pokewiki.de/images/7/71/Pok%C3%A9monsprite_175_XY.gif",
-                "Togepi", 35, 20, 65, 40, 65, 20, 
-                new ArrayList<>(Arrays.asList("Übereifer", "Edelmut", "Glückspilz (VF)")), 49, 101, 
-                "<html><body>1 SpD</body></html>"));
+                176, "https://pokewiki.de/images/4/48/Pok%C3%A9monsprite_176_XY.gif",
+                "Togetic", 55, 40, 85, 80, 105, 40, 
+                new ArrayList<>(Arrays.asList("Übereifer", "Edelmut", "Glückspilz (VF)")), 142, 101, 
+                "<html><body>2 SpD</body></html>"));
         
         
         
