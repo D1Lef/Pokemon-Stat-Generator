@@ -1416,7 +1416,7 @@ public class Model {
                 60, 23, 
                 "<html><body>1 Atk</body></html>"));
         
-        p.add(new Pokemon(
+        p.add(new Pokemon(-
                 210, "https://pokewiki.de/images/5/50/Pok%C3%A9monsprite_210_XY.gif",
                 "Granbull", 90, 120, 75, 60, 60, 45, 
                 new ArrayList<>(Arrays.asList("Bedroher", "Rasanz", "Hasenfuß (VF)")), 
@@ -1709,6 +1709,69 @@ public class Model {
                 new ArrayList<>(Arrays.asList("Innere Kraft")), 
                 270, 101, 
                 "<html><body>3 HP</body></html>"));
+        
+        p.add(new Pokemon(
+                252, "https://pokewiki.de/images/5/5f/Pok%C3%A9monsprite_252_XY.gif",
+                "Geckabor", 40, 45, 35, 65, 55, 70, 
+                new ArrayList<>(Arrays.asList("Notdünger", "Entlastung (VF)")), 
+                62, 16, 
+                "<html><body>1 Ini</body></html>"));
+        
+        p.add(new Pokemon(
+                253, "https://pokewiki.de/images/e/e3/Pok%C3%A9monsprite_253_XY.gif",
+                "Reptain", 50, 65, 45, 85, 65, 95, 
+                new ArrayList<>(Arrays.asList("Notdünger", "Entlastung (VF)")), 
+                142, 36, 
+                "<html><body>2 Ini</body></html>"));
+        
+        p.add(new Pokemon(
+                254, "https://pokewiki.de/images/5/51/Pok%C3%A9monsprite_254_XY.gif",
+                "Gewaldro", 70, 85, 65, 105, 85, 120, 
+                new ArrayList<>(Arrays.asList("Notdünger", "Entlastung (VF)")), 
+                239, 101, 
+                "<html><body>3 Ini</body></html>"));
+        
+        p.add(new Pokemon(
+                255, "https://pokewiki.de/images/5/5d/Pok%C3%A9monsprite_255_XY.gif",
+                "Flemmli", 45, 60, 40, 70, 50, 45, 
+                new ArrayList<>(Arrays.asList("Großbrand", "Temposchub (VF)")), 
+                62, 16, 
+                "<html><body>1 SpA</body></html>"));
+        
+        p.add(new Pokemon(
+                256, "https://pokewiki.de/images/7/70/Pok%C3%A9monsprite_256_XY.gif",
+                "Jungglut", 60, 85, 60, 85, 60, 55, 
+                new ArrayList<>(Arrays.asList("Großbrand", "Temposchub (VF)")), 
+                142, 36, 
+                "<html><body>1 Atk<br>1 SpA</body></html>"));
+        
+        p.add(new Pokemon(
+                257, "https://pokewiki.de/images/4/4c/Pok%C3%A9monsprite_257_XY.gif",
+                "Lohgock", 80, 120, 70, 110, 70, 80, 
+                new ArrayList<>(Arrays.asList("Großbrand", "Temposchub (VF)")), 
+                239, 101, 
+                "<html><body>3 Atk</body></html>"));
+        
+        p.add(new Pokemon(
+                258, "https://pokewiki.de/images/1/1a/Pok%C3%A9monsprite_258_XY.gif",
+                "Hydropi", 50, 70, 50, 50, 50, 40, 
+                new ArrayList<>(Arrays.asList("Sturzbach", "Feuchtigkeit (VF)")), 
+                62, 16, 
+                "<html><body>1 Atk</body></html>"));
+        
+        p.add(new Pokemon(
+                259, "https://pokewiki.de/images/8/8b/Pok%C3%A9monsprite_259_XY.gif",
+                "Moorabbel", 70, 85, 70, 60, 70, 50, 
+                new ArrayList<>(Arrays.asList("Sturzbach", "Feuchtigkeit (VF)")), 
+                142, 36, 
+                "<html><body>2 Atk</body></html>"));
+        
+        p.add(new Pokemon(
+                260, "https://pokewiki.de/images/3/39/Pok%C3%A9monsprite_260_XY.gif",
+                "Sumpex", 100, 110, 90, 85, 90, 60, 
+                new ArrayList<>(Arrays.asList("Sturzbach", "Feuchtigkeit (VF)")), 
+                241, 101, 
+                "<html><body>3 Atk</body></html>"));
         
         
         /**
