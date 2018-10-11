@@ -1773,6 +1773,41 @@ public class Model {
                 241, 101, 
                 "<html><body>3 Atk</body></html>"));
         
+        p.add(new Pokemon(
+                261, "https://pokewiki.de/images/4/4a/Pok%C3%A9monsprite_261_XY.gif",
+                "Fiffyen", 35, 55, 35, 30, 30, 35, 
+                new ArrayList<>(Arrays.asList("Angsthase", "Rasanz", "Hasenfuß (VF)")), 
+                56, 18, 
+                "<html><body>1 Atk</body></html>"));
+        
+        p.add(new Pokemon(
+                262, "https://pokewiki.de/images/6/64/Pok%C3%A9monsprite_262_XY.gif",
+                "Magnayen", 70, 90, 70, 60, 60, 70, 
+                new ArrayList<>(Arrays.asList("Bedroher", "Rasanz", "Hochmut (VF)")), 
+                147, 101, 
+                "<html><body>2 Atk</body></html>"));
+        
+        p.add(new Pokemon(
+                263, "https://pokewiki.de/images/e/e3/Pok%C3%A9monsprite_263_XY.gif",
+                "Zigzachs", 38, 30, 41, 30, 41, 60, 
+                new ArrayList<>(Arrays.asList("Mitnahme", "Völlerei", "Rasanz (VF)")), 
+                56, 20, 
+                "<html><body>1 Ini</body></html>"));
+        
+        p.add(new Pokemon(
+                264, "https://pokewiki.de/images/b/b5/Pok%C3%A9monsprite_264_XY.gif",
+                "Geradaks", 78, 70, 61, 50, 61, 100, 
+                new ArrayList<>(Arrays.asList("Mitnahme", "Völlerei", "Rasanz (VF)")), 
+                147, 101, 
+                "<html><body>2 Ini</body></html>"));
+        
+        p.add(new Pokemon(
+                265, "https://pokewiki.de/images/a/aa/Pok%C3%A9monsprite_265_XY.gif",
+                "Waumpel", 45, 45, 35, 20, 30, 20, 
+                new ArrayList<>(Arrays.asList("Puderabwehr", "Angsthase (VF)")), 
+                56, 7, 
+                "<html><body>1 HP</body></html>"));
+        
         
         /**
         **/
