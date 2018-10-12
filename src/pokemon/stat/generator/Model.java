@@ -2032,22 +2032,210 @@ public class Model {
                 "<html><body>1 Ini</body></html>"));
         
         p.add(new Pokemon(
-                301, "https://pokewiki.de/images/7/71/Pok%C3%A9monsprite_300_XY.gif",
-                "Enekoro", 70, 65, 135, 45, 90, 30, 
-                new ArrayList<>(Arrays.asList("Charmebolzen", "Regulierung", "Wunderhaut (VF)")), 52, 101,
-                "<html><body>1 Ini</body></html>"));
+                301, "https://pokewiki.de/images/5/51/Pok%C3%A9monsprite_301_XY.gif",
+                "Enekoro", 70, 65, 65, 55, 55, 90, 
+                new ArrayList<>(Arrays.asList("Charmebolzen", "Regulierung", "Wunderhaut (VF)")), 140, 101,
+                "<html><body>1 HP<br>1 Ini</body></html>"));
         
+        p.add(new Pokemon(
+                302, "https://pokewiki.de/images/1/11/Pok%C3%A9monsprite_302_XY.gif",
+                "Zobiris", 50, 75, 75, 65, 55, 50, 
+                new ArrayList<>(Arrays.asList("Adlerauge", "Zeitspiel", "Strolch (VF)")), 133, 101,
+                "<html><body>1 Atk<br>1 Def</body></html>"));
         
-        
-        /**
-        **/
+        p.add(new Pokemon(
+                303, "https://pokewiki.de/images/7/71/Pok%C3%A9monsprite_303_XY.gif",
+                "Flunkifer", 50, 85, 85, 55, 55, 50, 
+                new ArrayList<>(Arrays.asList("Scherenmacht", "Bedroher", "Rohe Gewalt (VF)")), 133, 101,
+                "<html><body>1 Atk<br>1 Def</body></html>"));
         
         p.add(new Pokemon(
                 304, "https://www.pokewiki.de/images/7/7e/Pokémonsprite_304_XY.gif",
                 "Stollunior", 50, 70, 100, 40, 40, 30, 
                 new ArrayList<>(Arrays.asList("Robustheit", 
-                        "Steinhaupt", "Schwermetall (VF)")), 66, 101,
+                        "Steinhaupt", "Schwermetall (VF)")), 66, 32,
                 "<html><body>1 Def</body></html>"));
+        
+        p.add(new Pokemon(
+                305, "https://pokewiki.de/images/e/e7/Pok%C3%A9monsprite_305_XY.gif",
+                "Stollrak", 60, 90, 140, 50, 50, 40, 
+                new ArrayList<>(Arrays.asList("Robustheit", 
+                        "Steinhaupt", "Schwermetall (VF)")), 151, 42,
+                "<html><body>2 Def</body></html>"));
+        
+        p.add(new Pokemon(
+                306, "https://pokewiki.de/images/1/12/Pok%C3%A9monsprite_306_XY.gif",
+                "Stolloss", 70, 110, 180, 60, 60, 50, 
+                new ArrayList<>(Arrays.asList("Robustheit", 
+                        "Steinhaupt", "Schwermetall (VF)")), 239, 101,
+                "<html><body>3 Def</body></html>"));
+        
+        p.add(new Pokemon(
+                307, "https://pokewiki.de/images/8/88/Pok%C3%A9monsprite_307_XY.gif",
+                "Meditie", 30, 40, 55, 40, 55, 60, 
+                new ArrayList<>(Arrays.asList("Mentalkraft", "Telepathie (VF)")), 56, 37,
+                "<html><body>1 Ini</body></html>"));
+        
+        p.add(new Pokemon(
+                308, "https://pokewiki.de/images/d/d8/Pok%C3%A9monsprite_308_XY.gif",
+                "Meditalis", 60, 60, 75, 30, 75, 80, 
+                new ArrayList<>(Arrays.asList("Mentalkraft", "Telepathie (VF)")), 144, 101,
+                "<html><body>2 Ini</body></html>"));
+        
+        p.add(new Pokemon(
+                309, "https://pokewiki.de/images/a/ab/Pok%C3%A9monsprite_309_XY.gif",
+                "Frizelbliz", 40, 45, 40, 65, 40, 65, 
+                new ArrayList<>(Arrays.asList("Statik", "Blitzfänger", "Minus (VF)")), 59, 26,
+                "<html><body>1 Ini</body></html>"));
+        
+        p.add(new Pokemon(
+                310, "https://pokewiki.de/images/3/36/Pok%C3%A9monsprite_310_XY.gif",
+                "Voltenso", 70, 75, 60, 105, 60, 105, 
+                new ArrayList<>(Arrays.asList("Statik", "Blitzfänger", "Minus (VF)")), 166, 101,
+                "<html><body>2 Ini</body></html>"));
+        
+        p.add(new Pokemon(
+                311, "https://pokewiki.de/images/e/e5/Pok%C3%A9monsprite_311_XY.gif",
+                "Plusle", 60, 50, 40, 85, 75, 95, 
+                new ArrayList<>(Arrays.asList("Plus", "Blitzfänger (VF)")), 142, 101,
+                "<html><body>1 Ini</body></html>"));
+        
+        p.add(new Pokemon(
+                312, "https://pokewiki.de/images/b/bf/Pok%C3%A9monsprite_312_XY.gif",
+                "Minun", 60, 40, 50, 75, 85, 95, 
+                new ArrayList<>(Arrays.asList("Minus", "Voltabsorber (VF)")), 142, 101,
+                "<html><body>1 Ini</body></html>"));
+        
+        p.add(new Pokemon(
+                313, "https://pokewiki.de/images/e/e2/Pok%C3%A9monsprite_313_XY.gif",
+                "Volbeat", 65, 73, 75, 47, 85, 85, 
+                new ArrayList<>(Arrays.asList("Erleuchtung", "Hexaplaga", "Strolch (VF)")), 151, 101,
+                "<html><body>1 Ini</body></html>"));
+        
+        p.add(new Pokemon(
+                314, "https://pokewiki.de/images/5/55/Pok%C3%A9monsprite_314_XY.gif",
+                "Illumise", 65, 47, 75, 73, 85, 85, 
+                new ArrayList<>(Arrays.asList("Dösigkeit", "Aufwertung", "Strolch (VF)")), 151, 101,
+                "<html><body>1 Ini</body></html>"));
+        
+        p.add(new Pokemon(
+                315, "https://pokewiki.de/images/3/3e/Pok%C3%A9monsprite_315_XY.gif",
+                "Roselia", 50, 60, 45, 100, 80, 65, 
+                new ArrayList<>(Arrays.asList("Innere Kraft", "Giftdorn", "Floraschild (VF)")), 140, 101,
+                "<html><body>2 SpA</body></html>"));
+        
+        p.add(new Pokemon(
+                316, "https://pokewiki.de/images/a/a9/Pok%C3%A9monsprite_316_XY.gif",
+                "Schluppuck", 70, 43, 53, 43, 53, 40, 
+                new ArrayList<>(Arrays.asList("Kloakensoße", "Wertehalter", "Völlerei (VF)")), 60, 26,
+                "<html><body>1 HP</body></html>"));
+        
+        p.add(new Pokemon(
+                317, "https://pokewiki.de/images/b/b6/Pok%C3%A9monsprite_317_XY.gif",
+                "Schlukwech", 100, 73, 83, 73, 83, 55, 
+                new ArrayList<>(Arrays.asList("Kloakensoße", "Wertehalter", "Völlerei (VF)")), 163, 101,
+                "<html><body>2 HP</body></html>"));
+        
+        p.add(new Pokemon(
+                318, "https://pokewiki.de/images/4/4a/Pok%C3%A9monsprite_318_XY.gif",
+                "Kanivanha", 45, 90, 20, 65, 20, 65, 
+                new ArrayList<>(Arrays.asList("Rauhaut", "Temposchub (VF)")), 61, 30,
+                "<html><body>1 Atk</body></html>"));
+        
+        p.add(new Pokemon(
+                319, "https://pokewiki.de/images/8/8e/Pok%C3%A9monsprite_319_XY.gif",
+                "Tohaido", 70, 120, 40, 95, 40, 95, 
+                new ArrayList<>(Arrays.asList("Rauhaut", "Temposchub (VF)")), 161, 101,
+                "<html><body>2 Atk</body></html>"));
+        
+        p.add(new Pokemon(
+                320, "https://pokewiki.de/images/4/49/Pok%C3%A9monsprite_320_XY.gif",
+                "Wailmer", 130, 70, 35, 70, 35, 60, 
+                new ArrayList<>(Arrays.asList("Aquahülle", "Dösigkeit", "Erzwinger (VF)")), 80, 40,
+                "<html><body>1 HP</body></html>"));
+        
+        p.add(new Pokemon(
+                321, "https://pokewiki.de/images/2/27/Pok%C3%A9monsprite_321_XY.gif",
+                "Wailord", 170, 90, 45, 90, 45, 60, 
+                new ArrayList<>(Arrays.asList("Aquahülle", "Dösigkeit", "Erzwinger (VF)")), 175, 101,
+                "<html><body>2 HP</body></html>"));
+        
+        p.add(new Pokemon(
+                322, "https://pokewiki.de/images/b/bd/Pok%C3%A9monsprite_322_XY.gif",
+                "Camaub", 60, 60, 40, 65, 45, 35, 
+                new ArrayList<>(Arrays.asList("Dösigkeit", "Wankelmut", "Tempomacher (VF)")), 61, 33,
+                "<html><body>1 SpA</body></html>"));
+        
+        p.add(new Pokemon(
+                323, "https://pokewiki.de/images/a/aa/Pok%C3%A9monsprite_323_XY.gif",
+                "Camerupt", 70, 100, 70, 105, 75, 40, 
+                new ArrayList<>(Arrays.asList("Magmapanzer", "Felskern", "Kurzschluss (VF)")), 161, 101,
+                "<html><body>1 Atk<br>1 SpA</body></html>"));
+        
+        p.add(new Pokemon(
+                324, "https://pokewiki.de/images/c/c1/Pok%C3%A9monsprite_324_XY.gif",
+                "Qurtel", 70, 85, 140, 85, 70, 20, 
+                new ArrayList<>(Arrays.asList("Pulverrauch", "Dürre", "Panzerhaut (VF)")), 165, 101,
+                "<html><body>2 Def</body></html>"));
+        
+        p.add(new Pokemon(
+                325, "https://pokewiki.de/images/f/fe/Pok%C3%A9monsprite_325_XY.gif",
+                "Spoink", 60, 25, 35, 70, 80, 60, 
+                new ArrayList<>(Arrays.asList("Speckschicht", "Tempomacher", "Völlerei (VF)")), 66, 32,
+                "<html><body>2 Def</body></html>"));
+        
+        p.add(new Pokemon(
+                326, "https://pokewiki.de/images/7/70/Pok%C3%A9monsprite_326_XY.gif",
+                "Groink", 80, 45, 65, 90, 110, 80, 
+                new ArrayList<>(Arrays.asList("Speckschicht", "Tempomacher", "Völlerei (VF)")), 165, 101,
+                "<html><body>2 SpD</body></html>"));
+        
+        p.add(new Pokemon(
+                327, "https://pokewiki.de/images/d/db/Pok%C3%A9monsprite_327_XY.gif",
+                "Pandir", 60, 60, 60, 60, 60, 60, 
+                new ArrayList<>(Arrays.asList("Tempomacher", "Fußangel", "Umkehrung (VF)")), 126, 101,
+                "<html><body>1 SpA</body></html>"));
+        
+        p.add(new Pokemon(
+                328, "https://pokewiki.de/images/1/1f/Pok%C3%A9monsprite_328_XY.gif",
+                "Knacklion", 45, 100, 45, 45, 45, 10, 
+                new ArrayList<>(Arrays.asList("Scherenmacht", "Ausweglos", "Rohe Gewalt (VF)")), 58, 35,
+                "<html><body>1 Atk</body></html>"));
+        
+        p.add(new Pokemon(
+                329, "https://pokewiki.de/images/d/d7/Pok%C3%A9monsprite_329_XY.gif",
+                "Vibrava", 50, 70, 50, 50, 50, 70, 
+                new ArrayList<>(Arrays.asList("Schwebe")), 119, 45,
+                "<html><body>1 Atk<br>1 Ini</body></html>"));
+        
+        p.add(new Pokemon(
+                330, "https://pokewiki.de/images/a/a7/Pok%C3%A9monsprite_330_XY.gif",
+                "Libelldra", 80, 100, 80, 80, 80, 100, 
+                new ArrayList<>(Arrays.asList("Schwebe")), 234, 101,
+                "<html><body>1 Atk<br>2 Ini</body></html>"));
+        
+        p.add(new Pokemon(
+                331, "https://pokewiki.de/images/b/ba/Pok%C3%A9monsprite_331_XY.gif",
+                "Tuska", 50, 85, 40, 85, 40, 35, 
+                new ArrayList<>(Arrays.asList("Sandschleier", "H2O-Absorber (VF)")), 67, 32,
+                "<html><body>1 SpA</body></html>"));
+        
+        p.add(new Pokemon(
+                332, "https://pokewiki.de/images/b/b3/Pok%C3%A9monsprite_332_XY.gif",
+                "Noktuska", 70, 115, 60, 115, 60, 55, 
+                new ArrayList<>(Arrays.asList("Sandschleier", "H2O-Absorber (VF)")), 166, 101,
+                "<html><body>1 Atk<br>1 SpA</body></html>"));
+        
+        p.add(new Pokemon(
+                333, "https://pokewiki.de/images/2/2e/Pok%C3%A9monsprite_333_XY.gif",
+                "Wablu", 45, 40, 60, 40, 75, 50, 
+                new ArrayList<>(Arrays.asList("Innere Kraft", "Wolke Sieben (VF)")), 62, 35,
+                "<html><body>1 SpD</body></html>"));
+        
+        
+        /**
+        **/
+        
         
         
         
