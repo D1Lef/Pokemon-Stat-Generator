@@ -2232,6 +2232,54 @@ public class Model {
                 new ArrayList<>(Arrays.asList("Innere Kraft", "Wolke Sieben (VF)")), 62, 35,
                 "<html><body>1 SpD</body></html>"));
         
+        p.add(new Pokemon(
+                334, "https://pokewiki.de/images/2/25/Pok%C3%A9monsprite_334_XY.gif",
+                "Antaria", 75, 70, 90, 70, 105, 80, 
+                new ArrayList<>(Arrays.asList("Innere Kraft", "Wolke Sieben (VF)")), 172, 101,
+                "<html><body>2 SpD</body></html>"));
+        
+        p.add(new Pokemon(
+                335, "https://pokewiki.de/images/8/87/Pok%C3%A9monsprite_335_XY.gif",
+                "Sengo", 73, 115, 60, 60, 60, 90, 
+                new ArrayList<>(Arrays.asList("Immunität", "Giftwahn (VF)")), 160, 101,
+                "<html><body>2 Atk</body></html>"));
+        
+        p.add(new Pokemon(
+                336, "https://pokewiki.de/images/3/37/Pok%C3%A9monsprite_336_XY.gif",
+                "Vipitis", 73, 100, 60, 100, 60, 85, 
+                new ArrayList<>(Arrays.asList("Expidermis", "Schwebedurch (VF)")), 160, 101,
+                "<html><body>1 Atk<br>1 SpA</body></html>"));
+        
+        p.add(new Pokemon(
+                337, "https://pokewiki.de/images/b/b3/Pok%C3%A9monsprite_337_XY.gif",
+                "Lunastein", 90, 55, 65, 95, 85, 70, 
+                new ArrayList<>(Arrays.asList("Schwebe")), 161, 101,
+                "<html><body>2 SpA</body></html>"));
+        
+        p.add(new Pokemon(
+                338, "https://pokewiki.de/images/4/49/Pok%C3%A9monsprite_338_XY.gif",
+                "Sonnfel", 90, 95, 85, 55, 65, 70, 
+                new ArrayList<>(Arrays.asList("Schwebe")), 161, 101,
+                "<html><body>2 Atk</body></html>"));
+        
+        p.add(new Pokemon(
+                339, "https://pokewiki.de/images/8/8f/Pok%C3%A9monsprite_339_XY.gif",
+                "Schmerbe", 50, 48, 43, 46, 41, 60, 
+                new ArrayList<>(Arrays.asList("Dösigkeit", "Vorahnung", "Hydration (VF)")), 58, 30,
+                "<html><body>1 HP</body></html>"));
+        
+        p.add(new Pokemon(
+                340, "https://pokewiki.de/images/f/ff/Pok%C3%A9monsprite_340_XY.gif",
+                "Welsar", 110, 78, 73, 76, 71, 60, 
+                new ArrayList<>(Arrays.asList("Dösigkeit", "Vorahnung", "Hydration (VF)")), 164, 101,
+                "<html><body>2 HP</body></html>"));
+        
+        p.add(new Pokemon(
+                341, "https://pokewiki.de/images/9/96/Pok%C3%A9monsprite_341_XY.gif",
+                "Krebscorps", 43, 80, 65, 50, 35, 35, 
+                new ArrayList<>(Arrays.asList("Scherenmacht", "Panzerhaut", "Anpassung (VF)")), 62, 30,
+                "<html><body>1 Atk</body></html>"));
+        
         
         /**
         **/
