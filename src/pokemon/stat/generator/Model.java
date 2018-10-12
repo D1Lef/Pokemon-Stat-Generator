@@ -2027,7 +2027,13 @@ public class Model {
         
         p.add(new Pokemon(
                 300, "https://pokewiki.de/images/7/71/Pok%C3%A9monsprite_300_XY.gif",
-                "Eneco", 30, 45, 135, 45, 90, 30, 
+                "Eneco", 50, 45, 45, 35, 35, 50, 
+                new ArrayList<>(Arrays.asList("Charmebolzen", "Regulierung", "Wunderhaut (VF)")), 52, 101,
+                "<html><body>1 Ini</body></html>"));
+        
+        p.add(new Pokemon(
+                301, "https://pokewiki.de/images/7/71/Pok%C3%A9monsprite_300_XY.gif",
+                "Enekoro", 70, 65, 135, 45, 90, 30, 
                 new ArrayList<>(Arrays.asList("Charmebolzen", "Regulierung", "Wunderhaut (VF)")), 52, 101,
                 "<html><body>1 Ini</body></html>"));
         
