@@ -94,7 +94,6 @@ public class Window extends javax.swing.JFrame {
         ntrPLUS = new javax.swing.ButtonGroup();
         ntrMINUS = new javax.swing.ButtonGroup();
         pkmLB = new javax.swing.JLabel();
-        pkmCB = new javax.swing.JComboBox<>();
         generate = new javax.swing.JButton();
         stsPL = new javax.swing.JPanel();
         hpLBStat = new javax.swing.JLabel();
@@ -189,6 +188,8 @@ public class Window extends javax.swing.JFrame {
         loadIcon = new javax.swing.JToggleButton();
         exp = new javax.swing.JLabel();
         newWindow = new javax.swing.JButton();
+        pkmNameIDTF = new javax.swing.JTextField();
+        loadButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("MyRPG: Pokémon Stat Calculator");
@@ -197,13 +198,6 @@ public class Window extends javax.swing.JFrame {
         setSize(new java.awt.Dimension(1000, 500));
 
         pkmLB.setText("Pokémon:");
-
-        pkmCB.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        pkmCB.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                pkmCBItemStateChanged(evt);
-            }
-        });
 
         generate.setText("Generate");
         generate.addActionListener(new java.awt.event.ActionListener() {
@@ -925,19 +919,19 @@ public class Window extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(evLB)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(evTXT)
-                .addContainerGap(45, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(evTXT)
+                    .addComponent(evLB))
+                .addContainerGap(34, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(evLB)
-                    .addComponent(evTXT))
-                .addContainerGap(48, Short.MAX_VALUE))
+                .addComponent(evLB)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(evTXT)
+                .addContainerGap(50, Short.MAX_VALUE))
         );
 
         loadIcon.setText("Load Icon");
@@ -956,6 +950,16 @@ public class Window extends javax.swing.JFrame {
         newWindow.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 newWindowActionPerformed(evt);
+            }
+        });
+
+        pkmNameIDTF.setToolTipText("enter either the english name of a Pokémon or its national Pokédex ID");
+        pkmNameIDTF.setName("pkmNameIDTF"); // NOI18N
+
+        loadButton.setText("Load");
+        loadButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                loadButtonActionPerformed(evt);
             }
         });
 
@@ -990,9 +994,11 @@ public class Window extends javax.swing.JFrame {
                                     .addComponent(stsPL, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(pkmLB)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(pkmCB, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(113, 113, 113)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(pkmNameIDTF, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(loadButton)
+                                .addGap(149, 149, 149)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(lvlLB)
@@ -1014,8 +1020,9 @@ public class Window extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(pkmLB)
-                        .addComponent(pkmCB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(lvlLB, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(lvlLB, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(pkmNameIDTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(loadButton))
                     .addComponent(lvlSD, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lvlNrLB, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1057,7 +1064,7 @@ public class Window extends javax.swing.JFrame {
         int[] IVs = { hpSDIV.getValue(), atkSDIV.getValue(), defSDIV.getValue(), spaSDIV.getValue(), spdSDIV.getValue(), iniSDIV.getValue() };
         int[] EVs = getEVValues();
         
-        m.calculateStats(EVs, IVs, lvlSD.getValue(), pkmCB.getSelectedIndex(), statAnz, exp);
+        m.calculateStats(EVs, IVs, lvlSD.getValue(), statAnz, exp);
         newWindow.setEnabled(true);
         
         refreshTotal();
@@ -1106,17 +1113,6 @@ public class Window extends javax.swing.JFrame {
     private void lvlSDStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_lvlSDStateChanged
         lvlNrLB.setText(lvlSD.getValue()+"");
     }//GEN-LAST:event_lvlSDStateChanged
-
-    private void pkmCBItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_pkmCBItemStateChanged
-        m.setAbilities(abCB, pkmCB.getSelectedIndex());
-        if (loadIcon.isSelected()){
-            getImage();
-        } else {
-            gif.setIcon(null);
-        }
-        getEV();
-        newWindow.setEnabled(false);
-    }//GEN-LAST:event_pkmCBItemStateChanged
 
     private void randNTRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_randNTRActionPerformed
         ntrPLUSArr[(int)((Math.random() * ntrPLUSArr.length))].setSelected(true);                                     
@@ -1235,7 +1231,7 @@ public class Window extends javax.swing.JFrame {
     }//GEN-LAST:event_randEVActionPerformed
 
     private void newWindowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newWindowActionPerformed
-        Pokemon p = m.getP(pkmCB.getSelectedIndex());
+        Pokemon p = m.getP();
         Pokemon p1 = new Pokemon(p.getDexNr(), p.getDex(), p.getName(), p.getBaseHP(), p.getBaseATK(), p.getBaseDEF(), p.getBaseSPA(), p.getBaseSPD(), p.getBaseINI(), p.getAbilities(), p.getBaseXP(), p.getLvlEntw(), p.getEVs());
         p1.setStats(m.getStats().clone());
         p1.setExp(exp.getText());
@@ -1245,6 +1241,19 @@ public class Window extends javax.swing.JFrame {
         s.setVisible(true);
         windows.add(s);
     }//GEN-LAST:event_newWindowActionPerformed
+
+    private void loadButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loadButtonActionPerformed
+        loadButton.setEnabled(false);
+        m.loadPokemon(pkmNameIDTF.getText());
+        m.setAbilities(abCB);
+        if (loadIcon.isSelected())
+            getImage();
+        else
+            gif.setIcon(null);
+        getEV();
+        newWindow.setEnabled(false);                          
+        loadButton.setEnabled(true);
+    }//GEN-LAST:event_loadButtonActionPerformed
 
     private void refreshTotal(){
         int[] evs = getEVValues();
@@ -1334,6 +1343,7 @@ public class Window extends javax.swing.JFrame {
     private javax.swing.JTextField iniTBEV;
     private javax.swing.JPanel ivsPL;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JButton loadButton;
     private javax.swing.JToggleButton loadIcon;
     private javax.swing.JLabel lvlLB;
     private javax.swing.JLabel lvlNrLB;
@@ -1354,8 +1364,8 @@ public class Window extends javax.swing.JFrame {
     private javax.swing.JRadioButton ntrSPAp;
     private javax.swing.JRadioButton ntrSPDm;
     private javax.swing.JRadioButton ntrSPDp;
-    private javax.swing.JComboBox<String> pkmCB;
     private javax.swing.JLabel pkmLB;
+    private javax.swing.JTextField pkmNameIDTF;
     private javax.swing.JLabel plusLB;
     private javax.swing.JButton randEV;
     private javax.swing.JButton randIV;
@@ -1387,9 +1397,6 @@ public class Window extends javax.swing.JFrame {
     private javax.swing.JLabel totNrLB;
     // End of variables declaration//GEN-END:variables
 
-    javax.swing.JComboBox<String> getPkmCB() {
-        return pkmCB;
-    }
     
     javax.swing.JComboBox<String> getabCB() {
         return abCB;
@@ -1398,7 +1405,7 @@ public class Window extends javax.swing.JFrame {
     private void getImage() {
         URL url;
         try {
-            url = new URL(m.getDex(pkmCB.getSelectedIndex()));
+            url = new URL(m.getDex());
             BufferedImage img = ImageIO.read(url);
             ImageIcon icon = new ImageIcon(img);
             
@@ -1411,7 +1418,7 @@ public class Window extends javax.swing.JFrame {
     }
 
     private void getEV() {
-        evTXT.setText(m.getEV(pkmCB.getSelectedIndex()));
+        evTXT.setText(m.getEV());
     }
     
     private int[] getEVValues(){

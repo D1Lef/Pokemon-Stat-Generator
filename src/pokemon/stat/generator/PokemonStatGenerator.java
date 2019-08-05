@@ -18,8 +18,6 @@ public class PokemonStatGenerator{
     public PokemonStatGenerator(){
         Model m = new Model();
         Window w = new Window(this,m);
-        m.setList(w.getPkmCB());
-        m.setAbilities(w.getabCB(), w.getPkmCB().getSelectedIndex());
         w.setVisible(true);
     }
     
