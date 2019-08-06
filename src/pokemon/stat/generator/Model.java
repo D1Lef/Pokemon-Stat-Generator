@@ -42,6 +42,8 @@ public class Model {
     private String[][] nature;
     private String selectedNature;
     
+    private int langID = 5;
+    
     /** natMUL
      * 0: ATK
      * 1: DEF
@@ -120,10 +122,11 @@ public class Model {
 
         EVs += "</body></html>";
 
+        PokemonSpecies psp = pokeApiClient.getPokemonSpeciesById(poke.getId());
         
         activePKM = new Pokemon(
             poke.getId(), poke.getSprites().getFrontDefault(), 
-            poke.getName(), pkmStats[0], pkmStats[1], pkmStats[2], pkmStats[3], pkmStats[4], pkmStats[5], 
+            psp.getNames().get(langID).getName(), pkmStats[0], pkmStats[1], pkmStats[2], pkmStats[3], pkmStats[4], pkmStats[5], 
             getAbilities(poke.getId()), poke.getBaseExperience(), getEvolutionLevel(poke.getId()), 
             EVs);
         
@@ -181,9 +184,9 @@ public class Model {
             int abiID = Integer.parseInt(url.substring(url.indexOf("ability/")+8, url.length()-1));
             Ability a = pokeApiClient.getAbilityById(abiID);
             
-            String s = a.getNames().get(5).getName();
+            String s = a.getNames().get(langID).getName();
             if (test.getAbilities().get(i).isHidden())
-                s += " (VF)";
+                s += " (HA)";
             abilities.add(s);
         }
         
