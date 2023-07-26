@@ -71,6 +71,13 @@ public class Pokemon {
     public String getExp() {
         return exp;
     }
+    
+    /**
+     * @param name name to set
+     */
+    public void setName(String name) {
+        this.name = name;
+    }
 
     /**
      * @param exp the exp to set
@@ -133,7 +140,7 @@ public class Pokemon {
     public String getName() {
         return name;
     }
-
+    
     /**
      * @return the baseHP
      */
@@ -215,12 +222,15 @@ public class Pokemon {
         return lvlEntw;
     }
     
-    public void setStats(int[] stats){
+    public void setStats(int[] stats) {
         this.stats = stats;
     }
     
-    public int[] getStats(){
+    public int[] getStats() {
         return stats;
     }
     
+    public void updateAbilities(ArrayList<String> a) {
+        this.abilities = a;
+    }
 }
