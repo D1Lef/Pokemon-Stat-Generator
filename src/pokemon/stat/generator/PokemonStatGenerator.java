@@ -5,15 +5,13 @@
  */
 package pokemon.stat.generator;
 
+import pokemon.attack.simulator.AttackSim;
 
 /**
  *
  * @author Felix
  */
 public class PokemonStatGenerator{
-    
-    Model m;
-    Window w;
 
     public PokemonStatGenerator(){
         Model m = new Model();
@@ -26,6 +24,7 @@ public class PokemonStatGenerator{
      */
     public static void main(String[] args) {
         new PokemonStatGenerator();
+        new AttackSim().setVisible(true);
     }
     
 }
