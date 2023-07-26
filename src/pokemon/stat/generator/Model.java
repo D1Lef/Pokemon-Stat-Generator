@@ -23,6 +23,8 @@ import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.JSpinner;
+import models.common.Name;
 import models.evolution.ChainLink;
 import models.evolution.EvolutionChain;
 import models.pokemon.Ability;
@@ -42,7 +44,8 @@ public class Model {
     private String[][] nature;
     private String selectedNature;
     
-    private int langID = 5;
+    private int langID = 2;
+    private String langCode = "de";
     
     /** natMUL
      * 0: ATK
@@ -65,7 +68,6 @@ public class Model {
     
     public Model(){
         pokeApiClient = new Client();
-        
         /**
          * Index:
          *      0: -ATK
@@ -123,10 +125,23 @@ public class Model {
         EVs += "</body></html>";
 
         PokemonSpecies psp = pokeApiClient.getPokemonSpeciesById(poke.getId());
+
+        String pkmName = "No name found";
+        
+        ArrayList<Name> names = psp.getNames();
+        
+        for (int i = 0; i < names.size(); i++){
+            Name name = names.get(i);
+            System.out.println(name.getLanguage().getName());
+            if (name.getLanguage().getName().equals(langCode)){
+                pkmName = name.getName();
+                break;
+            }
+        }
         
         activePKM = new Pokemon(
             poke.getId(), poke.getSprites().getFrontDefault(), 
-            psp.getNames().get(langID).getName(), pkmStats[0], pkmStats[1], pkmStats[2], pkmStats[3], pkmStats[4], pkmStats[5], 
+            pkmName, pkmStats[0], pkmStats[1], pkmStats[2], pkmStats[3], pkmStats[4], pkmStats[5], 
             getAbilities(poke.getId()), poke.getBaseExperience(), getEvolutionLevel(poke.getId()), 
             EVs);
         
@@ -177,14 +192,23 @@ public class Model {
     public ArrayList<String> getAbilities(int id){
         models.pokemon.Pokemon test = pokeApiClient.getPokemonById(id);
         
-        ArrayList<String> abilities = new ArrayList<String>();
+        ArrayList<String> abilities = new ArrayList<>();
         
         for (int i = test.getAbilities().size()-1; i >= 0; i--){
             String url = test.getAbilities().get(i).getAbility().getUrl();
             int abiID = Integer.parseInt(url.substring(url.indexOf("ability/")+8, url.length()-1));
             Ability a = pokeApiClient.getAbilityById(abiID);
+            String s = "No name found";
             
-            String s = a.getNames().get(langID).getName();
+            ArrayList<Name> a_names = a.getNames();
+            for (int j = 0; j < a_names.size(); j++){
+                Name name = a_names.get(j);
+                if (name.getLanguage().getName().equals(langCode)){
+                    s = name.getName();
+                    break;
+                }
+            }
+            
             if (test.getAbilities().get(i).isHidden())
                 s += " (HA)";
             abilities.add(s);
@@ -195,6 +219,32 @@ public class Model {
     
     public String getDex(){
         return activePKM.getDex();
+    }
+    
+    void setName(JLabel nameLabel){
+        nameLabel.setText(activePKM.getName());
+    }
+    
+    void updateName() {
+        PokemonSpecies psp = pokeApiClient.getPokemonSpeciesById(activePKM.getDexNr());
+        
+        ArrayList<Name> names = psp.getNames();
+        
+        for (int i = 0; i < names.size(); i++){
+            Name name = names.get(i);
+            if (name.getLanguage().getName().equals(langCode)){
+                activePKM.setName(name.getName());
+                return;
+            }
+        }
+        
+        activePKM.setName("No name found");
+    }
+    
+    void updateLanguage(String code){
+        this.langCode = code;
+        activePKM.updateAbilities(getAbilities(activePKM.getDexNr()));
+        updateName();
     }
     
     void setAbilities(JComboBox<String> abilities){
@@ -296,30 +346,19 @@ public class Model {
         return activePKM.getEVs();
     }
     
-    public void setStatChange(JLabel[] change){
+    public void setStatChange(JSpinner[] change){
         for (int i = 0; i < change.length; i++){
-            if(statChange[i]>0){
-                change[i].setText("+"+statChange[i]);
-            } else {
-                change[i].setText(""+statChange[i]);
-            }
+            change[i].setValue(statChange[i]);
         }
     }
     
-    public void statRaise(int index, JLabel[] change){
-        if (statChange[index] < 6){
-            statChange[index]++;
-            setStatChange(change);
-        }
-    }
-    public void statFall(int index, JLabel[] change){
-        if (statChange[index] > -6){
-            statChange[index]--;
-            setStatChange(change);
+    public void setStatStage(int index, int stage){
+        if (stage <= 6 && stage >= -6){
+            statChange[index] = stage;
         }
     }
 
-    void statReset(JLabel[] statCha) {
+    void statReset(JSpinner[] statCha) {
         statChange = new int[] {0,0,0,0,0};
         setStatChange(statCha);
     }
