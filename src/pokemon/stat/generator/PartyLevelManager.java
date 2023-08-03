@@ -6,7 +6,6 @@
 package pokemon.stat.generator;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import javax.swing.JLabel;
 
 /**
@@ -26,7 +25,7 @@ public class PartyLevelManager extends javax.swing.JFrame {
     public PartyLevelManager() {
         
         m = new Model();
-        members = new ArrayList<PartyMember>();
+        members = new ArrayList<>();
         
         int [] igelavar = {14,27,30,24,15,29};
         double [] igelavarNAT = {0.9,1,1.1,1,1};
@@ -94,7 +93,7 @@ public class PartyLevelManager extends javax.swing.JFrame {
         stat = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Party Manager");
 
         hpEV.setText("0");
 
@@ -275,12 +274,11 @@ public class PartyLevelManager extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         PartyMember pm = members.get(memberList.getSelectedIndex());
-        int[] evs = {Integer.parseInt(hpEV.getText()),Integer.parseInt(atkEV.getText()),
+        int[] EVs = {Integer.parseInt(hpEV.getText()),Integer.parseInt(atkEV.getText()),
             Integer.parseInt(defEV.getText()),Integer.parseInt(spaEV.getText()),
             Integer.parseInt(spdEV.getText()),Integer.parseInt(iniEV.getText())};
         
-        
-        m.calculateStats(pm, evs, pm.IVs, lvSlider.getValue(), pm.getDexNr(), anz, pm.natMUL);
+        m.calculateStats(pm, EVs, pm.IVs, lvSlider.getValue(), anz, pm.natMUL);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     
@@ -316,6 +314,7 @@ public class PartyLevelManager extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new PartyLevelManager().setVisible(true);
             }

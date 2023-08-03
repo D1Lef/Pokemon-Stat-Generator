@@ -13,13 +13,9 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
-import javax.swing.ButtonModel;
-import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JRadioButton;
-import javax.swing.JSlider;
 import javax.swing.JSpinner;
 import javax.swing.JTextField;
 
@@ -27,27 +23,29 @@ import javax.swing.JTextField;
  *
  * @author Felix
  */
-public class Window extends javax.swing.JFrame {
+public class MainView extends javax.swing.JFrame {
 
-    private PokemonStatGenerator c;
-    private Model m;
-    private JRadioButton[] ntrPLUSArr;
-    private JRadioButton[] ntrMINUSArr;
-    private JLabel[] statAnz;
-    private JSpinner[] statCha;
-    private JTextField[] tbs;
+    private final PokemonStatGenerator c;
+    private final Model m;
+    private final JRadioButton[] ntrPLUSArr;
+    private final JRadioButton[] ntrMINUSArr;
+    private final JLabel[] statAnz;
+    private final JSpinner[] statCha;
+    private final JTextField[] tbs;
     private ArrayList<StufenRechner> windows;
 
     
     /**
-     * Creates new form NewJFrame
+     * Creates new form MainView
+     * @param c Controller
+     * @param m Model
      */
-    public Window(PokemonStatGenerator c, Model m) {
+    public MainView(PokemonStatGenerator c, Model m) {
         this.c = c;
         this.m = m;
         initComponents();
         
-        windows = new ArrayList<StufenRechner>();
+        windows = new ArrayList<>();
         
         ntrPLUS.add(ntrATKp);
         ntrPLUS.add(ntrDEFp);
@@ -75,9 +73,12 @@ public class Window extends javax.swing.JFrame {
         
         tbs = new JTextField[] {hpTBEV, atkTBEV, defTBEV, spaTBEV, spdTBEV, iniTBEV};
         
-        if (loadIcon.isSelected()){
-            getImage();
-        }
+        
+        abilityDescTA.setWrapStyleWord(true);
+        abilityDescTA.setLineWrap(true);
+        abilityDescTA.setEditable(false);
+        
+        getImage();
         getEV();
         m.setStatChange(statCha);
         refreshTotal();
@@ -176,7 +177,6 @@ public class Window extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         evLB = new javax.swing.JLabel();
         evTXT = new javax.swing.JLabel();
-        loadIcon = new javax.swing.JToggleButton();
         exp = new javax.swing.JLabel();
         newWindow = new javax.swing.JButton();
         pkmNameIDTF = new javax.swing.JTextField();
@@ -184,6 +184,12 @@ public class Window extends javax.swing.JFrame {
         nameLabel = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         langCB = new javax.swing.JComboBox<>();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        abilityDescTA = new javax.swing.JTextArea();
+        mainMenuBar = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        OpenAttackSimMI = new javax.swing.JMenuItem();
+        jMenuItem1 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("MyRPG: Pokémon Stat Calculator");
@@ -194,6 +200,7 @@ public class Window extends javax.swing.JFrame {
         pkmLB.setText("Pokémon:");
 
         generate.setText("Generate");
+        generate.setEnabled(false);
         generate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 generateActionPerformed(evt);
@@ -267,45 +274,47 @@ public class Window extends javax.swing.JFrame {
         stsPLLayout.setHorizontalGroup(
             stsPLLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(stsPLLayout.createSequentialGroup()
-                .addGap(18, 18, 18)
                 .addGroup(stsPLLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(stsPLLayout.createSequentialGroup()
-                        .addComponent(atkLBStat, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(atkStat, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(AtkStageSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(stsPLLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(stsPLLayout.createSequentialGroup()
+                                .addComponent(atkLBStat, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(atkStat, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(AtkStageSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(stsPLLayout.createSequentialGroup()
+                                .addComponent(hpLBStat, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(hpStat, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(stsPLLayout.createSequentialGroup()
+                                .addGroup(stsPLLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(defLBStat, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(spaLBStat, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(spdLBStat, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(iniLBStat, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(stsPLLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(stsPLLayout.createSequentialGroup()
+                                        .addComponent(iniStat, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(InitStageSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(stsPLLayout.createSequentialGroup()
+                                        .addComponent(defStat, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(DefStageSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(stsPLLayout.createSequentialGroup()
+                                        .addComponent(spaStat, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(SpAtkStageSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(stsPLLayout.createSequentialGroup()
+                                        .addComponent(spdStat, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(SpDefStageSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, stsPLLayout.createSequentialGroup()
-                        .addComponent(resetChange)
-                        .addGap(27, 27, 27))
-                    .addGroup(stsPLLayout.createSequentialGroup()
-                        .addComponent(hpLBStat, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(hpStat, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(stsPLLayout.createSequentialGroup()
-                        .addGroup(stsPLLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(defLBStat, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(spaLBStat, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(spdLBStat, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(iniLBStat, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(stsPLLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(stsPLLayout.createSequentialGroup()
-                                .addComponent(iniStat, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(InitStageSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(stsPLLayout.createSequentialGroup()
-                                .addComponent(defStat, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(DefStageSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(stsPLLayout.createSequentialGroup()
-                                .addComponent(spaStat, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(SpAtkStageSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(stsPLLayout.createSequentialGroup()
-                                .addComponent(spdStat, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(SpDefStageSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(resetChange)))
                 .addContainerGap())
         );
         stsPLLayout.setVerticalGroup(
@@ -337,16 +346,12 @@ public class Window extends javax.swing.JFrame {
                     .addComponent(SpDefStageSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(stsPLLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(stsPLLayout.createSequentialGroup()
-                        .addGroup(stsPLLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(iniStat, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(iniLBStat, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(resetChange))
-                    .addGroup(stsPLLayout.createSequentialGroup()
-                        .addComponent(InitStageSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                    .addComponent(iniStat, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(iniLBStat, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(InitStageSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(resetChange)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         ivsPL.setBorder(javax.swing.BorderFactory.createTitledBorder("IVs"));
@@ -650,6 +655,11 @@ public class Window extends javax.swing.JFrame {
         abLB.setText("Ability:");
 
         abCB.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        abCB.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                abilityStateChanged(evt);
+            }
+        });
 
         lvlLB.setText("Level:");
 
@@ -779,7 +789,7 @@ public class Window extends javax.swing.JFrame {
                             .addComponent(ntrSPDm)
                             .addComponent(ntrINIm)
                             .addComponent(plusLB, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(53, Short.MAX_VALUE))))
+                        .addContainerGap(43, Short.MAX_VALUE))))
             .addGroup(ntrPNLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(ntrLB, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -849,13 +859,6 @@ public class Window extends javax.swing.JFrame {
                 .addContainerGap(50, Short.MAX_VALUE))
         );
 
-        loadIcon.setText("Load Icon");
-        loadIcon.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                loadIconActionPerformed(evt);
-            }
-        });
-
         exp.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         exp.setBorder(javax.swing.BorderFactory.createTitledBorder("Exp."));
         exp.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -883,18 +886,50 @@ public class Window extends javax.swing.JFrame {
         jLabel2.setText("Language Code");
 
         langCB.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "de", "en", "fr", "es", "it", "ko", "ja", "ja-Hrkt", "roomaji", "zh-Hant", "zh-Hans" }));
+        langCB.setEnabled(false);
         langCB.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 langChange(evt);
             }
         });
 
+        jScrollPane1.setMaximumSize(new java.awt.Dimension(234, 200));
+
+        abilityDescTA.setColumns(20);
+        abilityDescTA.setRows(5);
+        abilityDescTA.setMaximumSize(new java.awt.Dimension(234, 200));
+        jScrollPane1.setViewportView(abilityDescTA);
+
+        mainMenuBar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+
+        jMenu1.setText("File");
+
+        OpenAttackSimMI.setText("Open AttackSim");
+        OpenAttackSimMI.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                OpenAttackSimMIAction(evt);
+            }
+        });
+        jMenu1.add(OpenAttackSimMI);
+
+        jMenuItem1.setText("Open PartyManager");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem1);
+
+        mainMenuBar.add(jMenu1);
+
+        setJMenuBar(mainMenuBar);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -907,18 +942,16 @@ public class Window extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(37, 37, 37)
                                 .addComponent(nameLabel)))
-                        .addGap(149, 149, 149)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lvlLB)
-                                .addGap(18, 18, 18)
-                                .addComponent(lvlSD, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lvlNrLB))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(abLB)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(abCB, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(119, 119, 119)
+                        .addComponent(lvlLB)
+                        .addGap(18, 18, 18)
+                        .addComponent(lvlSD, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lvlNrLB)
+                        .addGap(18, 18, 18)
+                        .addComponent(abLB)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(abCB, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(27, 27, 27)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -928,7 +961,6 @@ public class Window extends javax.swing.JFrame {
                                     .addComponent(evsPL1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(loadIcon, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
                                     .addComponent(gif, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
                                     .addComponent(exp, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
                                     .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
@@ -937,15 +969,18 @@ public class Window extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(langCB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(newWindow)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGap(18, 18, 18)
                                 .addComponent(generate, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(stsPL, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(ntrPN, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(stsPL, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(ntrPN, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(39, 39, 39)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(28, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -954,47 +989,42 @@ public class Window extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(pkmLB)
-                        .addComponent(lvlLB, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(pkmNameIDTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(loadButton))
-                    .addComponent(lvlSD, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lvlNrLB, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(abLB)
-                    .addComponent(abCB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(nameLabel))
+                    .addComponent(lvlLB, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(lvlNrLB, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lvlSD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(abLB)
+                        .addComponent(abCB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(ivsPL, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
-                        .addComponent(evsPL1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(nameLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(ivsPL, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(evsPL1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(gif, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(exp, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(ntrPN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(stsPL, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(gif, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(loadIcon)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(exp, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(12, 12, 12)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(generate)
-                            .addComponent(newWindow)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel2)
-                            .addComponent(langCB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap())
+                        .addComponent(stsPL, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 163, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(generate)
+                    .addComponent(newWindow)
+                    .addComponent(jLabel2)
+                    .addComponent(langCB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(20, 20, 20))
         );
 
         pack();
@@ -1007,8 +1037,8 @@ public class Window extends javax.swing.JFrame {
         
         m.calculateStats(EVs, IVs, lvlSD.getValue(), statAnz, exp);
         newWindow.setEnabled(true);
-        for (int i = 0; i < statCha.length; i++){
-            statCha[i].setEnabled(true);
+        for (JSpinner statCha1 : statCha) {
+            statCha1.setEnabled(true);
         }
         
         refreshTotal();
@@ -1104,14 +1134,6 @@ public class Window extends javax.swing.JFrame {
         ntrLB.setText(m.setNature(ntrPLUSArr, ntrMINUSArr));
     }//GEN-LAST:event_ntrINImActionPerformed
 
-    private void loadIconActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loadIconActionPerformed
-        if (loadIcon.isSelected()){
-            getImage();
-        } else {
-            gif.setIcon(null);
-        }
-    }//GEN-LAST:event_loadIconActionPerformed
-
     private void randEVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_randEVActionPerformed
         for (JTextField s : tbs){
             s.setText(""+(int)Math.floor(Math.random()*51));
@@ -1120,13 +1142,12 @@ public class Window extends javax.swing.JFrame {
     }//GEN-LAST:event_randEVActionPerformed
 
     private void newWindowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newWindowActionPerformed
-        Pokemon p = m.getP();
-        Pokemon p1 = new Pokemon(p.getDexNr(), p.getDex(), p.getName(), p.getBaseHP(), p.getBaseATK(), p.getBaseDEF(), p.getBaseSPA(), p.getBaseSPD(), p.getBaseINI(), p.getAbilities(), p.getBaseXP(), p.getLvlEntw(), p.getEVs());
-        p1.setStats(m.getStats().clone());
-        p1.setExp(exp.getText());
-        p1.setLevel(lvlSD.getValue());
-        p1.setAbility(abCB.getSelectedItem().toString());
-        StufenRechner s = new StufenRechner(p1);
+        Pokemon p = new Pokemon(m.getP());
+        p.setStats(m.getStats().clone());
+        p.setExp(exp.getText());
+        p.setLevel(lvlSD.getValue());
+        p.setAbility(abCB.getSelectedItem().toString());
+        StufenRechner s = new StufenRechner(p);
         s.setVisible(true);
         windows.add(s);
     }//GEN-LAST:event_newWindowActionPerformed
@@ -1134,15 +1155,16 @@ public class Window extends javax.swing.JFrame {
     private void loadButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loadButtonActionPerformed
         loadButton.setEnabled(false);
         m.loadPokemon(pkmNameIDTF.getText());
-        m.setAbilities(abCB);
+        setAbilities();
+        m.setAbility(abCB.getSelectedItem().toString());
+        abilityDescTA.setText(m.getAbilityDesc());
         m.setName(nameLabel);
-        if (loadIcon.isSelected())
-            getImage();
-        else
-            gif.setIcon(null);
+        getImage();
         getEV();
+        generate.setEnabled(true);
         newWindow.setEnabled(false);                          
         loadButton.setEnabled(true);
+        langCB.setEnabled(true);
     }//GEN-LAST:event_loadButtonActionPerformed
 
     private void resetChangeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetChangeActionPerformed
@@ -1177,58 +1199,35 @@ public class Window extends javax.swing.JFrame {
 
     private void langChange(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_langChange
         m.updateLanguage(langCB.getSelectedItem().toString());
-        m.setAbilities(abCB);
+        setAbilities();
         m.setName(nameLabel);
+        m.setAbility(abCB.getSelectedItem().toString());
+        abilityDescTA.setText(m.getAbilityDesc());
     }//GEN-LAST:event_langChange
 
-    private void refreshTotal(){
-        int[] evs = getEVValues();
-        int r = 0;
-        
-        for (int i = 0; i < evs.length; i++){
-            r += evs[i];
-        }
-        
-        totNrLB.setText(""+r);
-    }
-    
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Window.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Window.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Window.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Window.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-    }
+    private void OpenAttackSimMIAction(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OpenAttackSimMIAction
+        c.openAttackSim();
+    }//GEN-LAST:event_OpenAttackSimMIAction
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        c.openPartyManager();
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void abilityStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_abilityStateChanged
+        m.setAbility(abCB.getSelectedItem().toString());
+        abilityDescTA.setText(m.getAbilityDesc());
+    }//GEN-LAST:event_abilityStateChanged
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JSpinner AtkStageSpinner;
     private javax.swing.JSpinner DefStageSpinner;
     private javax.swing.JSpinner InitStageSpinner;
+    private javax.swing.JMenuItem OpenAttackSimMI;
     private javax.swing.JSpinner SpAtkStageSpinner;
     private javax.swing.JSpinner SpDefStageSpinner;
     private javax.swing.JComboBox<String> abCB;
     private javax.swing.JLabel abLB;
+    private javax.swing.JTextArea abilityDescTA;
     private javax.swing.JLabel atkLBEV;
     private javax.swing.JLabel atkLBIV;
     private javax.swing.JLabel atkLBStat;
@@ -1265,13 +1264,16 @@ public class Window extends javax.swing.JFrame {
     private javax.swing.JTextField iniTBEV;
     private javax.swing.JPanel ivsPL;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JComboBox<String> langCB;
     private javax.swing.JButton loadButton;
-    private javax.swing.JToggleButton loadIcon;
     private javax.swing.JLabel lvlLB;
     private javax.swing.JLabel lvlNrLB;
     private javax.swing.JSlider lvlSD;
+    private javax.swing.JMenuBar mainMenuBar;
     private javax.swing.JLabel minusLB;
     private javax.swing.JLabel nameLabel;
     private javax.swing.JButton newWindow;
@@ -1316,30 +1318,49 @@ public class Window extends javax.swing.JFrame {
     private javax.swing.JLabel totNrLB;
     // End of variables declaration//GEN-END:variables
 
-    
-    javax.swing.JComboBox<String> getabCB() {
-        return abCB;
-    }
-
+    /**
+     * Loads sprite from URL and displays it
+     */
     private void getImage() {
         URL url;
         try {
-            url = new URL(m.getDex());
+            url = new URL(m.getSprite());
             BufferedImage img = ImageIO.read(url);
             ImageIcon icon = new ImageIcon(img);
             
             gif.setIcon(icon);
         } catch (MalformedURLException ex) {
-            Logger.getLogger(Window.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MainView.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
             System.out.println("Fehler bei Laden des Bildes. Überprüfe die Internetverbindung!");
+        } catch (NullPointerException ex) {
+            
         }
     }
 
+    /**
+     * Loads Effort Values (rewarded by defeating this Pokemon) from Model and displays them
+     */
     private void getEV() {
         evTXT.setText(m.getEV());
     }
     
+    private void refreshTotal(){
+        int[] evs = getEVValues();
+        int r = 0;
+        
+        for (int i = 0; i < evs.length; i++){
+            r += evs[i];
+        }
+        
+        totNrLB.setText(""+r);
+    }
+    
+    /**
+     * Returns the int-Array containing the Effort Values added to this Pokemon
+     * 
+     * @return int-Array of EVs [HP, Atk, Def, SpA, SpD, Ini]
+     */
     private int[] getEVValues(){
         int [] r = new int[6];
         int i = 0;
@@ -1356,5 +1377,17 @@ public class Window extends javax.swing.JFrame {
         
         
         return r;
+    }
+    
+    /**
+     * Populates the Abilities Combobox with the Abilities loaded from the Model
+     */
+    void setAbilities(){
+        javax.swing.DefaultComboBoxModel<String> mod = 
+                new javax.swing.DefaultComboBoxModel<String>();
+        for (String pa : m.getAbilities()){
+            mod.addElement(pa);
+        }
+        abCB.setModel(mod);
     }
 }

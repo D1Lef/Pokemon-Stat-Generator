@@ -5,7 +5,16 @@
  */
 package pokemon.stat.generator;
 
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import javax.swing.JSpinner;
 
 /**
  *
@@ -14,8 +23,7 @@ import javax.swing.JLabel;
 public class StufenRechner extends javax.swing.JFrame {
 
     private JLabel[] statsLB;
-    private JLabel[] statsChLB;
-    
+    private Model m;
     private Pokemon p;
     
     /** natMUL
@@ -34,18 +42,18 @@ public class StufenRechner extends javax.swing.JFrame {
     }
     
     public StufenRechner(Pokemon p){
-        
         initComponents();
-        
         this.p = p;
         
+        this.setTitle(p.getName() + ", Lv. " + p.getLevel());
         ability.setText("Ability: "+p.getAbility());
         name.setText(p.getName() + "   LV: "+p.getLevel());
         evTXT.setText(p.getEVs());
         exp.setText(p.getExp());
         
+        getImage();
+        
         statsLB = new JLabel[] {statHP, statATK, statDEF, statSPA, statSPD, statINI};
-        statsChLB = new JLabel[] {mulATK, mulDEF, mulSPA, mulSPD, mulINI};
         
         refreshStats();
     }
@@ -72,21 +80,6 @@ public class StufenRechner extends javax.swing.JFrame {
         statSPA = new javax.swing.JLabel();
         statSPD = new javax.swing.JLabel();
         statINI = new javax.swing.JLabel();
-        mulATK = new javax.swing.JLabel();
-        mulDEF = new javax.swing.JLabel();
-        mulSPA = new javax.swing.JLabel();
-        mulSPD = new javax.swing.JLabel();
-        mulINI = new javax.swing.JLabel();
-        pATK = new javax.swing.JButton();
-        pDEF = new javax.swing.JButton();
-        pSPD = new javax.swing.JButton();
-        pSPA = new javax.swing.JButton();
-        pINI = new javax.swing.JButton();
-        mATK = new javax.swing.JButton();
-        mDEF = new javax.swing.JButton();
-        mSPA = new javax.swing.JButton();
-        mSPD = new javax.swing.JButton();
-        mINI = new javax.swing.JButton();
         exp = new javax.swing.JLabel();
         evs = new javax.swing.JLabel();
         ability = new javax.swing.JLabel();
@@ -95,6 +88,12 @@ public class StufenRechner extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         evTXT = new javax.swing.JLabel();
         exp1 = new javax.swing.JLabel();
+        jSpinner1 = new javax.swing.JSpinner();
+        jSpinner2 = new javax.swing.JSpinner();
+        jSpinner3 = new javax.swing.JSpinner();
+        jSpinner4 = new javax.swing.JSpinner();
+        jSpinner5 = new javax.swing.JSpinner();
+        gif = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
@@ -127,88 +126,6 @@ public class StufenRechner extends javax.swing.JFrame {
 
         statINI.setText("300");
 
-        mulATK.setText("0");
-
-        mulDEF.setText("0");
-
-        mulSPA.setText("0");
-
-        mulSPD.setText("0");
-        mulSPD.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-
-        mulINI.setText("0");
-        mulINI.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-
-        pATK.setText("+");
-        pATK.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                pATKActionPerformed(evt);
-            }
-        });
-
-        pDEF.setText("+");
-        pDEF.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                pDEFActionPerformed(evt);
-            }
-        });
-
-        pSPD.setText("+");
-        pSPD.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                pSPDActionPerformed(evt);
-            }
-        });
-
-        pSPA.setText("+");
-        pSPA.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                pSPAActionPerformed(evt);
-            }
-        });
-
-        pINI.setText("+");
-        pINI.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                pINIActionPerformed(evt);
-            }
-        });
-
-        mATK.setText("-");
-        mATK.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mATKActionPerformed(evt);
-            }
-        });
-
-        mDEF.setText("-");
-        mDEF.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mDEFActionPerformed(evt);
-            }
-        });
-
-        mSPA.setText("-");
-        mSPA.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mSPAActionPerformed(evt);
-            }
-        });
-
-        mSPD.setText("-");
-        mSPD.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mSPDActionPerformed(evt);
-            }
-        });
-
-        mINI.setText("-");
-        mINI.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mINIActionPerformed(evt);
-            }
-        });
-
         exp.setText("EXP:");
 
         evs.setText("EVs:");
@@ -225,71 +142,103 @@ public class StufenRechner extends javax.swing.JFrame {
 
         exp1.setText("EXP:");
 
+        jSpinner1.setModel(new javax.swing.SpinnerNumberModel(0, -6, 6, 1));
+        jSpinner1.setName("iniSpinner"); // NOI18N
+        jSpinner1.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                statStageChanged(evt);
+            }
+        });
+
+        jSpinner2.setModel(new javax.swing.SpinnerNumberModel(0, -6, 6, 1));
+        jSpinner2.setName("spdSpinner"); // NOI18N
+        jSpinner2.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                statStageChanged(evt);
+            }
+        });
+
+        jSpinner3.setModel(new javax.swing.SpinnerNumberModel(0, -6, 6, 1));
+        jSpinner3.setName("spaSpinner"); // NOI18N
+        jSpinner3.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                statStageChanged(evt);
+            }
+        });
+
+        jSpinner4.setModel(new javax.swing.SpinnerNumberModel(0, -6, 6, 1));
+        jSpinner4.setName("defSpinner"); // NOI18N
+        jSpinner4.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                statStageChanged(evt);
+            }
+        });
+
+        jSpinner5.setModel(new javax.swing.SpinnerNumberModel(0, -6, 6, 1));
+        jSpinner5.setName("atkSpinner"); // NOI18N
+        jSpinner5.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                statStageChanged(evt);
+            }
+        });
+
+        gif.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        gif.setBorder(javax.swing.BorderFactory.createTitledBorder("Icon"));
+        gif.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGap(16, 16, 16)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(ability)
-                            .addComponent(name, javax.swing.GroupLayout.PREFERRED_SIZE, 449, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
+                            .addComponent(name, javax.swing.GroupLayout.PREFERRED_SIZE, 449, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(gif, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGap(20, 20, 20)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(statINI, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(60, 60, 60)
-                                .addComponent(mulINI, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(pINI, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(statATK, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(60, 60, 60)
-                                .addComponent(mulATK, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(pATK, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jSpinner5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(statHP, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(14, 14, 14)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(mSPD, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                                    .addComponent(mSPA, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                                    .addComponent(mDEF, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                                    .addComponent(mATK, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                                    .addComponent(mINI, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(statHP, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(statDEF, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(60, 60, 60)
-                                .addComponent(mulDEF, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(pDEF, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jSpinner4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(statSPA, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(60, 60, 60)
-                                .addComponent(mulSPA, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(pSPA, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jSpinner3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(statSPD, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(60, 60, 60)
-                                .addComponent(mulSPD, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(pSPD, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jSpinner2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(55, 55, 55)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -299,71 +248,54 @@ public class StufenRechner extends javax.swing.JFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(exp)
                                     .addComponent(evTXT))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 197, Short.MAX_VALUE))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(20, 20, 20))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(14, 14, 14)
-                .addComponent(name, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(ability)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(name, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(ability))
+                    .addComponent(gif, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
                 .addComponent(jLabel8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel2)
-                                    .addComponent(statHP))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel3)
-                                    .addComponent(statATK)
-                                    .addComponent(mulATK)
-                                    .addComponent(pATK))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel4)
-                                    .addComponent(statDEF)
-                                    .addComponent(mulDEF)
-                                    .addComponent(pDEF))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel5)
-                                    .addComponent(statSPA)
-                                    .addComponent(mulSPA)
-                                    .addComponent(pSPA))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel6)
-                                    .addComponent(statSPD)
-                                    .addComponent(mulSPD)
-                                    .addComponent(pSPD))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel7)
-                                    .addComponent(statINI)
-                                    .addComponent(mulINI)
-                                    .addComponent(pINI)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(28, 28, 28)
-                                .addComponent(mATK)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(mDEF)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(mSPA)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(mSPD)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(mINI)))
-                        .addGap(29, 29, 29)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel2)
+                            .addComponent(statHP))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel3)
+                            .addComponent(statATK)
+                            .addComponent(jSpinner5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel4)
+                            .addComponent(statDEF)
+                            .addComponent(jSpinner4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel5)
+                            .addComponent(statSPA)
+                            .addComponent(jSpinner3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel6)
+                            .addComponent(statSPD)
+                            .addComponent(jSpinner2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel7)
+                            .addComponent(statINI)
+                            .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(30, 30, 30)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(exp)
                             .addComponent(exp1))
@@ -371,92 +303,31 @@ public class StufenRechner extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(evs)
                             .addComponent(evTXT)))
-                    .addComponent(jScrollPane1))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE))
                 .addGap(49, 49, 49))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void pATKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pATKActionPerformed
-        if (statChange[0] < 6){
-            statChange[0]++;
+    private void statStageChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_statStageChanged
+        JSpinner js = (JSpinner) evt.getSource();
+        switch (js.getName()) {
+            case "atkSpinner":
+                statChange[0] = (int) js.getValue();
+            case "defSpinner":
+                statChange[1] = (int) js.getValue();
+            case "spaSpinner":
+                statChange[2] = (int) js.getValue();
+            case "spdSpinner":
+                statChange[3] = (int) js.getValue();
+            case "iniSpinner":
+                statChange[4] = (int) js.getValue();
+            default:
+                System.out.println("ERROR statStageChanged [Stufenrechner]");
         }
-        refreshMul();
         adjustStats();
-    }//GEN-LAST:event_pATKActionPerformed
-
-    private void pDEFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pDEFActionPerformed
-        if (statChange[1] < 6){
-            statChange[1]++;
-        }
-        refreshMul();
-        adjustStats();
-    }//GEN-LAST:event_pDEFActionPerformed
-
-    private void pSPAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pSPAActionPerformed
-        if (statChange[2] < 6){
-            statChange[2]++;
-        }
-        refreshMul();
-        adjustStats();
-    }//GEN-LAST:event_pSPAActionPerformed
-
-    private void pSPDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pSPDActionPerformed
-        if (statChange[3] < 6){
-            statChange[3]++;
-        }
-        refreshMul();
-        adjustStats();
-    }//GEN-LAST:event_pSPDActionPerformed
-
-    private void pINIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pINIActionPerformed
-        if (statChange[4] < 6){
-            statChange[4]++;
-        }
-        refreshMul();
-        adjustStats();
-    }//GEN-LAST:event_pINIActionPerformed
-
-    private void mATKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mATKActionPerformed
-        if (statChange[0] > -6){
-            statChange[0]--;
-        }
-        refreshMul();
-        adjustStats();
-    }//GEN-LAST:event_mATKActionPerformed
-
-    private void mDEFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mDEFActionPerformed
-        if (statChange[1] > -6){
-            statChange[1]--;
-        }
-        refreshMul();
-        adjustStats();
-    }//GEN-LAST:event_mDEFActionPerformed
-
-    private void mSPAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mSPAActionPerformed
-        if (statChange[2] > -6){
-            statChange[2]--;
-        }
-        refreshMul();
-        adjustStats();
-    }//GEN-LAST:event_mSPAActionPerformed
-
-    private void mSPDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mSPDActionPerformed
-        if (statChange[3] > -6){
-            statChange[3]--;
-        }
-        refreshMul();
-        adjustStats();
-    }//GEN-LAST:event_mSPDActionPerformed
-
-    private void mINIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mINIActionPerformed
-        if (statChange[4] > -6){
-            statChange[4]--;
-        }
-        refreshMul();
-        adjustStats();
-    }//GEN-LAST:event_mINIActionPerformed
+    }//GEN-LAST:event_statStageChanged
 
     /**
      * @param args the command line arguments
@@ -499,6 +370,7 @@ public class StufenRechner extends javax.swing.JFrame {
     private javax.swing.JLabel evs;
     private javax.swing.JLabel exp;
     private javax.swing.JLabel exp1;
+    private javax.swing.JLabel gif;
     private javax.swing.JEditorPane jEditorPane1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -508,22 +380,12 @@ public class StufenRechner extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JButton mATK;
-    private javax.swing.JButton mDEF;
-    private javax.swing.JButton mINI;
-    private javax.swing.JButton mSPA;
-    private javax.swing.JButton mSPD;
-    private javax.swing.JLabel mulATK;
-    private javax.swing.JLabel mulDEF;
-    private javax.swing.JLabel mulINI;
-    private javax.swing.JLabel mulSPA;
-    private javax.swing.JLabel mulSPD;
+    private javax.swing.JSpinner jSpinner1;
+    private javax.swing.JSpinner jSpinner2;
+    private javax.swing.JSpinner jSpinner3;
+    private javax.swing.JSpinner jSpinner4;
+    private javax.swing.JSpinner jSpinner5;
     private javax.swing.JLabel name;
-    private javax.swing.JButton pATK;
-    private javax.swing.JButton pDEF;
-    private javax.swing.JButton pINI;
-    private javax.swing.JButton pSPA;
-    private javax.swing.JButton pSPD;
     private javax.swing.JLabel statATK;
     private javax.swing.JLabel statDEF;
     private javax.swing.JLabel statHP;
@@ -535,16 +397,6 @@ public class StufenRechner extends javax.swing.JFrame {
     private void refreshStats() {
         for (int i = 0; i < this.p.getStats().length; i++){
             statsLB[i].setText(""+this.p.getStats()[i]);
-        }
-    }
-    
-    private void refreshMul(){
-        for (int i = 0; i < statChange.length; i++){
-            if(statChange[i] > 0){
-                statsChLB[i].setText("+"+statChange[i]);               
-            } else {     
-                statsChLB[i].setText(""+statChange[i]);
-            }
         }
     }
     
@@ -561,6 +413,23 @@ public class StufenRechner extends javax.swing.JFrame {
                 }
                 statsLB[i+1].setText(""+(int)Math.floor(newVal));
             }
+        }
+    }
+    
+    private void getImage() {
+        URL url;
+        try {
+            url = new URL(p.getSprite());
+            BufferedImage img = ImageIO.read(url);
+            ImageIcon icon = new ImageIcon(img);
+            
+            gif.setIcon(icon);
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(MainView.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            System.out.println("Fehler bei Laden des Bildes. Überprüfe die Internetverbindung!");
+        } catch (NullPointerException ex) {
+            
         }
     }
 }

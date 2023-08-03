@@ -13,10 +13,32 @@ import pokemon.attack.simulator.AttackSim;
  */
 public class PokemonStatGenerator{
 
+    private AttackSim as;
+    private PartyLevelManager pm;
+    private final Model m;
+    private final MainView v;
+    
     public PokemonStatGenerator(){
-        Model m = new Model();
-        Window w = new Window(this,m);
-        w.setVisible(true);
+        m = new Model();
+        v = new MainView(this,m);
+        v.setVisible(true);
+    }
+    
+    /**
+     * Opens a new AttackSim window if there isn't one open yet.
+     */
+    public void openAttackSim(){
+        if (as == null){
+            as = new AttackSim();
+        }
+        as.setVisible(true);
+    }
+    
+    public void openPartyManager(){
+        if (pm == null){
+            pm = new PartyLevelManager();
+        }
+        pm.setVisible(true);
     }
     
     /**
@@ -24,7 +46,6 @@ public class PokemonStatGenerator{
      */
     public static void main(String[] args) {
         new PokemonStatGenerator();
-        new AttackSim().setVisible(true);
     }
     
 }

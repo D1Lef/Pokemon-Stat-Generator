@@ -6,33 +6,105 @@
 package pokemon.stat.generator;
 
 import java.util.ArrayList;
+import java.util.Dictionary;
+import java.util.Hashtable;
 
 /**
+ * Handling class for the PokeApiV2
+ * It holds data retrieved from the PokeAPIV2 including abilities, stats, EVs and more.
  *
  * @author Felix
  */
 public class Pokemon {
-
-    Pokemon() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
     
+    
+    private String name;
+    
+    
+    
+    private int[] stats;
+    private int lvlEntw; //wenn keine Entw. = 101
+    private String exp;
+    private String ability;
+    private int level;
+    private int dexNr;
+    private final String spriteURL;
+    private final api.Client pokeApiClient;
+    private models.pokemon.Pokemon pokemonObj;
+    private ArrayList<models.pokemon.PokemonStat> statsList;
+    private String nature;
+    private Dictionary<String, String> abilities;
+    
+    
+    /**
+     * NEW Constructor with PokeAPIClient implementation into the Pokemon object class.
+     * @param nameID String of Pokemon name or Pokedex number
+     * @param pokeApiClient Client of the PokeAPI
+     */
+    public Pokemon(String nameID, api.Client pokeApiClient){
+        this.pokeApiClient = pokeApiClient;
+        
+        this.pokemonObj = loadByNameorID(nameID);
+        
+        this.dexNr = pokemonObj.getId();
+        
+        this.spriteURL = pokemonObj.getSprites().getFrontDefault();
+        System.out.println(pokemonObj.getSprites().toString());
+        this.statsList = pokemonObj.getStats();
+        
+        System.out.println(statsList.get(5));
+        
+    }
+
+    /**
+     * Constructor to create a copy of a Pokemon.
+     * TODO: Rework to fit new Constructor and remove unneeded variables.
+     * 
+     * @param p the Pokemon that should be made a copy of.
+     */
     Pokemon (Pokemon p){
         this.dexNr = p.dexNr;
-        this.EVs = p.EVs;
         this.lvlEntw = p.lvlEntw;
-        this.baseXP = p.baseXP;
-        this.dex = p.dex;
+        this.spriteURL = p.spriteURL;
+        this.nature = p.nature;
         this.name = p.name;
-        this.baseHP = p.baseHP;
-        this.baseATK = p.baseATK;
-        this.baseDEF = p.baseDEF;
-        this.baseSPA = p.baseSPA;
-        this.baseSPD = p.baseSPD;
-        this.baseINI = p.baseINI;
-        this.abilities = p.abilities;
+        this.stats = p.stats;
+        this.statsList = p.statsList;
+        this.pokeApiClient = p.pokeApiClient;
+        this.pokemonObj = loadByNameorID("" + this.dexNr);
     }
-
+    
+    /**
+     * Loads and returns a Pokemon
+     * 
+     * @param nameID Pokedex number or english name of Pokemon
+     * @return loaded Pokemon object
+     */
+    private models.pokemon.Pokemon loadByNameorID (String nameID) {
+        boolean isID = true;
+        int id = 1;
+        
+        try{
+            id = Integer.parseInt(nameID);
+        } catch (NumberFormatException e){
+            isID = false;
+        }
+        
+        if (isID)
+            return pokeApiClient.getPokemonById(id);
+        else
+            return pokeApiClient.getPokemonByName(nameID);
+    }
+    
+    /**
+     * 
+     * @param id id of the stat: 0:HP, 1:Atk, 2:Def, 3:SpA, 4:SpD, 5:Ini
+     * @return 
+     */
+    public int getBaseStat(int id){
+        return statsList.get(id).getBaseStat();
+    }
+    
     /**
      * @return the level
      */
@@ -53,6 +125,13 @@ public class Pokemon {
     public String getAbility() {
         return ability;
     }
+    
+    /**
+     * @return description of current ability 
+     */
+    public String getAbilityDesc() {
+        return abilities.get(ability);
+    }
 
     /**
      * @param ability the ability to set
@@ -60,7 +139,19 @@ public class Pokemon {
     public void setAbility(String ability) {
         this.ability = ability;
     }
-
+    
+    public void populateAbilities(ArrayList<String> names, ArrayList<String> desc){
+        abilities = new Hashtable<>();
+        for (int i = 0; i < names.size(); i++){
+            abilities.put(names.get(i), desc.get(i));
+        }
+    }
+    
+    /**
+     * Returns the national Pokedex number of the Pokemon
+     * 
+     * @return national Pokedex number of Pokemon
+     */
     public int getDexNr(){
         return dexNr;
     }
@@ -90,50 +181,23 @@ public class Pokemon {
      * @return the EVs
      */
     public String getEVs() {
+        String EVs = "<html><body>";
+
+        int [] pkmStats = new int[6];
+        
+        for (int i = 5, j = 0; i >= 0; i--){
+            models.pokemon.PokemonStat ps = statsList.get(i);
+            pkmStats[j] = ps.getBaseStat();
+            if (ps.getEffort() > 0){
+                EVs += ps.getEffort() + " " + ps.getStat().getName() + "<br>";
+            }
+            j++;
+        }
+
+        EVs += "</body></html>";
         return EVs;
     }
     
-    private int baseXP;
-    private String exp;
-    private String ability;
-    private int level;
-    
-    private int lvlEntw; //wenn keine Entw. = 101
-    
-    private int dexNr;
-    private String dex;
-    private String name;
-    private int baseHP;
-    private int baseATK;
-    private int baseDEF;
-    private int baseSPA;
-    private int baseSPD;
-    private int baseINI;
-    private ArrayList<String> abilities;
-    private String nature;
-    private int[] stats;
-    
-    private String EVs;
-    
-    
-    public Pokemon(int dexNr, String dex, String name, int baseHP, int baseATK, 
-            int baseDEF, int baseSPA, int baseSPD, int baseINI, 
-            ArrayList<String> abilities, int baseXP, int lvlEntw, String EVs){
-        this.dexNr = dexNr;
-        this.EVs = EVs;
-        this.lvlEntw = lvlEntw;
-        this.baseXP = baseXP;
-        this.dex = dex;
-        this.name = name;
-        this.baseHP = baseHP;
-        this.baseATK = baseATK;
-        this.baseDEF = baseDEF;
-        this.baseSPA = baseSPA;
-        this.baseSPD = baseSPD;
-        this.baseINI = baseINI;
-        this.abilities = abilities;
-    }
-
     /**
      * @return the name
      */
@@ -142,45 +206,10 @@ public class Pokemon {
     }
     
     /**
-     * @return the baseHP
+     * @return ArrayList of names in different languages
      */
-    public int getBaseHP() {
-        return baseHP;
-    }
-
-    /**
-     * @return the baseATK
-     */
-    public int getBaseATK() {
-        return baseATK;
-    }
-
-    /**
-     * @return the baseDEF
-     */
-    public int getBaseDEF() {
-        return baseDEF;
-    }
-
-    /**
-     * @return the baseSPA
-     */
-    public int getBaseSPA() {
-        return baseSPA;
-    }
-
-    /**
-     * @return the baseSPD
-     */
-    public int getBaseSPD() {
-        return baseSPD;
-    }
-
-    /**
-     * @return the baseINI
-     */
-    public int getBaseINI() {
-        return baseINI;
+    public ArrayList<models.common.Name> getNames() {
+        return pokemonObj.getSpecies().getNames();
     }
 
     /**
@@ -193,8 +222,8 @@ public class Pokemon {
     /**
      * @return the abilities
      */
-    public ArrayList<String> getAbilities() {
-        return abilities;
+    public ArrayList<models.pokemon.PokemonAbility> getAbilities() {
+        return pokeApiClient.getPokemonById(dexNr).getAbilities();
     }
 
     /**
@@ -204,15 +233,15 @@ public class Pokemon {
         this.nature = nature;
     }
 
-    String getDex() {
-        return dex;
+    String getSprite() {
+        return spriteURL;
     }
 
     /**
      * @return the baseXP
      */
     public int getBaseXP() {
-        return baseXP;
+        return pokemonObj.getBaseExperience();
     }
 
     /**
@@ -228,9 +257,5 @@ public class Pokemon {
     
     public int[] getStats() {
         return stats;
-    }
-    
-    public void updateAbilities(ArrayList<String> a) {
-        this.abilities = a;
     }
 }

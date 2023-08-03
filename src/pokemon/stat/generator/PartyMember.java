@@ -6,7 +6,6 @@
 package pokemon.stat.generator;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 /**
  *
@@ -23,7 +22,7 @@ public class PartyMember extends Pokemon{
             int baseDEF, int baseSPA, int baseSPD, int baseINI, 
             ArrayList<String> abilities, int baseXP, int lvlEntw, String EVs, String nickname, int[] IVs, double[] natMUL){
         
-        super(dexNr, dex, name, baseHP, baseATK, baseDEF, baseSPA, baseSPD, baseINI,abilities, baseXP, lvlEntw,EVs);
+        super("" + dexNr, new api.Client());
         
         this.IVs = IVs;
         this.nickname = nickname;

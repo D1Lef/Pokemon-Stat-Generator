@@ -6,30 +6,16 @@
 package pokemon.stat.generator;
 
 import api.Client;
-import java.io.BufferedInputStream;
-import java.io.FileOutputStream;
 import java.util.ArrayList;
-import java.util.Arrays;
-import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JRadioButton;
 
-import java.io.FileReader; 
-import java.io.IOException;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.util.Iterator; 
-import java.util.Map; 
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.JOptionPane;
 import javax.swing.JSpinner;
 import models.common.Name;
 import models.evolution.ChainLink;
 import models.evolution.EvolutionChain;
 import models.pokemon.Ability;
 import models.pokemon.PokemonSpecies;
-import models.pokemon.PokemonStat;
 
 
 
@@ -39,12 +25,11 @@ import models.pokemon.PokemonStat;
  */
 public class Model {
     
-    private Client pokeApiClient;
+    private final Client pokeApiClient;
     private Pokemon activePKM;
     private String[][] nature;
     private String selectedNature;
     
-    private int langID = 2;
     private String langCode = "de";
     
     /** natMUL
@@ -90,64 +75,23 @@ public class Model {
         nature[4] = iniP;
     }
 
+    /**
+     * Loads relevant Pokemon information from the API
+     * 
+     * @param nameID name or ID of the Pokemon to loaded
+     * @return Pokemon object with the loaded information
+     */
     public Pokemon loadPokemon(String nameID){
-        boolean isID = true;
-        int id = 1;
-        
-        try{
-            id = Integer.parseInt(nameID);
-        } catch (NumberFormatException e){
-            isID = false;
-        }
-        
-        models.pokemon.Pokemon poke;
-        if (isID)
-            poke = pokeApiClient.getPokemonById(id);
-        else
-            poke = pokeApiClient.getPokemonByName(nameID);
-
-        
-        
-        
-        String EVs = "<html><body>";
-
-        int [] pkmStats = new int[6];
-
-        for (int i = 5, j = 0; i >= 0; i--){
-            PokemonStat ps = poke.getStats().get(i);
-            pkmStats[j] = ps.getBaseStat();
-            if (ps.getEffort() > 0){
-                EVs += ps.getEffort() + " " + ps.getStat().getName() + "<br>";
-            }
-            j++;
-        }
-
-        EVs += "</body></html>";
-
-        PokemonSpecies psp = pokeApiClient.getPokemonSpeciesById(poke.getId());
-
-        String pkmName = "No name found";
-        
-        ArrayList<Name> names = psp.getNames();
-        
-        for (int i = 0; i < names.size(); i++){
-            Name name = names.get(i);
-            System.out.println(name.getLanguage().getName());
-            if (name.getLanguage().getName().equals(langCode)){
-                pkmName = name.getName();
-                break;
-            }
-        }
-        
-        activePKM = new Pokemon(
-            poke.getId(), poke.getSprites().getFrontDefault(), 
-            pkmName, pkmStats[0], pkmStats[1], pkmStats[2], pkmStats[3], pkmStats[4], pkmStats[5], 
-            getAbilities(poke.getId()), poke.getBaseExperience(), getEvolutionLevel(poke.getId()), 
-            EVs);
-        
+        activePKM = new Pokemon(nameID, pokeApiClient);
         return activePKM;
     }
         
+    /**
+     * Returns the level of evolution of a Pokemon, 101 if it has no evolution level
+     * 
+     * @param id Pokedex number of Pokemon
+     * @return level of evolution of a Pokemon, 101 if it has no evolution level
+     */
     public int getEvolutionLevel(int id){
         models.pokemon.Pokemon test = pokeApiClient.getPokemonById(id);
         PokemonSpecies s = pokeApiClient.getPokemonSpeciesById(id);
@@ -172,7 +116,7 @@ public class Model {
                     if (!found)
                         return 101;
                 }
-                if (cl.getEvolvesTo().size() == 0)
+                if (cl.getEvolvesTo().isEmpty())
                     return 101;
                     
                 cl = cl.getEvolvesTo().get(0);
@@ -189,73 +133,85 @@ public class Model {
         return minLv;
     }
     
-    public ArrayList<String> getAbilities(int id){
-        models.pokemon.Pokemon test = pokeApiClient.getPokemonById(id);
+    /**
+     * Sets ability of Pokemon
+     * @param ability String name of ability
+     */
+    public void setAbility(String ability) {
+        activePKM.setAbility(ability);
+    }
+    
+    /**
+     * Returns an ArrayLIst of Strings containing the possible abilities of the current Pokemon in the correct language (according to langCode)
+     * 
+     * @return String-ArrayList of possible abilities 
+     */
+    public ArrayList<String> getAbilities(){
+        models.pokemon.Pokemon test = pokeApiClient.getPokemonById(activePKM.getDexNr());
         
-        ArrayList<String> abilities = new ArrayList<>();
+        ArrayList<String> abilityNames = new ArrayList<>();
+        ArrayList<String> abilityDescs = new ArrayList<>();
         
         for (int i = test.getAbilities().size()-1; i >= 0; i--){
             String url = test.getAbilities().get(i).getAbility().getUrl();
             int abiID = Integer.parseInt(url.substring(url.indexOf("ability/")+8, url.length()-1));
             Ability a = pokeApiClient.getAbilityById(abiID);
-            String s = "No name found";
-            
-            ArrayList<Name> a_names = a.getNames();
-            for (int j = 0; j < a_names.size(); j++){
-                Name name = a_names.get(j);
-                if (name.getLanguage().getName().equals(langCode)){
-                    s = name.getName();
-                    break;
-                }
-            }
+            String name = nameLanguageSearch(a.getNames());
+            String effect = descLanguageSearch(a.getEffectEntries());
             
             if (test.getAbilities().get(i).isHidden())
-                s += " (HA)";
-            abilities.add(s);
+                name += " (HA)";
+            abilityNames.add(name);
+            abilityDescs.add(effect);
+            activePKM.populateAbilities(abilityNames, abilityDescs);
         }
         
-        return abilities;
+        return abilityNames;
     }
     
-    public String getDex(){
-        return activePKM.getDex();
+    public String getAbilityDesc(){
+        return activePKM.getAbilityDesc();
     }
     
+    /**
+     * Gets ZRL of the front sprite of the current Pokemon.
+     * 
+     * @return URL to sprite of current Pokemon
+     */
+    public String getSprite(){
+        return activePKM.getSprite();
+    }
+    
+    /**
+     * Sets name of the Pokemon in the current language (according to langCode)
+     * 
+     * @param nameLabel label in the view containing the Pokemon name
+     */
     void setName(JLabel nameLabel){
-        nameLabel.setText(activePKM.getName());
+        String name = nameLanguageSearch(pokeApiClient.getPokemonSpeciesById(activePKM.getDexNr()).getNames());
+        activePKM.setName(name);
+        nameLabel.setText(name);
     }
     
-    void updateName() {
-        PokemonSpecies psp = pokeApiClient.getPokemonSpeciesById(activePKM.getDexNr());
-        
-        ArrayList<Name> names = psp.getNames();
-        
-        for (int i = 0; i < names.size(); i++){
-            Name name = names.get(i);
-            if (name.getLanguage().getName().equals(langCode)){
-                activePKM.setName(name.getName());
-                return;
-            }
-        }
-        
-        activePKM.setName("No name found");
-    }
-    
+    /**
+     * Updates the langCode variable
+     * @param code language code (en, de, fr, it, es, jp, ko, jp-Hrkt, roomaji, zh-Hans, zt-Hant)
+     */
     void updateLanguage(String code){
         this.langCode = code;
-        activePKM.updateAbilities(getAbilities(activePKM.getDexNr()));
-        updateName();
     }
     
-    void setAbilities(JComboBox<String> abilities){
-        javax.swing.DefaultComboBoxModel<String> mod = 
-                new javax.swing.DefaultComboBoxModel<String>();
-        for (String a : activePKM.getAbilities()){
-            mod.addElement(a);
-        }
-        abilities.setModel(mod);
+    String getLanguage(){
+        return langCode;
     }
     
+    /**
+     * Calculates the nature according to the positive and negative Stat selected
+     * 
+     * @param p RadioButton of positive Stat
+     * @param m RadioButton of negative Stat
+     * @return name of nature
+     */
     String setNature(JRadioButton[] p, JRadioButton[] m){
         
         natMUL = new double[] {1,1,1,1,1};
@@ -292,6 +248,15 @@ public class Model {
         return selectedNature = nature[indexP][indexM];
     }
     
+    /**
+     * Calculates the stats of the current Pokemon according to the EVs, IVs and level selected in the View.
+     * 
+     * @param EVs Array of EVs [HP, Atk, Def, SpA, SpD, Ini]
+     * @param IVs Array of IVs [HP, Atk, Def, SpA, SpD, Ini]
+     * @param level level of the Pokemon
+     * @param statAnz Array of labels for the stats to be printed to [HP, Atk, Def, SpA, SpD, Ini]
+     * @param ev Exp Points gained by defeating this Pokemon
+     */
     public void calculateStats(int[] EVs, int[] IVs, int level, JLabel[] statAnz, JLabel ev){
         double e;
         
@@ -301,13 +266,13 @@ public class Model {
             e = 1;
         }
         
-        stats[1] = (int) Math.floor(((2 * activePKM.getBaseATK() + IVs[1] + (EVs[1]/4)) * level/100 + 5) * natMUL[0]);
-        stats[2] = (int) Math.floor(((2 * activePKM.getBaseDEF() + IVs[2] + (EVs[2]/4)) * level/100 + 5) * natMUL[1]);
-        stats[3] = (int) Math.floor(((2 * activePKM.getBaseSPA() + IVs[3] + (EVs[3]/4)) * level/100 + 5) * natMUL[2]);
-        stats[4] = (int) Math.floor(((2 * activePKM.getBaseSPD() + IVs[4] + (EVs[4]/4)) * level/100 + 5) * natMUL[3]);
-        stats[5] = (int) Math.floor(((2 * activePKM.getBaseINI() + IVs[5] + (EVs[5]/4)) * level/100 + 5) * natMUL[4]);
+        stats[1] = (int) Math.floor(((2 * activePKM.getBaseStat(1) + IVs[1] + (EVs[1]/4)) * level/100 + 5) * natMUL[0]);
+        stats[2] = (int) Math.floor(((2 * activePKM.getBaseStat(2) + IVs[2] + (EVs[2]/4)) * level/100 + 5) * natMUL[1]);
+        stats[3] = (int) Math.floor(((2 * activePKM.getBaseStat(3) + IVs[3] + (EVs[3]/4)) * level/100 + 5) * natMUL[2]);
+        stats[4] = (int) Math.floor(((2 * activePKM.getBaseStat(4) + IVs[4] + (EVs[4]/4)) * level/100 + 5) * natMUL[3]);
+        stats[5] = (int) Math.floor(((2 * activePKM.getBaseStat(5) + IVs[5] + (EVs[5]/4)) * level/100 + 5) * natMUL[4]);
         
-        stats[0] = (int) Math.floor(((2 * activePKM.getBaseHP()) + IVs[0] + EVs[0]/4 + 100) * level/100 + 10);
+        stats[0] = (int) Math.floor(((2 * activePKM.getBaseStat(0)) + IVs[0] + EVs[0]/4 + 100) * level/100 + 10);
         
         for (int i = 0; i < statAnz.length; i++){
             statAnz[i].setText(""+stats[i]);
@@ -315,54 +280,91 @@ public class Model {
         }
     }
     
-    public void calculateStats(Pokemon poke, int[] EVs, int[] IVs, int level, int index, JLabel[] statAnz, double[] natMUL){
-        
+    /**
+     * Calculates the stats of a Pokemon according to the EVs, IVs and level selected in the View.
+     * 
+     * @param poke Pokemon Object
+     * @param EVs Array of EVs [HP, Atk, Def, SpA, SpD, Ini]
+     * @param IVs Array of IVs [HP, Atk, Def, SpA, SpD, Ini]
+     * @param level level of the Pokemon
+     * @param statAnz Array of labels for the stats to be printed to [HP, Atk, Def, SpA, SpD, Ini]
+     * @param natMUL Array of ints representing the stat multipliers of the selected nature
+     */
+    public void calculateStats(Pokemon poke, int[] EVs, int[] IVs, int level, JLabel[] statAnz, double[] natMUL){
         Pokemon selected = poke;
         
-        double e;
+        stats[1] = (int) Math.floor(((2 * selected.getBaseStat(1) + IVs[1] + (EVs[1]/4)) * level/100 + 5) * natMUL[0]);
+        stats[2] = (int) Math.floor(((2 * selected.getBaseStat(2) + IVs[2] + (EVs[2]/4)) * level/100 + 5) * natMUL[1]);
+        stats[3] = (int) Math.floor(((2 * selected.getBaseStat(3) + IVs[3] + (EVs[3]/4)) * level/100 + 5) * natMUL[2]);
+        stats[4] = (int) Math.floor(((2 * selected.getBaseStat(4) + IVs[4] + (EVs[4]/4)) * level/100 + 5) * natMUL[3]);
+        stats[5] = (int) Math.floor(((2 * selected.getBaseStat(5) + IVs[5] + (EVs[5]/4)) * level/100 + 5) * natMUL[4]);
         
-        if(level >= poke.getLvlEntw()){
-            e = 1.2;
-        } else {
-            e = 1;
-        }
-        
-        stats[1] = (int) Math.floor(((2 * selected.getBaseATK() + IVs[1] + (EVs[1]/4)) * level/100 + 5) * natMUL[0]);
-        stats[2] = (int) Math.floor(((2 * selected.getBaseDEF() + IVs[2] + (EVs[2]/4)) * level/100 + 5) * natMUL[1]);
-        stats[3] = (int) Math.floor(((2 * selected.getBaseSPA() + IVs[3] + (EVs[3]/4)) * level/100 + 5) * natMUL[2]);
-        stats[4] = (int) Math.floor(((2 * selected.getBaseSPD() + IVs[4] + (EVs[4]/4)) * level/100 + 5) * natMUL[3]);
-        stats[5] = (int) Math.floor(((2 * selected.getBaseINI() + IVs[5] + (EVs[5]/4)) * level/100 + 5) * natMUL[4]);
-        
-        stats[0] = (int) Math.floor(((2 * selected.getBaseHP()) + IVs[0] + EVs[0]/4 + 100) * level/100 + 10);
+        stats[0] = (int) Math.floor(((2 * selected.getBaseStat(0)) + IVs[0] + EVs[0]/4 + 100) * level/100 + 10);
         
         for (int i = 0; i < statAnz.length; i++){
             statAnz[i].setText(""+stats[i]);
         }
     }
     
+    /**
+     * Returns html code to represent the EVs gained by defeating this Pokemon.
+     * 
+     * @return String of html code containing the EVs
+     */
     public String getEV(){
         if (activePKM == null)
             return null;
         return activePKM.getEVs();
     }
     
+    /**
+     * Updates the Spinners of the stat stages to have the values of the parameter Array 
+     * 
+     * @param change Array of Spinners representing the stat stages
+     */
     public void setStatChange(JSpinner[] change){
+        if (change.length != 5){
+            System.out.println("ERROR setStatChange: incorrect amount of spinners in parameter array; SIZE OF ARRAY: " + change.length);
+            return;
+        }
         for (int i = 0; i < change.length; i++){
+            if (statChange[i] < -6 || statChange[i] > 6){
+                System.out.println("ERROR setStatChange: statChange Array has incorrect value; INDEX: " + i + "; VALUE: " + statChange[i]);
+                return;
+            }
             change[i].setValue(statChange[i]);
         }
     }
     
+    /**
+     * Updates the stat stages according to parameter index and stage value
+     * 
+     * @param index index of stat whose stage should be changed [0 - 4]
+     * @param stage stat stage value [-6 - 6]
+     */
     public void setStatStage(int index, int stage){
         if (stage <= 6 && stage >= -6){
             statChange[index] = stage;
+        } else {
+            System.out.println("ERROR setStatStage: parameter has incorrect value; VALUE: " + stage);
         }
     }
 
+    /**
+     * Sets all stat changes to 0 both in Model and View.
+     * 
+     * @param statCha Array of Spinners representing the stat stages
+     */
     void statReset(JSpinner[] statCha) {
         statChange = new int[] {0,0,0,0,0};
         setStatChange(statCha);
     }
     
+    /**
+     * Updates the stat values displayed in the view.
+     * 
+     * @param anz Array of labels [HP, Atk, Def, SpA, SpD, Ini]
+     */
     public void adjustStats(JLabel[] anz){
         
         double newVal = 0;
@@ -379,15 +381,70 @@ public class Model {
         }
     }
     
+    /**
+     * Returns loaded Pokemon
+     * 
+     * @return Pokemon object loaded into Model
+     */
     public Pokemon getP(){
         return activePKM;
     }
     
+    /**
+     * Takes the parameter Pokemon and integrates it into the Model.
+     * 
+     * @param p Pokemon to be loaded
+     */
+    public void setP(Pokemon p){
+        this.activePKM = p;
+    }
+    
+    /**
+     * Loads Pokemon by supplying an int number representing the number in the national Pokedex
+     * 
+     * @param dex number of Pokemon in the national Pokedex
+     * @return loaded Pokemon object
+     */
     public Pokemon getPokemonbyDexNumber(int dex){
         return loadPokemon(""+dex);
     }
     
+    /**
+     * Returns the array of stats of the current Pokemon
+     * 
+     * @return Array of int stats [HP, Atk, Def, SpA, SpD, Ini]
+     */
     public int[] getStats(){
         return stats;
+    }
+    
+    /**
+     * Looks through Name-List and searches for the language set in the langCode variable
+     * 
+     * @param names ArrayList of Names
+     * @return String of name in language according to langCode value
+     */
+    public String nameLanguageSearch(ArrayList<Name> names) {
+        for (Name name : names){
+            if (name.getLanguage().getName().equals(langCode)){
+                return name.getName();
+            }
+        }
+        return "Language not found!";
+    }
+    
+    /**
+     * Looks through Name-List and searches for the language set in the langCode variable
+     * 
+     * @param description ArrayList of Descriptions
+     * @return String of description in language according to langCode value
+     */
+    public String descLanguageSearch(ArrayList<models.common.VerboseEffect> descriptions) {
+        for (models.common.VerboseEffect desc : descriptions){
+            if (desc.getLanguage().getName().equals(langCode)){
+                return desc.getEffect();
+            }
+        }
+        return "Language not found!";
     }
 }
