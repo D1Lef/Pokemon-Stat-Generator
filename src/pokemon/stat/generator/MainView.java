@@ -16,6 +16,7 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JRadioButton;
+import javax.swing.JRadioButtonMenuItem;
 import javax.swing.JSpinner;
 import javax.swing.JTextField;
 
@@ -31,7 +32,7 @@ public class MainView extends javax.swing.JFrame {
     private final JRadioButton[] ntrMINUSArr;
     private final JLabel[] statAnz;
     private final JSpinner[] statCha;
-    private final JTextField[] tbs;
+    private final JSpinner[] evs;
     private ArrayList<StufenRechner> windows;
 
     
@@ -71,7 +72,7 @@ public class MainView extends javax.swing.JFrame {
         statAnz = new JLabel[] {hpStat, atkStat, defStat, spaStat, spdStat, iniStat};
         statCha = new JSpinner[] {AtkStageSpinner, DefStageSpinner, SpAtkStageSpinner, SpDefStageSpinner, InitStageSpinner};
         
-        tbs = new JTextField[] {hpTBEV, atkTBEV, defTBEV, spaTBEV, spdTBEV, iniTBEV};
+        evs = new JSpinner[] {hpEV, atkEV, defEV, spaEV, spdEV, iniEV};
         
         
         abilityDescTA.setWrapStyleWord(true);
@@ -79,7 +80,7 @@ public class MainView extends javax.swing.JFrame {
         abilityDescTA.setEditable(false);
         
         getImage();
-        getEV();
+        //getEV();
         m.setStatChange(statCha);
         refreshTotal();
     }
@@ -95,6 +96,7 @@ public class MainView extends javax.swing.JFrame {
 
         ntrPLUS = new javax.swing.ButtonGroup();
         ntrMINUS = new javax.swing.ButtonGroup();
+        langCode = new javax.swing.ButtonGroup();
         pkmLB = new javax.swing.JLabel();
         generate = new javax.swing.JButton();
         stsPL = new javax.swing.JPanel();
@@ -118,24 +120,18 @@ public class MainView extends javax.swing.JFrame {
         InitStageSpinner = new javax.swing.JSpinner();
         ivsPL = new javax.swing.JPanel();
         hpLBIV = new javax.swing.JLabel();
-        hpSDIV = new javax.swing.JSlider();
-        hpNrLBIV = new javax.swing.JLabel();
         atkLBIV = new javax.swing.JLabel();
-        atkSDIV = new javax.swing.JSlider();
-        atkNrLBIV = new javax.swing.JLabel();
         defLBIV = new javax.swing.JLabel();
-        defSDIV = new javax.swing.JSlider();
-        defNrLBIV = new javax.swing.JLabel();
         spaLBIV = new javax.swing.JLabel();
-        spaSDIV = new javax.swing.JSlider();
-        spaNrLBIV = new javax.swing.JLabel();
         spdLBIV = new javax.swing.JLabel();
-        spdSDIV = new javax.swing.JSlider();
-        spdNrLBIV = new javax.swing.JLabel();
         iniLBIV = new javax.swing.JLabel();
-        iniSDIV = new javax.swing.JSlider();
-        iniNrLBIV = new javax.swing.JLabel();
         randIV = new javax.swing.JButton();
+        hpIV = new javax.swing.JSpinner();
+        atkIV = new javax.swing.JSpinner();
+        defIV = new javax.swing.JSpinner();
+        spaIV = new javax.swing.JSpinner();
+        spdIV = new javax.swing.JSpinner();
+        iniIV = new javax.swing.JSpinner();
         evsPL1 = new javax.swing.JPanel();
         hpLBEV = new javax.swing.JLabel();
         atkLBEV = new javax.swing.JLabel();
@@ -147,17 +143,15 @@ public class MainView extends javax.swing.JFrame {
         totLB = new javax.swing.JLabel();
         totNrLB = new javax.swing.JLabel();
         randEV = new javax.swing.JButton();
-        hpTBEV = new javax.swing.JTextField();
-        atkTBEV = new javax.swing.JTextField();
-        defTBEV = new javax.swing.JTextField();
-        spaTBEV = new javax.swing.JTextField();
-        spdTBEV = new javax.swing.JTextField();
-        iniTBEV = new javax.swing.JTextField();
+        hpEV = new javax.swing.JSpinner();
+        atkEV = new javax.swing.JSpinner();
+        defEV = new javax.swing.JSpinner();
+        spaEV = new javax.swing.JSpinner();
+        spdEV = new javax.swing.JSpinner();
+        iniEV = new javax.swing.JSpinner();
         abLB = new javax.swing.JLabel();
         abCB = new javax.swing.JComboBox<>();
         lvlLB = new javax.swing.JLabel();
-        lvlSD = new javax.swing.JSlider();
-        lvlNrLB = new javax.swing.JLabel();
         ntrPN = new javax.swing.JPanel();
         ntrATKp = new javax.swing.JRadioButton();
         ntrDEFp = new javax.swing.JRadioButton();
@@ -182,14 +176,20 @@ public class MainView extends javax.swing.JFrame {
         pkmNameIDTF = new javax.swing.JTextField();
         loadButton = new javax.swing.JButton();
         nameLabel = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        langCB = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
         abilityDescTA = new javax.swing.JTextArea();
+        levelSpinner = new javax.swing.JSpinner();
         mainMenuBar = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
+        AppsJM = new javax.swing.JMenu();
         OpenAttackSimMI = new javax.swing.JMenuItem();
         jMenuItem1 = new javax.swing.JMenuItem();
+        PropertiesJM = new javax.swing.JMenu();
+        languageJM = new javax.swing.JMenu();
+        jRadioButtonMenuItem1 = new javax.swing.JRadioButtonMenuItem();
+        jRadioButtonMenuItem2 = new javax.swing.JRadioButtonMenuItem();
+        jRadioButtonMenuItem3 = new javax.swing.JRadioButtonMenuItem();
+        jRadioButtonMenuItem4 = new javax.swing.JRadioButtonMenuItem();
+        jRadioButtonMenuItem5 = new javax.swing.JRadioButtonMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("MyRPG: Pokémon Stat Calculator");
@@ -209,6 +209,9 @@ public class MainView extends javax.swing.JFrame {
 
         stsPL.setBorder(javax.swing.BorderFactory.createTitledBorder("Stats"));
         stsPL.setToolTipText("");
+        stsPL.setMaximumSize(new java.awt.Dimension(213, 266));
+        stsPL.setMinimumSize(new java.awt.Dimension(213, 266));
+        stsPL.setPreferredSize(new java.awt.Dimension(213, 266));
 
         hpLBStat.setText("HP:");
 
@@ -220,7 +223,7 @@ public class MainView extends javax.swing.JFrame {
 
         spdLBStat.setText("SpDef:");
 
-        iniLBStat.setText("Init.:");
+        iniLBStat.setText("Speed:");
 
         resetChange.setText("Set 0");
         resetChange.addActionListener(new java.awt.event.ActionListener() {
@@ -231,41 +234,46 @@ public class MainView extends javax.swing.JFrame {
 
         AtkStageSpinner.setModel(new javax.swing.SpinnerNumberModel(0, -6, 6, 1));
         AtkStageSpinner.setEnabled(false);
+        AtkStageSpinner.setName("atkSpinner"); // NOI18N
         AtkStageSpinner.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                AtkStageChange(evt);
+                statStageChange(evt);
             }
         });
 
         DefStageSpinner.setModel(new javax.swing.SpinnerNumberModel(0, -6, 6, 1));
         DefStageSpinner.setEnabled(false);
+        DefStageSpinner.setName("defSpinner"); // NOI18N
         DefStageSpinner.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                DefStageChange(evt);
+                statStageChange(evt);
             }
         });
 
         SpAtkStageSpinner.setModel(new javax.swing.SpinnerNumberModel(0, -6, 6, 1));
         SpAtkStageSpinner.setEnabled(false);
+        SpAtkStageSpinner.setName("spaSpinner"); // NOI18N
         SpAtkStageSpinner.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                SpAtkStageChange(evt);
+                statStageChange(evt);
             }
         });
 
         SpDefStageSpinner.setModel(new javax.swing.SpinnerNumberModel(0, -6, 6, 1));
         SpDefStageSpinner.setEnabled(false);
+        SpDefStageSpinner.setName("spdSpinner"); // NOI18N
         SpDefStageSpinner.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                SpDefStageChange(evt);
+                statStageChange(evt);
             }
         });
 
         InitStageSpinner.setModel(new javax.swing.SpinnerNumberModel(0, -6, 6, 1));
         InitStageSpinner.setEnabled(false);
+        InitStageSpinner.setName("iniSpinner"); // NOI18N
         InitStageSpinner.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                InitStageChange(evt);
+                statStageChange(evt);
             }
         });
 
@@ -282,18 +290,18 @@ public class MainView extends javax.swing.JFrame {
                                 .addComponent(atkLBStat, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(atkStat, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
                                 .addComponent(AtkStageSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(stsPLLayout.createSequentialGroup()
                                 .addComponent(hpLBStat, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(hpStat, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(stsPLLayout.createSequentialGroup()
-                                .addGroup(stsPLLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(stsPLLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(defLBStat, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(spaLBStat, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(spdLBStat, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(iniLBStat, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(spaLBStat, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(spdLBStat, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(iniLBStat, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(stsPLLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(stsPLLayout.createSequentialGroup()
@@ -315,7 +323,7 @@ public class MainView extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, stsPLLayout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(resetChange)))
-                .addContainerGap())
+                .addGap(15, 15, 15))
         );
         stsPLLayout.setVerticalGroup(
             stsPLLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -359,75 +367,15 @@ public class MainView extends javax.swing.JFrame {
 
         hpLBIV.setText("HP:");
 
-        hpSDIV.setMaximum(31);
-        hpSDIV.setValue(5);
-        hpSDIV.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                hpSDIVStateChanged(evt);
-            }
-        });
-
-        hpNrLBIV.setText(""+hpSDIV.getValue());
-
         atkLBIV.setText("Atk:");
-
-        atkSDIV.setMaximum(31);
-        atkSDIV.setValue(5);
-        atkSDIV.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                atkSDIVStateChanged(evt);
-            }
-        });
-
-        atkNrLBIV.setText(""+atkSDIV.getValue());
 
         defLBIV.setText("Def:");
 
-        defSDIV.setMaximum(31);
-        defSDIV.setValue(5);
-        defSDIV.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                defSDIVStateChanged(evt);
-            }
-        });
-
-        defNrLBIV.setText(""+defSDIV.getValue());
-
         spaLBIV.setText("SpAtk:");
-
-        spaSDIV.setMaximum(31);
-        spaSDIV.setValue(5);
-        spaSDIV.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                spaSDIVStateChanged(evt);
-            }
-        });
-
-        spaNrLBIV.setText(""+spaSDIV.getValue());
 
         spdLBIV.setText("SpDef:");
 
-        spdSDIV.setMaximum(31);
-        spdSDIV.setValue(5);
-        spdSDIV.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                spdSDIVStateChanged(evt);
-            }
-        });
-
-        spdNrLBIV.setText(""+spdSDIV.getValue());
-
-        iniLBIV.setText("Init.:");
-
-        iniSDIV.setMaximum(31);
-        iniSDIV.setValue(5);
-        iniSDIV.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                iniSDIVStateChanged(evt);
-            }
-        });
-
-        iniNrLBIV.setText(""+iniSDIV.getValue());
+        iniLBIV.setText("Speed:");
 
         randIV.setText("Random");
         randIV.addActionListener(new java.awt.event.ActionListener() {
@@ -436,6 +384,18 @@ public class MainView extends javax.swing.JFrame {
             }
         });
 
+        hpIV.setModel(new javax.swing.SpinnerNumberModel(0, 0, 31, 1));
+
+        atkIV.setModel(new javax.swing.SpinnerNumberModel(0, 0, 31, 1));
+
+        defIV.setModel(new javax.swing.SpinnerNumberModel(0, 0, 31, 1));
+
+        spaIV.setModel(new javax.swing.SpinnerNumberModel(0, 0, 31, 1));
+
+        spdIV.setModel(new javax.swing.SpinnerNumberModel(0, 0, 31, 1));
+
+        iniIV.setModel(new javax.swing.SpinnerNumberModel(0, 0, 31, 1));
+
         javax.swing.GroupLayout ivsPLLayout = new javax.swing.GroupLayout(ivsPL);
         ivsPL.setLayout(ivsPLLayout);
         ivsPLLayout.setHorizontalGroup(
@@ -443,87 +403,66 @@ public class MainView extends javax.swing.JFrame {
             .addGroup(ivsPLLayout.createSequentialGroup()
                 .addGap(14, 14, 14)
                 .addGroup(ivsPLLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(randIV)
                     .addGroup(ivsPLLayout.createSequentialGroup()
                         .addComponent(hpLBIV, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(hpSDIV, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(hpNrLBIV, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(hpIV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(ivsPLLayout.createSequentialGroup()
                         .addComponent(atkLBIV, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(atkSDIV, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(atkNrLBIV, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(atkIV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(ivsPLLayout.createSequentialGroup()
-                        .addGroup(ivsPLLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(defLBIV, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(spaLBIV, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(spdLBIV, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(iniLBIV, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(ivsPLLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(spaLBIV, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(spdLBIV, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(iniLBIV, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(defLBIV, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(ivsPLLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(ivsPLLayout.createSequentialGroup()
-                                .addComponent(spaSDIV, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(spaNrLBIV, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(ivsPLLayout.createSequentialGroup()
-                                .addComponent(defSDIV, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(defNrLBIV, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(ivsPLLayout.createSequentialGroup()
-                                .addComponent(spdSDIV, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(spdNrLBIV, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(ivsPLLayout.createSequentialGroup()
-                                .addGroup(ivsPLLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(randIV)
-                                    .addComponent(iniSDIV, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(iniNrLBIV, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
-                .addGap(14, 14, 14))
+                            .addComponent(iniIV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(spaIV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(defIV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(spdIV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         ivsPLLayout.setVerticalGroup(
             ivsPLLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ivsPLLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(ivsPLLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(hpNrLBIV)
-                    .addComponent(hpSDIV, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(hpLBIV))
+                .addGroup(ivsPLLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(hpLBIV)
+                    .addComponent(hpIV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(ivsPLLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(ivsPLLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(atkLBIV)
-                    .addGroup(ivsPLLayout.createSequentialGroup()
-                        .addGroup(ivsPLLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(atkSDIV, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(atkNrLBIV))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(ivsPLLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(defNrLBIV)
-                            .addComponent(defLBIV)
-                            .addComponent(defSDIV, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addComponent(atkIV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(ivsPLLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(spaSDIV, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(ivsPLLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(defIV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(defLBIV))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(ivsPLLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(spaLBIV)
-                    .addComponent(spaNrLBIV))
+                    .addComponent(spaIV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(ivsPLLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(spdSDIV, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(ivsPLLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(spdLBIV)
-                    .addComponent(spdNrLBIV))
+                    .addComponent(spdIV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(ivsPLLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(iniSDIV, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(ivsPLLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(iniLBIV)
-                    .addComponent(iniNrLBIV))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(randIV))
+                    .addComponent(iniIV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(3, 3, 3)
+                .addComponent(randIV)
+                .addContainerGap())
         );
 
         evsPL1.setBorder(javax.swing.BorderFactory.createTitledBorder("EVs"));
         evsPL1.setToolTipText("");
+        evsPL1.setMaximumSize(new java.awt.Dimension(163, 289));
+        evsPL1.setMinimumSize(new java.awt.Dimension(163, 289));
+        evsPL1.setPreferredSize(new java.awt.Dimension(163, 289));
 
         hpLBEV.setText("HP:");
 
@@ -535,7 +474,7 @@ public class MainView extends javax.swing.JFrame {
 
         spdLBEV.setText("SpDef:");
 
-        iniLBEV.setText("Init.:");
+        iniLBEV.setText("Speed:");
 
         setZero.setText("Set 0");
         setZero.addActionListener(new java.awt.event.ActionListener() {
@@ -546,6 +485,7 @@ public class MainView extends javax.swing.JFrame {
 
         totLB.setText("Total:");
 
+        totNrLB.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         totNrLB.setText("0");
 
         randEV.setText("Random 50");
@@ -555,64 +495,58 @@ public class MainView extends javax.swing.JFrame {
             }
         });
 
-        hpTBEV.setText("0");
+        hpEV.setModel(new javax.swing.SpinnerNumberModel(0, 0, 255, 1));
 
-        atkTBEV.setText("0");
+        atkEV.setModel(new javax.swing.SpinnerNumberModel(0, 0, 255, 1));
 
-        defTBEV.setText("0");
-        defTBEV.setToolTipText("");
+        defEV.setModel(new javax.swing.SpinnerNumberModel(0, 0, 255, 1));
 
-        spaTBEV.setText("0");
-        spaTBEV.setToolTipText("");
+        spaEV.setModel(new javax.swing.SpinnerNumberModel(0, 0, 255, 1));
 
-        spdTBEV.setText("0");
+        spdEV.setModel(new javax.swing.SpinnerNumberModel(0, 0, 255, 1));
 
-        iniTBEV.setText("0");
+        iniEV.setModel(new javax.swing.SpinnerNumberModel(0, 0, 255, 1));
 
         javax.swing.GroupLayout evsPL1Layout = new javax.swing.GroupLayout(evsPL1);
         evsPL1.setLayout(evsPL1Layout);
         evsPL1Layout.setHorizontalGroup(
             evsPL1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(evsPL1Layout.createSequentialGroup()
+                .addGap(14, 14, 14)
                 .addGroup(evsPL1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(evsPL1Layout.createSequentialGroup()
-                        .addGap(14, 14, 14)
-                        .addGroup(evsPL1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(evsPL1Layout.createSequentialGroup()
-                                .addComponent(spaLBEV, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(spaTBEV, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(evsPL1Layout.createSequentialGroup()
-                                .addGroup(evsPL1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(spdLBEV, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(iniLBEV, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(evsPL1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(spdTBEV)
-                                    .addComponent(iniTBEV)))
-                            .addGroup(evsPL1Layout.createSequentialGroup()
-                                .addComponent(hpLBEV, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(hpTBEV, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(evsPL1Layout.createSequentialGroup()
-                                .addGroup(evsPL1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(atkLBEV, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(defLBEV, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(evsPL1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(atkTBEV, javax.swing.GroupLayout.DEFAULT_SIZE, 77, Short.MAX_VALUE)
-                                    .addComponent(defTBEV)))))
+                        .addComponent(spaLBEV, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(spaEV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(evsPL1Layout.createSequentialGroup()
-                        .addGap(32, 32, 32)
+                        .addComponent(hpLBEV, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(hpEV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(evsPL1Layout.createSequentialGroup()
                         .addGroup(evsPL1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(setZero)
-                            .addGroup(evsPL1Layout.createSequentialGroup()
-                                .addComponent(randEV)
-                                .addGap(18, 18, 18)
-                                .addComponent(totLB)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(totNrLB, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addGap(12, 12, Short.MAX_VALUE))
+                            .addComponent(atkLBEV, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(defLBEV, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(evsPL1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(defEV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(atkEV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(evsPL1Layout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addGroup(evsPL1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(evsPL1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(randEV, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(setZero, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(totNrLB, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(evsPL1Layout.createSequentialGroup()
+                        .addGroup(evsPL1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(spdLBEV, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(iniLBEV, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(evsPL1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(spdEV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(iniEV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(totLB))))
+                .addGap(16, 16, Short.MAX_VALUE))
         );
         evsPL1Layout.setVerticalGroup(
             evsPL1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -620,36 +554,36 @@ public class MainView extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(evsPL1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(hpLBEV)
-                    .addComponent(hpTBEV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(hpEV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(evsPL1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(atkLBEV)
-                    .addComponent(atkTBEV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(atkEV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(evsPL1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(defLBEV)
-                    .addComponent(defTBEV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(defEV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(evsPL1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(spaLBEV)
-                    .addComponent(spaTBEV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(spaEV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(evsPL1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(spdLBEV)
-                    .addComponent(spdTBEV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(spdEV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(evsPL1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(evsPL1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(iniLBEV)
-                    .addComponent(iniTBEV, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(13, 13, 13)
-                .addGroup(evsPL1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(randEV)
-                    .addGroup(evsPL1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(totNrLB, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(totLB, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(iniEV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(evsPL1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(totNrLB)
+                    .addComponent(totLB, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(randEV)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(setZero)
-                .addGap(0, 6, Short.MAX_VALUE))
+                .addGap(18, 18, 18))
         );
 
         abLB.setText("Ability:");
@@ -663,84 +597,77 @@ public class MainView extends javax.swing.JFrame {
 
         lvlLB.setText("Level:");
 
-        lvlSD.setMinimum(1);
-        lvlSD.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                lvlSDStateChanged(evt);
-            }
-        });
-
-        lvlNrLB.setText(lvlSD.getValue()+"");
-
         ntrPN.setBorder(javax.swing.BorderFactory.createTitledBorder("Nature"));
+        ntrPN.setMaximumSize(new java.awt.Dimension(164, 266));
+        ntrPN.setMinimumSize(new java.awt.Dimension(164, 266));
 
         ntrATKp.setText("Atk");
         ntrATKp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ntrATKpActionPerformed(evt);
+                natureRadioPressed(evt);
             }
         });
 
         ntrDEFp.setText("Def");
         ntrDEFp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ntrDEFpActionPerformed(evt);
+                natureRadioPressed(evt);
             }
         });
 
         ntrSPAp.setText("SpAtk");
         ntrSPAp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ntrSPApActionPerformed(evt);
+                natureRadioPressed(evt);
             }
         });
 
         ntrSPDp.setText("SpDef");
         ntrSPDp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ntrSPDpActionPerformed(evt);
+                natureRadioPressed(evt);
             }
         });
 
-        ntrINIp.setText("Init");
+        ntrINIp.setText("Speed");
         ntrINIp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ntrINIpActionPerformed(evt);
+                natureRadioPressed(evt);
             }
         });
 
         ntrATKm.setText("Atk");
         ntrATKm.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ntrATKmActionPerformed(evt);
+                natureRadioPressed(evt);
             }
         });
 
         ntrDEFm.setText("Def");
         ntrDEFm.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ntrDEFmActionPerformed(evt);
+                natureRadioPressed(evt);
             }
         });
 
         ntrSPAm.setText("SpAtk");
         ntrSPAm.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ntrSPAmActionPerformed(evt);
+                natureRadioPressed(evt);
             }
         });
 
         ntrSPDm.setText("SpDef");
         ntrSPDm.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ntrSPDmActionPerformed(evt);
+                natureRadioPressed(evt);
             }
         });
 
-        ntrINIm.setText("Init");
+        ntrINIm.setText("Speed");
         ntrINIm.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ntrINImActionPerformed(evt);
+                natureRadioPressed(evt);
             }
         });
 
@@ -767,7 +694,7 @@ public class MainView extends javax.swing.JFrame {
         ntrPNLayout.setHorizontalGroup(
             ntrPNLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ntrPNLayout.createSequentialGroup()
-                .addGap(43, 43, 43)
+                .addContainerGap()
                 .addGroup(ntrPNLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(ntrPNLayout.createSequentialGroup()
                         .addGap(29, 29, 29)
@@ -789,11 +716,11 @@ public class MainView extends javax.swing.JFrame {
                             .addComponent(ntrSPDm)
                             .addComponent(ntrINIm)
                             .addComponent(plusLB, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(43, Short.MAX_VALUE))))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
             .addGroup(ntrPNLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(ntrLB, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(6, 6, 6))
+                .addContainerGap())
         );
         ntrPNLayout.setVerticalGroup(
             ntrPNLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -835,6 +762,9 @@ public class MainView extends javax.swing.JFrame {
         gif.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Info"));
+        jPanel1.setMaximumSize(new java.awt.Dimension(130, 100));
+        jPanel1.setMinimumSize(new java.awt.Dimension(130, 100));
+        jPanel1.setPreferredSize(new java.awt.Dimension(130, 100));
 
         evLB.setText("EVs:");
 
@@ -845,9 +775,11 @@ public class MainView extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(evTXT)
-                    .addComponent(evLB))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(evTXT, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(evLB)
+                        .addGap(0, 87, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -855,13 +787,16 @@ public class MainView extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(evLB)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(evTXT)
-                .addContainerGap(50, Short.MAX_VALUE))
+                .addComponent(evTXT, javax.swing.GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         exp.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         exp.setBorder(javax.swing.BorderFactory.createTitledBorder("Exp."));
         exp.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        exp.setMaximumSize(new java.awt.Dimension(130, 100));
+        exp.setMinimumSize(new java.awt.Dimension(130, 100));
+        exp.setPreferredSize(new java.awt.Dimension(130, 100));
 
         newWindow.setText("Open New Window");
         newWindow.setEnabled(false);
@@ -883,16 +818,6 @@ public class MainView extends javax.swing.JFrame {
 
         nameLabel.setText("Pokémon Name");
 
-        jLabel2.setText("Language Code");
-
-        langCB.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "de", "en", "fr", "es", "it", "ko", "ja", "ja-Hrkt", "roomaji", "zh-Hant", "zh-Hans" }));
-        langCB.setEnabled(false);
-        langCB.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                langChange(evt);
-            }
-        });
-
         jScrollPane1.setMaximumSize(new java.awt.Dimension(234, 200));
 
         abilityDescTA.setColumns(20);
@@ -900,9 +825,11 @@ public class MainView extends javax.swing.JFrame {
         abilityDescTA.setMaximumSize(new java.awt.Dimension(234, 200));
         jScrollPane1.setViewportView(abilityDescTA);
 
+        levelSpinner.setModel(new javax.swing.SpinnerNumberModel(1, 1, 100, 1));
+
         mainMenuBar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
-        jMenu1.setText("File");
+        AppsJM.setText("Apps");
 
         OpenAttackSimMI.setText("Open AttackSim");
         OpenAttackSimMI.addActionListener(new java.awt.event.ActionListener() {
@@ -910,7 +837,7 @@ public class MainView extends javax.swing.JFrame {
                 OpenAttackSimMIAction(evt);
             }
         });
-        jMenu1.add(OpenAttackSimMI);
+        AppsJM.add(OpenAttackSimMI);
 
         jMenuItem1.setText("Open PartyManager");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
@@ -918,9 +845,61 @@ public class MainView extends javax.swing.JFrame {
                 jMenuItem1ActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem1);
+        AppsJM.add(jMenuItem1);
 
-        mainMenuBar.add(jMenu1);
+        mainMenuBar.add(AppsJM);
+
+        PropertiesJM.setText("Properties");
+
+        languageJM.setText("Language");
+
+        langCode.add(jRadioButtonMenuItem1);
+        jRadioButtonMenuItem1.setText("en");
+        jRadioButtonMenuItem1.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                languageCodeChanged(evt);
+            }
+        });
+        languageJM.add(jRadioButtonMenuItem1);
+
+        langCode.add(jRadioButtonMenuItem2);
+        jRadioButtonMenuItem2.setSelected(true);
+        jRadioButtonMenuItem2.setText("de");
+        jRadioButtonMenuItem2.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                languageCodeChanged(evt);
+            }
+        });
+        languageJM.add(jRadioButtonMenuItem2);
+
+        langCode.add(jRadioButtonMenuItem3);
+        jRadioButtonMenuItem3.setText("es");
+        jRadioButtonMenuItem3.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                languageCodeChanged(evt);
+            }
+        });
+        languageJM.add(jRadioButtonMenuItem3);
+
+        jRadioButtonMenuItem4.setText("it");
+        jRadioButtonMenuItem4.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                languageCodeChanged(evt);
+            }
+        });
+        languageJM.add(jRadioButtonMenuItem4);
+
+        jRadioButtonMenuItem5.setText("fr");
+        jRadioButtonMenuItem5.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                languageCodeChanged(evt);
+            }
+        });
+        languageJM.add(jRadioButtonMenuItem5);
+
+        PropertiesJM.add(languageJM);
+
+        mainMenuBar.add(PropertiesJM);
 
         setJMenuBar(mainMenuBar);
 
@@ -929,102 +908,93 @@ public class MainView extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(53, 53, 53)
-                                .addComponent(pkmLB)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(pkmNameIDTF, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(loadButton))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(37, 37, 37)
-                                .addComponent(nameLabel)))
-                        .addGap(119, 119, 119)
-                        .addComponent(lvlLB)
-                        .addGap(18, 18, 18)
-                        .addComponent(lvlSD, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lvlNrLB)
-                        .addGap(18, 18, 18)
-                        .addComponent(abLB)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(abCB, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(27, 27, 27)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(ivsPL, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(evsPL1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(gif, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
-                                    .addComponent(exp, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
-                                    .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addGap(18, 18, 18)
-                                .addComponent(langCB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(newWindow)
-                                .addGap(18, 18, 18)
-                                .addComponent(generate, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(stsPL, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(ntrPN, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGap(39, 39, 39)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(28, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(pkmLB)
-                        .addComponent(pkmNameIDTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(loadButton))
-                    .addComponent(lvlLB, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(lvlNrLB, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(lvlSD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(abLB)
-                        .addComponent(abCB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(nameLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(ivsPL, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(evsPL1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(exp, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(gif, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(8, 8, 8)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(nameLabel)
+                                        .addGap(123, 123, 123)
+                                        .addComponent(loadButton))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(pkmLB)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(pkmNameIDTF, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(abLB)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(abCB, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lvlLB)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(exp, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(levelSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(gif, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
+                        .addComponent(generate, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(newWindow))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(evsPL1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(ntrPN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(stsPL, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 163, Short.MAX_VALUE)
+                        .addComponent(stsPL, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(pkmLB)
+                                    .addComponent(pkmNameIDTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lvlLB, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(levelSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(3, 3, 3)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(nameLabel)
+                                    .addComponent(loadButton)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(34, 34, 34)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(abLB)
+                                    .addComponent(abCB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(ivsPL, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(exp, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addComponent(gif, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(evsPL1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(stsPL, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ntrPN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(generate)
-                    .addComponent(newWindow)
-                    .addComponent(jLabel2)
-                    .addComponent(langCB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(20, 20, 20))
+                    .addComponent(newWindow))
+                .addContainerGap())
         );
 
         pack();
@@ -1032,10 +1002,10 @@ public class MainView extends javax.swing.JFrame {
 
     private void generateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_generateActionPerformed
         m.statReset(statCha);
-        int[] IVs = { hpSDIV.getValue(), atkSDIV.getValue(), defSDIV.getValue(), spaSDIV.getValue(), spdSDIV.getValue(), iniSDIV.getValue() };
+        int[] IVs = { (int) hpIV.getValue(), (int) atkIV.getValue(), (int) defIV.getValue(), (int) spaIV.getValue(), (int) spdIV.getValue(), (int) iniIV.getValue()};
         int[] EVs = getEVValues();
         
-        m.calculateStats(EVs, IVs, lvlSD.getValue(), statAnz, exp);
+        m.calculateStats(EVs, IVs, (int) levelSpinner.getValue(), statAnz, exp);
         newWindow.setEnabled(true);
         for (JSpinner statCha1 : statCha) {
             statCha1.setEnabled(true);
@@ -1045,48 +1015,20 @@ public class MainView extends javax.swing.JFrame {
     }//GEN-LAST:event_generateActionPerformed
 
     private void randIVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_randIVActionPerformed
-        hpSDIV.setValue((int)(Math.random()*32));
-        atkSDIV.setValue((int)(Math.random()*32));
-        defSDIV.setValue((int)(Math.random()*32));
-        spaSDIV.setValue((int)(Math.random()*32));
-        spdSDIV.setValue((int)(Math.random()*32));
-        iniSDIV.setValue((int)(Math.random()*32));
+        hpIV.setValue((int)(Math.random()*32));
+        atkIV.setValue((int)(Math.random()*32));
+        defIV.setValue((int)(Math.random()*32));
+        spaIV.setValue((int)(Math.random()*32));
+        spdIV.setValue((int)(Math.random()*32));
+        iniIV.setValue((int)(Math.random()*32));
     }//GEN-LAST:event_randIVActionPerformed
 
     private void setZeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_setZeroActionPerformed
-        for (JTextField t: tbs){
-            t.setText("0");
+        for (JSpinner s: evs){
+            s.setValue(0);
         }
         refreshTotal();
     }//GEN-LAST:event_setZeroActionPerformed
-
-    private void hpSDIVStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_hpSDIVStateChanged
-        this.hpNrLBIV.setText(hpSDIV.getValue()+"");
-    }//GEN-LAST:event_hpSDIVStateChanged
-
-    private void atkSDIVStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_atkSDIVStateChanged
-        this.atkNrLBIV.setText(atkSDIV.getValue()+"");
-    }//GEN-LAST:event_atkSDIVStateChanged
-
-    private void defSDIVStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_defSDIVStateChanged
-        this.defNrLBIV.setText(defSDIV.getValue()+"");
-    }//GEN-LAST:event_defSDIVStateChanged
-
-    private void spaSDIVStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_spaSDIVStateChanged
-        this.spaNrLBIV.setText(spaSDIV.getValue()+"");
-    }//GEN-LAST:event_spaSDIVStateChanged
-
-    private void spdSDIVStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_spdSDIVStateChanged
-        this.spdNrLBIV.setText(spdSDIV.getValue()+"");
-    }//GEN-LAST:event_spdSDIVStateChanged
-
-    private void iniSDIVStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_iniSDIVStateChanged
-        this.iniNrLBIV.setText(iniSDIV.getValue()+"");
-    }//GEN-LAST:event_iniSDIVStateChanged
-
-    private void lvlSDStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_lvlSDStateChanged
-        lvlNrLB.setText(lvlSD.getValue()+"");
-    }//GEN-LAST:event_lvlSDStateChanged
 
     private void randNTRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_randNTRActionPerformed
         ntrPLUSArr[(int)((Math.random() * ntrPLUSArr.length))].setSelected(true);                                     
@@ -1094,49 +1036,9 @@ public class MainView extends javax.swing.JFrame {
         ntrLB.setText(m.setNature(ntrPLUSArr, ntrMINUSArr));
     }//GEN-LAST:event_randNTRActionPerformed
 
-    private void ntrATKpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ntrATKpActionPerformed
-        ntrLB.setText(m.setNature(ntrPLUSArr, ntrMINUSArr));
-    }//GEN-LAST:event_ntrATKpActionPerformed
-
-    private void ntrDEFpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ntrDEFpActionPerformed
-        ntrLB.setText(m.setNature(ntrPLUSArr, ntrMINUSArr));
-    }//GEN-LAST:event_ntrDEFpActionPerformed
-
-    private void ntrSPApActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ntrSPApActionPerformed
-        ntrLB.setText(m.setNature(ntrPLUSArr, ntrMINUSArr));
-    }//GEN-LAST:event_ntrSPApActionPerformed
-
-    private void ntrSPDpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ntrSPDpActionPerformed
-        ntrLB.setText(m.setNature(ntrPLUSArr, ntrMINUSArr));
-    }//GEN-LAST:event_ntrSPDpActionPerformed
-
-    private void ntrINIpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ntrINIpActionPerformed
-        ntrLB.setText(m.setNature(ntrPLUSArr, ntrMINUSArr));
-    }//GEN-LAST:event_ntrINIpActionPerformed
-
-    private void ntrATKmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ntrATKmActionPerformed
-        ntrLB.setText(m.setNature(ntrPLUSArr, ntrMINUSArr));
-    }//GEN-LAST:event_ntrATKmActionPerformed
-
-    private void ntrDEFmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ntrDEFmActionPerformed
-        ntrLB.setText(m.setNature(ntrPLUSArr, ntrMINUSArr));
-    }//GEN-LAST:event_ntrDEFmActionPerformed
-
-    private void ntrSPAmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ntrSPAmActionPerformed
-        ntrLB.setText(m.setNature(ntrPLUSArr, ntrMINUSArr));
-    }//GEN-LAST:event_ntrSPAmActionPerformed
-
-    private void ntrSPDmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ntrSPDmActionPerformed
-        ntrLB.setText(m.setNature(ntrPLUSArr, ntrMINUSArr));
-    }//GEN-LAST:event_ntrSPDmActionPerformed
-
-    private void ntrINImActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ntrINImActionPerformed
-        ntrLB.setText(m.setNature(ntrPLUSArr, ntrMINUSArr));
-    }//GEN-LAST:event_ntrINImActionPerformed
-
     private void randEVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_randEVActionPerformed
-        for (JTextField s : tbs){
-            s.setText(""+(int)Math.floor(Math.random()*51));
+        for (JSpinner s : evs){
+            s.setValue((int)Math.floor(Math.random()*51));
         }
         refreshTotal();
     }//GEN-LAST:event_randEVActionPerformed
@@ -1145,7 +1047,7 @@ public class MainView extends javax.swing.JFrame {
         Pokemon p = new Pokemon(m.getP());
         p.setStats(m.getStats().clone());
         p.setExp(exp.getText());
-        p.setLevel(lvlSD.getValue());
+        p.setLevel((int) levelSpinner.getValue());
         p.setAbility(abCB.getSelectedItem().toString());
         StufenRechner s = new StufenRechner(p);
         s.setVisible(true);
@@ -1164,46 +1066,12 @@ public class MainView extends javax.swing.JFrame {
         generate.setEnabled(true);
         newWindow.setEnabled(false);                          
         loadButton.setEnabled(true);
-        langCB.setEnabled(true);
     }//GEN-LAST:event_loadButtonActionPerformed
 
     private void resetChangeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetChangeActionPerformed
         m.statReset(statCha);
         m.adjustStats(statAnz);
     }//GEN-LAST:event_resetChangeActionPerformed
-
-    private void AtkStageChange(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_AtkStageChange
-        m.setStatStage(0, (Integer) AtkStageSpinner.getValue());
-        m.adjustStats(statAnz);
-    }//GEN-LAST:event_AtkStageChange
-
-    private void DefStageChange(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_DefStageChange
-        m.setStatStage(1, (Integer) AtkStageSpinner.getValue());
-        m.adjustStats(statAnz);
-    }//GEN-LAST:event_DefStageChange
-
-    private void SpAtkStageChange(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_SpAtkStageChange
-        m.setStatStage(2, (Integer) AtkStageSpinner.getValue());
-        m.adjustStats(statAnz);
-    }//GEN-LAST:event_SpAtkStageChange
-
-    private void SpDefStageChange(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_SpDefStageChange
-        m.setStatStage(3, (Integer) AtkStageSpinner.getValue());
-        m.adjustStats(statAnz);
-    }//GEN-LAST:event_SpDefStageChange
-
-    private void InitStageChange(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_InitStageChange
-        m.setStatStage(4, (Integer) AtkStageSpinner.getValue());
-        m.adjustStats(statAnz);
-    }//GEN-LAST:event_InitStageChange
-
-    private void langChange(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_langChange
-        m.updateLanguage(langCB.getSelectedItem().toString());
-        setAbilities();
-        m.setName(nameLabel);
-        m.setAbility(abCB.getSelectedItem().toString());
-        abilityDescTA.setText(m.getAbilityDesc());
-    }//GEN-LAST:event_langChange
 
     private void OpenAttackSimMIAction(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OpenAttackSimMIAction
         c.openAttackSim();
@@ -1218,61 +1086,102 @@ public class MainView extends javax.swing.JFrame {
         abilityDescTA.setText(m.getAbilityDesc());
     }//GEN-LAST:event_abilityStateChanged
 
+    private void languageCodeChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_languageCodeChanged
+        JRadioButtonMenuItem item = (JRadioButtonMenuItem) evt.getItem();
+        if (!item.isSelected()) return;
+        System.out.println(item.getText());
+        m.updateLanguage(item.getText());
+        setAbilities();
+        m.setName(nameLabel);
+        m.setAbility(abCB.getSelectedItem().toString());
+        abilityDescTA.setText(m.getAbilityDesc());
+    }//GEN-LAST:event_languageCodeChanged
+
+    private void natureRadioPressed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_natureRadioPressed
+        ntrLB.setText(m.setNature(ntrPLUSArr, ntrMINUSArr));
+    }//GEN-LAST:event_natureRadioPressed
+
+    private void statStageChange(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_statStageChange
+        JSpinner js = (JSpinner) evt.getSource();
+        switch (js.getName()) {
+            case "atkSpinner":
+                m.setStatStage(0, (Integer) AtkStageSpinner.getValue());
+                break;
+            case "defSpinner":
+                m.setStatStage(1, (Integer) DefStageSpinner.getValue());
+                break;
+            case "spaSpinner":
+                m.setStatStage(2, (Integer) SpAtkStageSpinner.getValue());
+                break;
+            case "spdSpinner":
+                m.setStatStage(3, (Integer) SpDefStageSpinner.getValue());
+                break;
+            case "iniSpinner":
+                m.setStatStage(4, (Integer) InitStageSpinner.getValue());
+                break;
+            default:
+                System.out.println("ERROR statStageChanged [MainView]");
+                break;
+        }
+        m.adjustStats(statAnz);
+    }//GEN-LAST:event_statStageChange
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenu AppsJM;
     private javax.swing.JSpinner AtkStageSpinner;
     private javax.swing.JSpinner DefStageSpinner;
     private javax.swing.JSpinner InitStageSpinner;
     private javax.swing.JMenuItem OpenAttackSimMI;
+    private javax.swing.JMenu PropertiesJM;
     private javax.swing.JSpinner SpAtkStageSpinner;
     private javax.swing.JSpinner SpDefStageSpinner;
     private javax.swing.JComboBox<String> abCB;
     private javax.swing.JLabel abLB;
     private javax.swing.JTextArea abilityDescTA;
+    private javax.swing.JSpinner atkEV;
+    private javax.swing.JSpinner atkIV;
     private javax.swing.JLabel atkLBEV;
     private javax.swing.JLabel atkLBIV;
     private javax.swing.JLabel atkLBStat;
-    private javax.swing.JLabel atkNrLBIV;
-    private javax.swing.JSlider atkSDIV;
     private javax.swing.JLabel atkStat;
-    private javax.swing.JTextField atkTBEV;
+    private javax.swing.JSpinner defEV;
+    private javax.swing.JSpinner defIV;
     private javax.swing.JLabel defLBEV;
     private javax.swing.JLabel defLBIV;
     private javax.swing.JLabel defLBStat;
-    private javax.swing.JLabel defNrLBIV;
-    private javax.swing.JSlider defSDIV;
     private javax.swing.JLabel defStat;
-    private javax.swing.JTextField defTBEV;
     private javax.swing.JLabel evLB;
     private javax.swing.JLabel evTXT;
     private javax.swing.JPanel evsPL1;
     private javax.swing.JLabel exp;
     private javax.swing.JButton generate;
     private javax.swing.JLabel gif;
+    private javax.swing.JSpinner hpEV;
+    private javax.swing.JSpinner hpIV;
     private javax.swing.JLabel hpLBEV;
     private javax.swing.JLabel hpLBIV;
     private javax.swing.JLabel hpLBStat;
-    private javax.swing.JLabel hpNrLBIV;
-    private javax.swing.JSlider hpSDIV;
     private javax.swing.JLabel hpStat;
-    private javax.swing.JTextField hpTBEV;
+    private javax.swing.JSpinner iniEV;
+    private javax.swing.JSpinner iniIV;
     private javax.swing.JLabel iniLBEV;
     private javax.swing.JLabel iniLBIV;
     private javax.swing.JLabel iniLBStat;
-    private javax.swing.JLabel iniNrLBIV;
-    private javax.swing.JSlider iniSDIV;
     private javax.swing.JLabel iniStat;
-    private javax.swing.JTextField iniTBEV;
     private javax.swing.JPanel ivsPL;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem1;
+    private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem2;
+    private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem3;
+    private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem4;
+    private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem5;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JComboBox<String> langCB;
+    private javax.swing.ButtonGroup langCode;
+    private javax.swing.JMenu languageJM;
+    private javax.swing.JSpinner levelSpinner;
     private javax.swing.JButton loadButton;
     private javax.swing.JLabel lvlLB;
-    private javax.swing.JLabel lvlNrLB;
-    private javax.swing.JSlider lvlSD;
     private javax.swing.JMenuBar mainMenuBar;
     private javax.swing.JLabel minusLB;
     private javax.swing.JLabel nameLabel;
@@ -1299,20 +1208,18 @@ public class MainView extends javax.swing.JFrame {
     private javax.swing.JButton randNTR;
     private javax.swing.JButton resetChange;
     private javax.swing.JButton setZero;
+    private javax.swing.JSpinner spaEV;
+    private javax.swing.JSpinner spaIV;
     private javax.swing.JLabel spaLBEV;
     private javax.swing.JLabel spaLBIV;
     private javax.swing.JLabel spaLBStat;
-    private javax.swing.JLabel spaNrLBIV;
-    private javax.swing.JSlider spaSDIV;
     private javax.swing.JLabel spaStat;
-    private javax.swing.JTextField spaTBEV;
+    private javax.swing.JSpinner spdEV;
+    private javax.swing.JSpinner spdIV;
     private javax.swing.JLabel spdLBEV;
     private javax.swing.JLabel spdLBIV;
     private javax.swing.JLabel spdLBStat;
-    private javax.swing.JLabel spdNrLBIV;
-    private javax.swing.JSlider spdSDIV;
     private javax.swing.JLabel spdStat;
-    private javax.swing.JTextField spdTBEV;
     private javax.swing.JPanel stsPL;
     private javax.swing.JLabel totLB;
     private javax.swing.JLabel totNrLB;
@@ -1345,6 +1252,9 @@ public class MainView extends javax.swing.JFrame {
         evTXT.setText(m.getEV());
     }
     
+    /**
+     * Refreshes the stats
+     */
     private void refreshTotal(){
         int[] evs = getEVValues();
         int r = 0;
@@ -1365,13 +1275,8 @@ public class MainView extends javax.swing.JFrame {
         int [] r = new int[6];
         int i = 0;
         
-        for (JTextField t : tbs){
-            try {
-            r[i] = Integer.parseInt(t.getText());
-            } 
-            catch (NumberFormatException e){
-                javax.swing.JOptionPane.showMessageDialog(null, "Fehler bei Textkonvertierung!\nBitte nur Zahlen bei EVs eingeben!");
-            }
+        for (JSpinner s : evs){
+            r[i] = (int) s.getValue();
             i++;
         }
         

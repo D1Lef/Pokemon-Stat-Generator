@@ -26,6 +26,7 @@ public class Pokemon {
     private int lvlEntw; //wenn keine Entw. = 101
     private String exp;
     private String ability;
+    private String EVText;
     private int level;
     private int dexNr;
     private final String spriteURL;
@@ -49,11 +50,7 @@ public class Pokemon {
         this.dexNr = pokemonObj.getId();
         
         this.spriteURL = pokemonObj.getSprites().getFrontDefault();
-        System.out.println(pokemonObj.getSprites().toString());
-        this.statsList = pokemonObj.getStats();
-        
-        System.out.println(statsList.get(5));
-        
+        this.statsList = pokemonObj.getStats();        
     }
 
     /**
@@ -63,6 +60,7 @@ public class Pokemon {
      * @param p the Pokemon that should be made a copy of.
      */
     Pokemon (Pokemon p){
+        this.abilities = p.abilities;
         this.dexNr = p.dexNr;
         this.lvlEntw = p.lvlEntw;
         this.spriteURL = p.spriteURL;
@@ -189,13 +187,23 @@ public class Pokemon {
             models.pokemon.PokemonStat ps = statsList.get(i);
             pkmStats[j] = ps.getBaseStat();
             if (ps.getEffort() > 0){
-                EVs += ps.getEffort() + " " + ps.getStat().getName() + "<br>";
+                String n = ps.getStat().getName();
+                n = n.substring(0, 1).toUpperCase() + n.substring(1);
+                EVs += ps.getEffort() + " " + n + "<br>";
             }
             j++;
         }
 
         EVs += "</body></html>";
+        EVText = EVs;
         return EVs;
+    }
+    
+    /**
+     * @return saved EV Text
+     */
+    public String getEVText(){
+        return EVText;
     }
     
     /**

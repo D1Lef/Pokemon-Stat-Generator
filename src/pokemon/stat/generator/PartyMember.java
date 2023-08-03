@@ -18,9 +18,7 @@ public class PartyMember extends Pokemon{
     double[] natMUL;
     
     
-    public PartyMember(int dexNr, String dex, String name, int baseHP, int baseATK, 
-            int baseDEF, int baseSPA, int baseSPD, int baseINI, 
-            ArrayList<String> abilities, int baseXP, int lvlEntw, String EVs, String nickname, int[] IVs, double[] natMUL){
+    public PartyMember(int dexNr, String nickname, int[] IVs, double[] natMUL){
         
         super("" + dexNr, new api.Client());
         

@@ -6,6 +6,8 @@
     </Component>
     <Component class="javax.swing.ButtonGroup" name="ntrMINUS">
     </Component>
+    <Component class="javax.swing.ButtonGroup" name="langCode">
+    </Component>
     <Menu class="javax.swing.JMenuBar" name="mainMenuBar">
       <Properties>
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
@@ -13,9 +15,9 @@
         </Property>
       </Properties>
       <SubComponents>
-        <Menu class="javax.swing.JMenu" name="jMenu1">
+        <Menu class="javax.swing.JMenu" name="AppsJM">
           <Properties>
-            <Property name="text" type="java.lang.String" value="File"/>
+            <Property name="text" type="java.lang.String" value="Apps"/>
           </Properties>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="OpenAttackSimMI">
@@ -34,6 +36,70 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem1ActionPerformed"/>
               </Events>
             </MenuItem>
+          </SubComponents>
+        </Menu>
+        <Menu class="javax.swing.JMenu" name="PropertiesJM">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Properties"/>
+          </Properties>
+          <SubComponents>
+            <Menu class="javax.swing.JMenu" name="languageJM">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Language"/>
+              </Properties>
+              <SubComponents>
+                <MenuItem class="javax.swing.JRadioButtonMenuItem" name="jRadioButtonMenuItem1">
+                  <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="langCode"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="en"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="languageCodeChanged"/>
+                  </Events>
+                </MenuItem>
+                <MenuItem class="javax.swing.JRadioButtonMenuItem" name="jRadioButtonMenuItem2">
+                  <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="langCode"/>
+                    </Property>
+                    <Property name="selected" type="boolean" value="true"/>
+                    <Property name="text" type="java.lang.String" value="de"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="languageCodeChanged"/>
+                  </Events>
+                </MenuItem>
+                <MenuItem class="javax.swing.JRadioButtonMenuItem" name="jRadioButtonMenuItem3">
+                  <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="langCode"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="es"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="languageCodeChanged"/>
+                  </Events>
+                </MenuItem>
+                <MenuItem class="javax.swing.JRadioButtonMenuItem" name="jRadioButtonMenuItem4">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="it"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="languageCodeChanged"/>
+                  </Events>
+                </MenuItem>
+                <MenuItem class="javax.swing.JRadioButtonMenuItem" name="jRadioButtonMenuItem5">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="fr"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="languageCodeChanged"/>
+                  </Events>
+                </MenuItem>
+              </SubComponents>
+            </Menu>
           </SubComponents>
         </Menu>
       </SubComponents>
@@ -70,130 +136,122 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Group type="102" attributes="0">
+          <Group type="102" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
-                              <Component id="pkmLB" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="ivsPL" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="pkmNameIDTF" min="-2" pref="203" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="loadButton" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="exp" min="-2" pref="130" max="-2" attributes="0"/>
+                                  <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
-                              <Component id="nameLabel" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Component id="nameLabel" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="123" max="-2" attributes="0"/>
+                                      <Component id="loadButton" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <Component id="pkmLB" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="pkmNameIDTF" min="-2" pref="203" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
                           </Group>
                       </Group>
-                      <EmptySpace min="-2" pref="119" max="-2" attributes="0"/>
-                      <Component id="lvlLB" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="lvlSD" min="-2" pref="126" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="lvlNrLB" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="abLB" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="abCB" min="-2" pref="149" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="ivsPL" min="-2" max="-2" attributes="0"/>
-                                  <Component id="evsPL1" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                  <Component id="gif" alignment="0" pref="130" max="32767" attributes="0"/>
-                                  <Component id="exp" alignment="0" pref="130" max="32767" attributes="0"/>
-                                  <Component id="jPanel1" alignment="0" max="32767" attributes="0"/>
-                              </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="abLB" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="abCB" min="-2" pref="149" max="-2" attributes="0"/>
                           </Group>
-                          <Group type="102" attributes="0">
-                              <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="langCB" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="lvlLB" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="levelSpinner" min="-2" max="-2" attributes="0"/>
                           </Group>
+                          <Component id="jScrollPane1" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Component id="newWindow" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="generate" min="-2" pref="130" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                  <Component id="stsPL" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="ntrPN" alignment="0" max="32767" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
-                              <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="gif" min="-2" pref="130" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="generate" min="-2" pref="130" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="newWindow" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="evsPL1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="ntrPN" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="stsPL" min="-2" pref="230" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="28" max="32767" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="1" attributes="0">
-              <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="103" alignment="1" groupAlignment="3" attributes="0">
-                      <Component id="pkmLB" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="pkmNameIDTF" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="loadButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Component id="lvlLB" alignment="1" min="-2" pref="29" max="-2" attributes="0"/>
-                  <Group type="103" alignment="1" groupAlignment="3" attributes="0">
-                      <Component id="lvlNrLB" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
-                      <Component id="lvlSD" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="abLB" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="abCB" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-              </Group>
+          <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <Component id="nameLabel" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="pkmLB" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="pkmNameIDTF" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lvlLB" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
+                                  <Component id="levelSpinner" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="nameLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="loadButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="abLB" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="abCB" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Component id="ivsPL" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="evsPL1" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" attributes="0">
-                              <Component id="gif" min="-2" pref="130" max="-2" attributes="0"/>
+                          <Component id="jScrollPane1" min="-2" pref="219" max="-2" attributes="0"/>
+                          <Component id="ivsPL" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="exp" min="-2" pref="100" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="exp" min="-2" pref="98" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
-                  <Group type="102" attributes="0">
-                      <Component id="ntrPN" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="stsPL" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Component id="jScrollPane1" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
+                  <Component id="gif" min="-2" pref="130" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="163" max="32767" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="evsPL1" min="-2" max="-2" attributes="0"/>
+                  <Component id="stsPL" alignment="0" min="-2" pref="232" max="-2" attributes="0"/>
+                  <Component id="ntrPN" alignment="0" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="generate" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="newWindow" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="langCB" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+              <EmptySpace min="-2" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -221,6 +279,15 @@
           </Border>
         </Property>
         <Property name="toolTipText" type="java.lang.String" value=""/>
+        <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[213, 266]"/>
+        </Property>
+        <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[213, 266]"/>
+        </Property>
+        <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[213, 266]"/>
+        </Property>
       </Properties>
 
       <Layout>
@@ -235,7 +302,7 @@
                                   <Component id="atkLBStat" min="-2" pref="50" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="atkStat" min="-2" pref="60" max="-2" attributes="0"/>
-                                  <EmptySpace max="32767" attributes="0"/>
+                                  <EmptySpace pref="7" max="32767" attributes="0"/>
                                   <Component id="AtkStageSpinner" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
@@ -244,11 +311,11 @@
                                   <Component id="hpStat" min="-2" pref="60" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                       <Component id="defLBStat" min="-2" pref="30" max="-2" attributes="0"/>
-                                      <Component id="spaLBStat" alignment="0" min="-2" pref="50" max="-2" attributes="0"/>
-                                      <Component id="spdLBStat" alignment="0" min="-2" pref="50" max="-2" attributes="0"/>
-                                      <Component id="iniLBStat" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
+                                      <Component id="spaLBStat" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="spdLBStat" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="iniLBStat" alignment="0" pref="50" max="32767" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
@@ -281,7 +348,7 @@
                           <Component id="resetChange" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -358,7 +425,7 @@
         </Component>
         <Component class="javax.swing.JLabel" name="iniLBStat">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Init.:"/>
+            <Property name="text" type="java.lang.String" value="Speed:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="hpStat">
@@ -387,9 +454,10 @@
               <SpinnerModel initial="0" maximum="6" minimum="-6" numberType="java.lang.Integer" stepSize="1" type="number"/>
             </Property>
             <Property name="enabled" type="boolean" value="false"/>
+            <Property name="name" type="java.lang.String" value="atkSpinner" noResource="true"/>
           </Properties>
           <Events>
-            <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="AtkStageChange"/>
+            <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="statStageChange"/>
           </Events>
         </Component>
         <Component class="javax.swing.JSpinner" name="DefStageSpinner">
@@ -398,9 +466,10 @@
               <SpinnerModel initial="0" maximum="6" minimum="-6" numberType="java.lang.Integer" stepSize="1" type="number"/>
             </Property>
             <Property name="enabled" type="boolean" value="false"/>
+            <Property name="name" type="java.lang.String" value="defSpinner" noResource="true"/>
           </Properties>
           <Events>
-            <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="DefStageChange"/>
+            <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="statStageChange"/>
           </Events>
         </Component>
         <Component class="javax.swing.JSpinner" name="SpAtkStageSpinner">
@@ -409,9 +478,10 @@
               <SpinnerModel initial="0" maximum="6" minimum="-6" numberType="java.lang.Integer" stepSize="1" type="number"/>
             </Property>
             <Property name="enabled" type="boolean" value="false"/>
+            <Property name="name" type="java.lang.String" value="spaSpinner" noResource="true"/>
           </Properties>
           <Events>
-            <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="SpAtkStageChange"/>
+            <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="statStageChange"/>
           </Events>
         </Component>
         <Component class="javax.swing.JSpinner" name="SpDefStageSpinner">
@@ -420,9 +490,10 @@
               <SpinnerModel initial="0" maximum="6" minimum="-6" numberType="java.lang.Integer" stepSize="1" type="number"/>
             </Property>
             <Property name="enabled" type="boolean" value="false"/>
+            <Property name="name" type="java.lang.String" value="spdSpinner" noResource="true"/>
           </Properties>
           <Events>
-            <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="SpDefStageChange"/>
+            <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="statStageChange"/>
           </Events>
         </Component>
         <Component class="javax.swing.JSpinner" name="InitStageSpinner">
@@ -431,9 +502,10 @@
               <SpinnerModel initial="0" maximum="6" minimum="-6" numberType="java.lang.Integer" stepSize="1" type="number"/>
             </Property>
             <Property name="enabled" type="boolean" value="false"/>
+            <Property name="name" type="java.lang.String" value="iniSpinner" noResource="true"/>
           </Properties>
           <Events>
-            <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="InitStageChange"/>
+            <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="statStageChange"/>
           </Events>
         </Component>
       </SubComponents>
@@ -451,59 +523,37 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="randIV" min="-2" max="-2" attributes="0"/>
                       <Group type="102" attributes="0">
                           <Component id="hpLBIV" min="-2" pref="50" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="hpSDIV" min="-2" pref="142" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="hpNrLBIV" max="32767" attributes="0"/>
+                          <Component id="hpIV" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
                           <Component id="atkLBIV" min="-2" pref="50" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="atkSDIV" min="-2" pref="142" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="atkNrLBIV" max="32767" attributes="0"/>
+                          <Component id="atkIV" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="defLBIV" min="-2" pref="30" max="-2" attributes="0"/>
-                              <Component id="spaLBIV" alignment="0" min="-2" pref="50" max="-2" attributes="0"/>
-                              <Component id="spdLBIV" alignment="0" min="-2" pref="50" max="-2" attributes="0"/>
-                              <Component id="iniLBIV" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="spaLBIV" alignment="0" max="32767" attributes="0"/>
+                              <Component id="spdLBIV" alignment="0" max="32767" attributes="0"/>
+                              <Component id="iniLBIV" alignment="0" max="32767" attributes="0"/>
+                              <Component id="defLBIV" alignment="1" min="-2" pref="50" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="spaSDIV" min="-2" pref="142" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="spaNrLBIV" max="32767" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="defSDIV" min="-2" pref="142" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="defNrLBIV" max="32767" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="spdSDIV" min="-2" pref="142" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="spdNrLBIV" max="32767" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="1" attributes="0">
-                                      <Component id="randIV" min="-2" max="-2" attributes="0"/>
-                                      <Component id="iniSDIV" min="-2" pref="142" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="iniNrLBIV" max="32767" attributes="0"/>
-                              </Group>
+                              <Component id="iniIV" min="-2" max="-2" attributes="0"/>
+                              <Component id="spaIV" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="defIV" min="-2" max="-2" attributes="0"/>
+                              <Component id="spdIV" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
-                  <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -511,47 +561,38 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="32767" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="hpNrLBIV" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="hpSDIV" alignment="0" min="-2" pref="22" max="-2" attributes="0"/>
-                      <Component id="hpLBIV" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="hpLBIV" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="hpIV" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="atkLBIV" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="atkIV" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="defIV" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="defLBIV" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="atkLBIV" min="-2" max="-2" attributes="0"/>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="atkSDIV" alignment="0" min="-2" pref="22" max="-2" attributes="0"/>
-                              <Component id="atkNrLBIV" alignment="0" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="defNrLBIV" min="-2" max="-2" attributes="0"/>
-                              <Component id="defLBIV" min="-2" max="-2" attributes="0"/>
-                              <Component id="defSDIV" min="-2" pref="22" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="spaLBIV" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="spaIV" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="spdLBIV" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="spdIV" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="spaSDIV" min="-2" pref="22" max="-2" attributes="0"/>
-                      <Component id="spaLBIV" min="-2" max="-2" attributes="0"/>
-                      <Component id="spaNrLBIV" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="iniLBIV" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="iniIV" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="spdSDIV" min="-2" pref="22" max="-2" attributes="0"/>
-                      <Component id="spdLBIV" min="-2" max="-2" attributes="0"/>
-                      <Component id="spdNrLBIV" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="iniSDIV" min="-2" pref="22" max="-2" attributes="0"/>
-                      <Component id="iniLBIV" min="-2" max="-2" attributes="0"/>
-                      <Component id="iniNrLBIV" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
                   <Component id="randIV" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -562,41 +603,9 @@
             <Property name="text" type="java.lang.String" value="HP:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JSlider" name="hpSDIV">
-          <Properties>
-            <Property name="maximum" type="int" value="31"/>
-            <Property name="value" type="int" value="5"/>
-          </Properties>
-          <Events>
-            <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="hpSDIVStateChanged"/>
-          </Events>
-        </Component>
-        <Component class="javax.swing.JLabel" name="hpNrLBIV">
-          <Properties>
-            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-              <Connection code="&quot;&quot;+hpSDIV.getValue()" type="code"/>
-            </Property>
-          </Properties>
-        </Component>
         <Component class="javax.swing.JLabel" name="atkLBIV">
           <Properties>
             <Property name="text" type="java.lang.String" value="Atk:"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JSlider" name="atkSDIV">
-          <Properties>
-            <Property name="maximum" type="int" value="31"/>
-            <Property name="value" type="int" value="5"/>
-          </Properties>
-          <Events>
-            <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="atkSDIVStateChanged"/>
-          </Events>
-        </Component>
-        <Component class="javax.swing.JLabel" name="atkNrLBIV">
-          <Properties>
-            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-              <Connection code="&quot;&quot;+atkSDIV.getValue()" type="code"/>
-            </Property>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="defLBIV">
@@ -604,41 +613,9 @@
             <Property name="text" type="java.lang.String" value="Def:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JSlider" name="defSDIV">
-          <Properties>
-            <Property name="maximum" type="int" value="31"/>
-            <Property name="value" type="int" value="5"/>
-          </Properties>
-          <Events>
-            <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="defSDIVStateChanged"/>
-          </Events>
-        </Component>
-        <Component class="javax.swing.JLabel" name="defNrLBIV">
-          <Properties>
-            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-              <Connection code="&quot;&quot;+defSDIV.getValue()" type="code"/>
-            </Property>
-          </Properties>
-        </Component>
         <Component class="javax.swing.JLabel" name="spaLBIV">
           <Properties>
             <Property name="text" type="java.lang.String" value="SpAtk:"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JSlider" name="spaSDIV">
-          <Properties>
-            <Property name="maximum" type="int" value="31"/>
-            <Property name="value" type="int" value="5"/>
-          </Properties>
-          <Events>
-            <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="spaSDIVStateChanged"/>
-          </Events>
-        </Component>
-        <Component class="javax.swing.JLabel" name="spaNrLBIV">
-          <Properties>
-            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-              <Connection code="&quot;&quot;+spaSDIV.getValue()" type="code"/>
-            </Property>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="spdLBIV">
@@ -646,41 +623,9 @@
             <Property name="text" type="java.lang.String" value="SpDef:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JSlider" name="spdSDIV">
-          <Properties>
-            <Property name="maximum" type="int" value="31"/>
-            <Property name="value" type="int" value="5"/>
-          </Properties>
-          <Events>
-            <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="spdSDIVStateChanged"/>
-          </Events>
-        </Component>
-        <Component class="javax.swing.JLabel" name="spdNrLBIV">
-          <Properties>
-            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-              <Connection code="&quot;&quot;+spdSDIV.getValue()" type="code"/>
-            </Property>
-          </Properties>
-        </Component>
         <Component class="javax.swing.JLabel" name="iniLBIV">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Init.:"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JSlider" name="iniSDIV">
-          <Properties>
-            <Property name="maximum" type="int" value="31"/>
-            <Property name="value" type="int" value="5"/>
-          </Properties>
-          <Events>
-            <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="iniSDIVStateChanged"/>
-          </Events>
-        </Component>
-        <Component class="javax.swing.JLabel" name="iniNrLBIV">
-          <Properties>
-            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-              <Connection code="&quot;&quot;+iniSDIV.getValue()" type="code"/>
-            </Property>
+            <Property name="text" type="java.lang.String" value="Speed:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="randIV">
@@ -690,6 +635,48 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="randIVActionPerformed"/>
           </Events>
+        </Component>
+        <Component class="javax.swing.JSpinner" name="hpIV">
+          <Properties>
+            <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
+              <SpinnerModel initial="0" maximum="31" minimum="0" numberType="java.lang.Integer" stepSize="1" type="number"/>
+            </Property>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JSpinner" name="atkIV">
+          <Properties>
+            <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
+              <SpinnerModel initial="0" maximum="31" minimum="0" numberType="java.lang.Integer" stepSize="1" type="number"/>
+            </Property>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JSpinner" name="defIV">
+          <Properties>
+            <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
+              <SpinnerModel initial="0" maximum="31" minimum="0" numberType="java.lang.Integer" stepSize="1" type="number"/>
+            </Property>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JSpinner" name="spaIV">
+          <Properties>
+            <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
+              <SpinnerModel initial="0" maximum="31" minimum="0" numberType="java.lang.Integer" stepSize="1" type="number"/>
+            </Property>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JSpinner" name="spdIV">
+          <Properties>
+            <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
+              <SpinnerModel initial="0" maximum="31" minimum="0" numberType="java.lang.Integer" stepSize="1" type="number"/>
+            </Property>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JSpinner" name="iniIV">
+          <Properties>
+            <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
+              <SpinnerModel initial="0" maximum="31" minimum="0" numberType="java.lang.Integer" stepSize="1" type="number"/>
+            </Property>
+          </Properties>
         </Component>
       </SubComponents>
     </Container>
@@ -701,65 +688,68 @@
           </Border>
         </Property>
         <Property name="toolTipText" type="java.lang.String" value=""/>
+        <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[163, 289]"/>
+        </Property>
+        <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[163, 289]"/>
+        </Property>
+        <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[163, 289]"/>
+        </Property>
       </Properties>
 
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
+                  <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="spaLBEV" min="-2" pref="50" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="spaTBEV" min="-2" pref="77" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="spdLBEV" alignment="0" min="-2" pref="50" max="-2" attributes="0"/>
-                                      <Component id="iniLBEV" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="spdTBEV" max="32767" attributes="0"/>
-                                      <Component id="iniTBEV" max="32767" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="hpLBEV" min="-2" pref="50" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="hpTBEV" min="-2" pref="77" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="atkLBEV" alignment="0" min="-2" pref="50" max="-2" attributes="0"/>
-                                      <Component id="defLBEV" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="atkTBEV" pref="77" max="32767" attributes="0"/>
-                                      <Component id="defTBEV" max="32767" attributes="0"/>
-                                  </Group>
-                              </Group>
+                          <Component id="spaLBEV" min="-2" pref="50" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="spaEV" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="hpLBEV" min="-2" pref="50" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="hpEV" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="atkLBEV" alignment="0" min="-2" pref="50" max="-2" attributes="0"/>
+                              <Component id="defLBEV" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="defEV" min="-2" max="-2" attributes="0"/>
+                              <Component id="atkEV" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="setZero" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="randEV" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="totLB" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="totNrLB" min="-2" pref="60" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="randEV" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="setZero" alignment="0" max="32767" attributes="0"/>
                               </Group>
+                              <Component id="totNrLB" alignment="1" min="-2" pref="30" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="spdLBEV" max="32767" attributes="0"/>
+                              <Component id="iniLBEV" pref="50" max="32767" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="spdEV" min="-2" max="-2" attributes="0"/>
+                              <Component id="iniEV" min="-2" max="-2" attributes="0"/>
+                              <Component id="totLB" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
-                  <EmptySpace min="86" pref="12" max="32767" attributes="0"/>
+                  <EmptySpace min="199" pref="16" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -769,44 +759,43 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="hpLBEV" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="hpTBEV" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="hpEV" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="atkLBEV" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="atkTBEV" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="atkEV" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="defLBEV" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="defTBEV" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="defEV" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="spaLBEV" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="spaTBEV" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="spaEV" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="spdLBEV" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="spdTBEV" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="spdEV" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="iniLBEV" min="-2" max="-2" attributes="0"/>
-                      <Component id="iniTBEV" min="-2" pref="26" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="iniLBEV" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="iniEV" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="1" attributes="0">
-                      <Component id="randEV" min="-2" max="-2" attributes="0"/>
-                      <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="totNrLB" alignment="1" max="32767" attributes="0"/>
-                          <Component id="totLB" alignment="1" max="32767" attributes="0"/>
-                      </Group>
+                  <EmptySpace min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="totNrLB" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="totLB" alignment="3" max="32767" attributes="0"/>
                   </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="randEV" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="setZero" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="0" pref="6" max="32767" attributes="0"/>
+                  <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -839,7 +828,7 @@
         </Component>
         <Component class="javax.swing.JLabel" name="iniLBEV">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Init.:"/>
+            <Property name="text" type="java.lang.String" value="Speed:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="setZero">
@@ -857,6 +846,7 @@
         </Component>
         <Component class="javax.swing.JLabel" name="totNrLB">
           <Properties>
+            <Property name="horizontalAlignment" type="int" value="4"/>
             <Property name="text" type="java.lang.String" value="0"/>
           </Properties>
         </Component>
@@ -868,36 +858,46 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="randEVActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JTextField" name="hpTBEV">
+        <Component class="javax.swing.JSpinner" name="hpEV">
           <Properties>
-            <Property name="text" type="java.lang.String" value="0"/>
+            <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
+              <SpinnerModel initial="0" maximum="255" minimum="0" numberType="java.lang.Integer" stepSize="1" type="number"/>
+            </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="atkTBEV">
+        <Component class="javax.swing.JSpinner" name="atkEV">
           <Properties>
-            <Property name="text" type="java.lang.String" value="0"/>
+            <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
+              <SpinnerModel initial="0" maximum="255" minimum="0" numberType="java.lang.Integer" stepSize="1" type="number"/>
+            </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="defTBEV">
+        <Component class="javax.swing.JSpinner" name="defEV">
           <Properties>
-            <Property name="text" type="java.lang.String" value="0"/>
-            <Property name="toolTipText" type="java.lang.String" value=""/>
+            <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
+              <SpinnerModel initial="0" maximum="255" minimum="0" numberType="java.lang.Integer" stepSize="1" type="number"/>
+            </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="spaTBEV">
+        <Component class="javax.swing.JSpinner" name="spaEV">
           <Properties>
-            <Property name="text" type="java.lang.String" value="0"/>
-            <Property name="toolTipText" type="java.lang.String" value=""/>
+            <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
+              <SpinnerModel initial="0" maximum="255" minimum="0" numberType="java.lang.Integer" stepSize="1" type="number"/>
+            </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="spdTBEV">
+        <Component class="javax.swing.JSpinner" name="spdEV">
           <Properties>
-            <Property name="text" type="java.lang.String" value="0"/>
+            <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
+              <SpinnerModel initial="0" maximum="255" minimum="0" numberType="java.lang.Integer" stepSize="1" type="number"/>
+            </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="iniTBEV">
+        <Component class="javax.swing.JSpinner" name="iniEV">
           <Properties>
-            <Property name="text" type="java.lang.String" value="0"/>
+            <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
+              <SpinnerModel initial="0" maximum="255" minimum="0" numberType="java.lang.Integer" stepSize="1" type="number"/>
+            </Property>
           </Properties>
         </Component>
       </SubComponents>
@@ -930,21 +930,6 @@
         <Property name="text" type="java.lang.String" value="Level:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JSlider" name="lvlSD">
-      <Properties>
-        <Property name="minimum" type="int" value="1"/>
-      </Properties>
-      <Events>
-        <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="lvlSDStateChanged"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JLabel" name="lvlNrLB">
-      <Properties>
-        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-          <Connection code="lvlSD.getValue()+&quot;&quot;" type="code"/>
-        </Property>
-      </Properties>
-    </Component>
     <Container class="javax.swing.JPanel" name="ntrPN">
       <Properties>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -952,13 +937,19 @@
             <TitledBorder title="Nature"/>
           </Border>
         </Property>
+        <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[164, 266]"/>
+        </Property>
+        <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[164, 266]"/>
+        </Property>
       </Properties>
 
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
-                  <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
                           <EmptySpace min="29" pref="29" max="-2" attributes="0"/>
@@ -983,14 +974,14 @@
                               <Component id="ntrINIm" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="plusLB" min="-2" pref="69" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="43" max="32767" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
               <Group type="102" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="ntrLB" max="32767" attributes="0"/>
-                  <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -1041,7 +1032,7 @@
             <Property name="text" type="java.lang.String" value="Atk"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ntrATKpActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="natureRadioPressed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JRadioButton" name="ntrDEFp">
@@ -1049,7 +1040,7 @@
             <Property name="text" type="java.lang.String" value="Def"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ntrDEFpActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="natureRadioPressed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JRadioButton" name="ntrSPAp">
@@ -1057,7 +1048,7 @@
             <Property name="text" type="java.lang.String" value="SpAtk"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ntrSPApActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="natureRadioPressed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JRadioButton" name="ntrSPDp">
@@ -1065,15 +1056,15 @@
             <Property name="text" type="java.lang.String" value="SpDef"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ntrSPDpActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="natureRadioPressed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JRadioButton" name="ntrINIp">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Init"/>
+            <Property name="text" type="java.lang.String" value="Speed"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ntrINIpActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="natureRadioPressed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JRadioButton" name="ntrATKm">
@@ -1081,7 +1072,7 @@
             <Property name="text" type="java.lang.String" value="Atk"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ntrATKmActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="natureRadioPressed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JRadioButton" name="ntrDEFm">
@@ -1089,7 +1080,7 @@
             <Property name="text" type="java.lang.String" value="Def"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ntrDEFmActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="natureRadioPressed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JRadioButton" name="ntrSPAm">
@@ -1097,7 +1088,7 @@
             <Property name="text" type="java.lang.String" value="SpAtk"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ntrSPAmActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="natureRadioPressed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JRadioButton" name="ntrSPDm">
@@ -1105,15 +1096,15 @@
             <Property name="text" type="java.lang.String" value="SpDef"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ntrSPDmActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="natureRadioPressed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JRadioButton" name="ntrINIm">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Init"/>
+            <Property name="text" type="java.lang.String" value="Speed"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ntrINImActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="natureRadioPressed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="plusLB">
@@ -1164,6 +1155,15 @@
             <TitledBorder title="Info"/>
           </Border>
         </Property>
+        <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[130, 100]"/>
+        </Property>
+        <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[130, 100]"/>
+        </Property>
+        <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[130, 100]"/>
+        </Property>
       </Properties>
 
       <Layout>
@@ -1172,10 +1172,13 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="evTXT" min="-2" max="-2" attributes="0"/>
-                      <Component id="evLB" min="-2" max="-2" attributes="0"/>
+                      <Component id="evTXT" max="32767" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <Component id="evLB" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="0" pref="87" max="32767" attributes="0"/>
+                      </Group>
                   </Group>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -1185,8 +1188,8 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="evLB" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="evTXT" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="50" max="32767" attributes="0"/>
+                  <Component id="evTXT" pref="43" max="32767" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -1210,6 +1213,15 @@
           </Border>
         </Property>
         <Property name="horizontalTextPosition" type="int" value="0"/>
+        <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[130, 100]"/>
+        </Property>
+        <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[130, 100]"/>
+        </Property>
+        <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[130, 100]"/>
+        </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="newWindow">
@@ -1240,37 +1252,6 @@
         <Property name="text" type="java.lang.String" value="Pok&#xe9;mon Name"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel2">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Language Code"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JComboBox" name="langCB">
-      <Properties>
-        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="11">
-            <StringItem index="0" value="de"/>
-            <StringItem index="1" value="en"/>
-            <StringItem index="2" value="fr"/>
-            <StringItem index="3" value="es"/>
-            <StringItem index="4" value="it"/>
-            <StringItem index="5" value="ko"/>
-            <StringItem index="6" value="ja"/>
-            <StringItem index="7" value="ja-Hrkt"/>
-            <StringItem index="8" value="roomaji"/>
-            <StringItem index="9" value="zh-Hant"/>
-            <StringItem index="10" value="zh-Hans"/>
-          </StringArray>
-        </Property>
-        <Property name="enabled" type="boolean" value="false"/>
-      </Properties>
-      <Events>
-        <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="langChange"/>
-      </Events>
-      <AuxValues>
-        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-      </AuxValues>
-    </Component>
     <Container class="javax.swing.JScrollPane" name="jScrollPane1">
       <Properties>
         <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
@@ -1294,5 +1275,12 @@
         </Component>
       </SubComponents>
     </Container>
+    <Component class="javax.swing.JSpinner" name="levelSpinner">
+      <Properties>
+        <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
+          <SpinnerModel initial="1" maximum="100" minimum="1" numberType="java.lang.Integer" stepSize="1" type="number"/>
+        </Property>
+      </Properties>
+    </Component>
   </SubComponents>
 </Form>

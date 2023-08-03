@@ -45,12 +45,16 @@ public class StufenRechner extends javax.swing.JFrame {
         initComponents();
         this.p = p;
         
+        abilityDescTA.setWrapStyleWord(true);
+        abilityDescTA.setLineWrap(true);
+        abilityDescTA.setEditable(false);
+        
         this.setTitle(p.getName() + ", Lv. " + p.getLevel());
         ability.setText("Ability: "+p.getAbility());
         name.setText(p.getName() + "   LV: "+p.getLevel());
-        evTXT.setText(p.getEVs());
+        evTXT.setText(p.getEVText());
         exp.setText(p.getExp());
-        
+        abilityDescTA.setText(p.getAbilityDesc());
         getImage();
         
         statsLB = new JLabel[] {statHP, statATK, statDEF, statSPA, statSPD, statINI};
@@ -94,6 +98,8 @@ public class StufenRechner extends javax.swing.JFrame {
         jSpinner4 = new javax.swing.JSpinner();
         jSpinner5 = new javax.swing.JSpinner();
         gif = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        abilityDescTA = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
@@ -112,7 +118,7 @@ public class StufenRechner extends javax.swing.JFrame {
 
         jLabel6.setText("Sp. Defense:");
 
-        jLabel7.setText("Initiative:");
+        jLabel7.setText("Speed:");
 
         statHP.setText("300");
 
@@ -186,6 +192,13 @@ public class StufenRechner extends javax.swing.JFrame {
         gif.setBorder(javax.swing.BorderFactory.createTitledBorder("Icon"));
         gif.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
+        jScrollPane2.setMaximumSize(new java.awt.Dimension(234, 200));
+
+        abilityDescTA.setColumns(20);
+        abilityDescTA.setRows(5);
+        abilityDescTA.setMaximumSize(new java.awt.Dimension(234, 200));
+        jScrollPane2.setViewportView(abilityDescTA);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -193,16 +206,20 @@ public class StufenRechner extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGap(16, 16, 16)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(ability)
-                            .addComponent(name, javax.swing.GroupLayout.PREFERRED_SIZE, 449, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(gif, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(name, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 6, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(gif, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(layout.createSequentialGroup()
                         .addGap(20, 20, 20)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -249,8 +266,8 @@ public class StufenRechner extends javax.swing.JFrame {
                                     .addComponent(exp)
                                     .addComponent(evTXT))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(20, 20, 20))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -260,13 +277,16 @@ public class StufenRechner extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(name, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(ability))
-                    .addComponent(gif, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
-                .addComponent(jLabel8)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(ability)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(gif, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel8)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2)
                             .addComponent(statHP))
@@ -302,9 +322,12 @@ public class StufenRechner extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(evs)
-                            .addComponent(evTXT)))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE))
-                .addGap(49, 49, 49))
+                            .addComponent(evTXT))
+                        .addGap(15, 15, 15))
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(17, Short.MAX_VALUE))))
         );
 
         pack();
@@ -315,16 +338,22 @@ public class StufenRechner extends javax.swing.JFrame {
         switch (js.getName()) {
             case "atkSpinner":
                 statChange[0] = (int) js.getValue();
+                break;
             case "defSpinner":
                 statChange[1] = (int) js.getValue();
+                break;
             case "spaSpinner":
                 statChange[2] = (int) js.getValue();
+                break;
             case "spdSpinner":
                 statChange[3] = (int) js.getValue();
+                break;
             case "iniSpinner":
                 statChange[4] = (int) js.getValue();
+                break;
             default:
                 System.out.println("ERROR statStageChanged [Stufenrechner]");
+                break;
         }
         adjustStats();
     }//GEN-LAST:event_statStageChanged
@@ -366,6 +395,7 @@ public class StufenRechner extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel ability;
+    private javax.swing.JTextArea abilityDescTA;
     private javax.swing.JLabel evTXT;
     private javax.swing.JLabel evs;
     private javax.swing.JLabel exp;
@@ -380,6 +410,7 @@ public class StufenRechner extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSpinner jSpinner1;
     private javax.swing.JSpinner jSpinner2;
     private javax.swing.JSpinner jSpinner3;
@@ -416,6 +447,9 @@ public class StufenRechner extends javax.swing.JFrame {
         }
     }
     
+    /**
+     * Loads sprite from URL and displays it
+     */
     private void getImage() {
         URL url;
         try {
