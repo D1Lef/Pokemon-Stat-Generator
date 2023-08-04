@@ -28,38 +28,38 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="hp" min="-2" max="-2" attributes="0"/>
                                   <Component id="atk" min="-2" max="-2" attributes="0"/>
                                   <Component id="def" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lv" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="evs" min="-2" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                      <Component id="atkEV" alignment="0" pref="0" max="32767" attributes="0"/>
-                                      <Component id="hpEV" alignment="0" min="-2" pref="55" max="-2" attributes="0"/>
-                                      <Component id="defEV" pref="0" max="32767" attributes="0"/>
-                                  </Group>
+                                  <Component id="atkEV" min="-2" max="-2" attributes="0"/>
+                                  <Component id="defEV" min="-2" max="-2" attributes="0"/>
+                                  <Component id="hpEV" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="evs" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="levelSpinner" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="spa" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="spd" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="ini" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="spd" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="spa" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="spdEV" pref="0" max="32767" attributes="0"/>
-                                  <Component id="spaEV" pref="0" max="32767" attributes="0"/>
-                                  <Component id="iniEV" pref="0" max="32767" attributes="0"/>
+                                  <Component id="spaEV" min="-2" max="-2" attributes="0"/>
+                                  <Component id="spdEV" min="-2" max="-2" attributes="0"/>
+                                  <Component id="iniEV" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
-                      <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="iniStat" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="stat" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -69,23 +69,13 @@
                           <Component id="spaStat" min="-2" max="-2" attributes="0"/>
                           <Component id="spdStat" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="69" max="32767" attributes="0"/>
+                      <Component id="GenerateBTN" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                              <Component id="lv" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="levelSpinner" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="memberList" min="-2" pref="300" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <EmptySpace pref="10" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <Component id="memberList" min="-2" pref="285" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="gif" min="-2" pref="86" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -97,69 +87,58 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="hpEV" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="hp" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="hpStat" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="gif" min="-2" pref="120" max="-2" attributes="0"/>
-                              <EmptySpace min="0" pref="9" max="32767" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="atkEV" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="atk" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="atkStat" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="defEV" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="def" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="defStat" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="spaEV" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="spa" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="spaStat" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="spdEV" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="spd" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="spdStat" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="ini" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="iniEV" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="iniStat" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Component id="gif" min="-2" pref="120" max="-2" attributes="0"/>
                   <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                       <Component id="memberList" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="lv" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="levelSpinner" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lv" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="evs" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="stat" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
+              </Group>
+              <EmptySpace max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="hp" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="hpEV" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="hpStat" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="atk" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="atkStat" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="atkEV" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="def" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="defStat" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="defEV" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="spa" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="spaStat" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="spaEV" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="spd" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="spdStat" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="spdEV" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="ini" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="GenerateBTN" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="iniStat" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="iniEV" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
           </Group>
@@ -180,11 +159,6 @@
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JTextField" name="hpEV">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="0"/>
-      </Properties>
-    </Component>
     <Component class="javax.swing.JLabel" name="hp">
       <Properties>
         <Property name="text" type="java.lang.String" value="HP"/>
@@ -195,19 +169,9 @@
         <Property name="text" type="java.lang.String" value="Atk:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="atkEV">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="0"/>
-      </Properties>
-    </Component>
     <Component class="javax.swing.JLabel" name="def">
       <Properties>
         <Property name="text" type="java.lang.String" value="Def:"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="defEV">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="0"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="spa">
@@ -215,29 +179,14 @@
         <Property name="text" type="java.lang.String" value="SpAtk:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="spaEV">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="0"/>
-      </Properties>
-    </Component>
     <Component class="javax.swing.JLabel" name="spd">
       <Properties>
         <Property name="text" type="java.lang.String" value="SpDef:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="spdEV">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="0"/>
-      </Properties>
-    </Component>
     <Component class="javax.swing.JLabel" name="ini">
       <Properties>
         <Property name="text" type="java.lang.String" value="Speed:"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="iniEV">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="0"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="evs">
@@ -303,12 +252,12 @@
         <Property name="text" type="java.lang.String" value="Stat"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton1">
+    <Component class="javax.swing.JButton" name="GenerateBTN">
       <Properties>
         <Property name="text" type="java.lang.String" value="Generate"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="GenerateBTNPressed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="gif">
@@ -326,6 +275,49 @@
       <Properties>
         <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
           <SpinnerModel initial="1" maximum="100" minimum="1" numberType="java.lang.Integer" stepSize="1" type="number"/>
+        </Property>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JSpinner" name="iniEV">
+      <Properties>
+        <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
+          <SpinnerModel initial="0" maximum="255" minimum="0" numberType="java.lang.Integer" stepSize="1" type="number"/>
+        </Property>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JSpinner" name="spdEV">
+      <Properties>
+        <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
+          <SpinnerModel initial="0" maximum="255" minimum="0" numberType="java.lang.Integer" stepSize="1" type="number"/>
+        </Property>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JSpinner" name="spaEV">
+      <Properties>
+        <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
+          <SpinnerModel initial="0" maximum="255" minimum="0" numberType="java.lang.Integer" stepSize="1" type="number"/>
+        </Property>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JSpinner" name="defEV">
+      <Properties>
+        <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
+          <SpinnerModel initial="0" maximum="255" minimum="0" numberType="java.lang.Integer" stepSize="1" type="number"/>
+        </Property>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JSpinner" name="atkEV">
+      <Properties>
+        <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
+          <SpinnerModel initial="0" maximum="255" minimum="0" numberType="java.lang.Integer" stepSize="1" type="number"/>
+        </Property>
+        <Property name="toolTipText" type="java.lang.String" value=""/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JSpinner" name="hpEV">
+      <Properties>
+        <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
+          <SpinnerModel initial="0" maximum="255" minimum="0" numberType="java.lang.Integer" stepSize="1" type="number"/>
         </Property>
       </Properties>
     </Component>

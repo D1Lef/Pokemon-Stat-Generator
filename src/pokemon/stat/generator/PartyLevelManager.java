@@ -5,15 +5,7 @@
  */
 package pokemon.stat.generator;
 
-import java.awt.image.BufferedImage;
-import java.io.IOException;
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.imageio.ImageIO;
-import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
 /**
@@ -68,8 +60,8 @@ public class PartyLevelManager extends javax.swing.JFrame {
         for (JLabel a : anz){
             a.setText("");
         }
-        
-        getImage();
+        m.loadPokemon(members.get(memberList.getSelectedIndex()));
+        m.getImage(gif);
     }
 
     /**
@@ -82,18 +74,12 @@ public class PartyLevelManager extends javax.swing.JFrame {
     private void initComponents() {
 
         memberList = new javax.swing.JComboBox<>();
-        hpEV = new javax.swing.JTextField();
         hp = new javax.swing.JLabel();
         atk = new javax.swing.JLabel();
-        atkEV = new javax.swing.JTextField();
         def = new javax.swing.JLabel();
-        defEV = new javax.swing.JTextField();
         spa = new javax.swing.JLabel();
-        spaEV = new javax.swing.JTextField();
         spd = new javax.swing.JLabel();
-        spdEV = new javax.swing.JTextField();
         ini = new javax.swing.JLabel();
-        iniEV = new javax.swing.JTextField();
         evs = new javax.swing.JLabel();
         lv = new javax.swing.JLabel();
         hpStat = new javax.swing.JLabel();
@@ -103,9 +89,15 @@ public class PartyLevelManager extends javax.swing.JFrame {
         spdStat = new javax.swing.JLabel();
         iniStat = new javax.swing.JLabel();
         stat = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        GenerateBTN = new javax.swing.JButton();
         gif = new javax.swing.JLabel();
         levelSpinner = new javax.swing.JSpinner();
+        iniEV = new javax.swing.JSpinner();
+        spdEV = new javax.swing.JSpinner();
+        spaEV = new javax.swing.JSpinner();
+        defEV = new javax.swing.JSpinner();
+        atkEV = new javax.swing.JSpinner();
+        hpEV = new javax.swing.JSpinner();
 
         setTitle("Party Manager");
         setResizable(false);
@@ -116,29 +108,17 @@ public class PartyLevelManager extends javax.swing.JFrame {
             }
         });
 
-        hpEV.setText("0");
-
         hp.setText("HP");
 
         atk.setText("Atk:");
 
-        atkEV.setText("0");
-
         def.setText("Def:");
-
-        defEV.setText("0");
 
         spa.setText("SpAtk:");
 
-        spaEV.setText("0");
-
         spd.setText("SpDef:");
 
-        spdEV.setText("0");
-
         ini.setText("Speed:");
-
-        iniEV.setText("0");
 
         evs.setText("EVs");
 
@@ -158,10 +138,10 @@ public class PartyLevelManager extends javax.swing.JFrame {
 
         stat.setText("Stat");
 
-        jButton1.setText("Generate");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        GenerateBTN.setText("Generate");
+        GenerateBTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                GenerateBTNPressed(evt);
             }
         });
 
@@ -171,6 +151,19 @@ public class PartyLevelManager extends javax.swing.JFrame {
 
         levelSpinner.setModel(new javax.swing.SpinnerNumberModel(1, 1, 100, 1));
 
+        iniEV.setModel(new javax.swing.SpinnerNumberModel(0, 0, 255, 1));
+
+        spdEV.setModel(new javax.swing.SpinnerNumberModel(0, 0, 255, 1));
+
+        spaEV.setModel(new javax.swing.SpinnerNumberModel(0, 0, 255, 1));
+
+        defEV.setModel(new javax.swing.SpinnerNumberModel(0, 0, 255, 1));
+
+        atkEV.setModel(new javax.swing.SpinnerNumberModel(0, 0, 255, 1));
+        atkEV.setToolTipText("");
+
+        hpEV.setModel(new javax.swing.SpinnerNumberModel(0, 0, 255, 1));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -179,30 +172,31 @@ public class PartyLevelManager extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(21, 21, 21)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(hp)
                                     .addComponent(atk)
-                                    .addComponent(def))
-                                .addGap(41, 41, 41)
+                                    .addComponent(def)
+                                    .addComponent(lv))
+                                .addGap(25, 25, 25)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(atkEV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(defEV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(hpEV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(evs)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(atkEV, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
-                                        .addComponent(hpEV, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(defEV, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE))))
+                                    .addComponent(levelSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(spa)
+                                    .addComponent(ini)
                                     .addComponent(spd)
-                                    .addComponent(ini))
-                                .addGap(27, 27, 27)
+                                    .addComponent(spa))
+                                .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(spdEV, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
-                                    .addComponent(spaEV, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
-                                    .addComponent(iniEV, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE))))
-                        .addGap(40, 40, 40)
+                                    .addComponent(spaEV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(spdEV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(iniEV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(36, 36, 36)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(iniStat)
                             .addComponent(stat)
@@ -211,19 +205,12 @@ public class PartyLevelManager extends javax.swing.JFrame {
                             .addComponent(defStat)
                             .addComponent(spaStat)
                             .addComponent(spdStat))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton1))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
+                        .addComponent(GenerateBTN))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(10, 10, 10)
-                                .addComponent(lv)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(levelSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(memberList, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(memberList, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(gif, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(15, 15, 15))
         );
@@ -231,56 +218,49 @@ public class PartyLevelManager extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(gif, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(hpEV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(hp)
-                                    .addComponent(hpStat)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(gif, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 9, Short.MAX_VALUE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(atkEV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(atk)
-                            .addComponent(atkStat))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(defEV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(def)
-                            .addComponent(defStat))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(spaEV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(spa)
-                            .addComponent(spaStat))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(spdEV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(spd)
-                            .addComponent(spdStat))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(ini)
-                            .addComponent(jButton1)
-                            .addComponent(iniEV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(iniStat)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(12, 12, 12)
                         .addComponent(memberList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lv)
-                            .addComponent(levelSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(15, 15, 15)
+                            .addComponent(levelSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lv))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(evs)
-                            .addComponent(stat))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                            .addComponent(stat))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(hp)
+                    .addComponent(hpEV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(hpStat))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(atk)
+                    .addComponent(atkStat)
+                    .addComponent(atkEV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(def)
+                    .addComponent(defStat)
+                    .addComponent(defEV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(spa)
+                    .addComponent(spaStat)
+                    .addComponent(spaEV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(spd)
+                    .addComponent(spdStat)
+                    .addComponent(spdEV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ini)
+                    .addComponent(GenerateBTN)
+                    .addComponent(iniStat)
+                    .addComponent(iniEV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(15, 15, 15))
         );
 
@@ -294,105 +274,45 @@ public class PartyLevelManager extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void GenerateBTNPressed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GenerateBTNPressed
         PartyMember pm = members.get(memberList.getSelectedIndex());
-        int[] EVs = {Integer.parseInt(hpEV.getText()),Integer.parseInt(atkEV.getText()),
-            Integer.parseInt(defEV.getText()),Integer.parseInt(spaEV.getText()),
-            Integer.parseInt(spdEV.getText()),Integer.parseInt(iniEV.getText())};
+        int[] EVs = {(int) (hpEV.getValue()), (int) (atkEV.getValue()),
+            (int) (defEV.getValue()), (int) (spaEV.getValue()),
+            (int) (spdEV.getValue()), (int) (int) (iniEV.getValue())};
         
         m.calculateStats(pm, EVs, pm.IVs, (int) levelSpinner.getValue(), anz, pm.natMUL);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_GenerateBTNPressed
 
     private void chengedSelectedPokemon(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_chengedSelectedPokemon
-        getImage();
+        m.loadPokemon(members.get(memberList.getSelectedIndex()));
+        m.getImage(gif);
     }//GEN-LAST:event_chengedSelectedPokemon
 
-    
-    
-    
-    
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(PartyLevelManager.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(PartyLevelManager.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(PartyLevelManager.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(PartyLevelManager.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                new PartyLevelManager().setVisible(true);
-            }
-        });
-    }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton GenerateBTN;
     private javax.swing.JLabel atk;
-    private javax.swing.JTextField atkEV;
+    private javax.swing.JSpinner atkEV;
     private javax.swing.JLabel atkStat;
     private javax.swing.JLabel def;
-    private javax.swing.JTextField defEV;
+    private javax.swing.JSpinner defEV;
     private javax.swing.JLabel defStat;
     private javax.swing.JLabel evs;
     private javax.swing.JLabel gif;
     private javax.swing.JLabel hp;
-    private javax.swing.JTextField hpEV;
+    private javax.swing.JSpinner hpEV;
     private javax.swing.JLabel hpStat;
     private javax.swing.JLabel ini;
-    private javax.swing.JTextField iniEV;
+    private javax.swing.JSpinner iniEV;
     private javax.swing.JLabel iniStat;
-    private javax.swing.JButton jButton1;
     private javax.swing.JSpinner levelSpinner;
     private javax.swing.JLabel lv;
     private javax.swing.JComboBox<String> memberList;
     private javax.swing.JLabel spa;
-    private javax.swing.JTextField spaEV;
+    private javax.swing.JSpinner spaEV;
     private javax.swing.JLabel spaStat;
     private javax.swing.JLabel spd;
-    private javax.swing.JTextField spdEV;
+    private javax.swing.JSpinner spdEV;
     private javax.swing.JLabel spdStat;
     private javax.swing.JLabel stat;
     // End of variables declaration//GEN-END:variables
-    
-    /**
-     * Loads sprite from URL and displays it
-     */
-    private void getImage() {
-        PartyMember selectedPKM = members.get(memberList.getSelectedIndex());
-        URL url;
-        try {
-            url = new URL(selectedPKM.getSprite());
-            BufferedImage img = ImageIO.read(url);
-            ImageIcon icon = new ImageIcon(img);
-            
-            gif.setIcon(icon);
-        } catch (MalformedURLException ex) {
-            Logger.getLogger(MainView.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
-            System.out.println("Fehler bei Laden des Bildes. Überprüfe die Internetverbindung!");
-        } catch (NullPointerException ex) {
-            
-        }
-    }
 }

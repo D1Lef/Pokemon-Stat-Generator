@@ -5,14 +5,6 @@
  */
 package pokemon.stat.generator;
 
-import java.awt.image.BufferedImage;
-import java.io.IOException;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.imageio.ImageIO;
-import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JSpinner;
 
@@ -44,6 +36,7 @@ public class StufenRechner extends javax.swing.JFrame {
     public StufenRechner(Pokemon p){
         initComponents();
         this.p = p;
+        this.m = new Model (this.p);
         
         abilityDescTA.setWrapStyleWord(true);
         abilityDescTA.setLineWrap(true);
@@ -55,7 +48,7 @@ public class StufenRechner extends javax.swing.JFrame {
         evTXT.setText(p.getEVText());
         exp.setText(p.getExp());
         abilityDescTA.setText(p.getAbilityDesc());
-        getImage();
+        m.getImage(gif);
         
         statsLB = new JLabel[] {statHP, statATK, statDEF, statSPA, statSPD, statINI};
         
@@ -358,41 +351,6 @@ public class StufenRechner extends javax.swing.JFrame {
         adjustStats();
     }//GEN-LAST:event_statStageChanged
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(StufenRechner.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(StufenRechner.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(StufenRechner.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(StufenRechner.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new StufenRechner().setVisible(true);
-            }
-        });
-    }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel ability;
     private javax.swing.JTextArea abilityDescTA;
@@ -444,26 +402,6 @@ public class StufenRechner extends javax.swing.JFrame {
                 }
                 statsLB[i+1].setText(""+(int)Math.floor(newVal));
             }
-        }
-    }
-    
-    /**
-     * Loads sprite from URL and displays it
-     */
-    private void getImage() {
-        URL url;
-        try {
-            url = new URL(p.getSprite());
-            BufferedImage img = ImageIO.read(url);
-            ImageIcon icon = new ImageIcon(img);
-            
-            gif.setIcon(icon);
-        } catch (MalformedURLException ex) {
-            Logger.getLogger(MainView.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
-            System.out.println("Fehler bei Laden des Bildes. Überprüfe die Internetverbindung!");
-        } catch (NullPointerException ex) {
-            
         }
     }
 }

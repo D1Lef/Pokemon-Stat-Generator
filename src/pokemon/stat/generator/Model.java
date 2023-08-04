@@ -6,7 +6,15 @@
 package pokemon.stat.generator;
 
 import api.Client;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JRadioButton;
 
@@ -53,6 +61,16 @@ public class Model {
     
     public Model(){
         pokeApiClient = new Client();
+        initNature();
+    }
+    
+    public Model(Pokemon p){
+        pokeApiClient = new Client();
+        initNature();
+        activePKM = p;
+    }
+    
+    public void initNature(){
         /**
          * Index:
          *      0: -ATK
@@ -74,7 +92,7 @@ public class Model {
         nature[3] = spdP;
         nature[4] = iniP;
     }
-
+    
     /**
      * Loads relevant Pokemon information from the API
      * 
@@ -84,6 +102,15 @@ public class Model {
     public Pokemon loadPokemon(String nameID){
         activePKM = new Pokemon(nameID, pokeApiClient);
         return activePKM;
+    }
+    
+    /**
+     * Takes given Pokemon object and loads it into the model.
+     * 
+     * @param p Pokemon object to be loaded
+     */
+    public void loadPokemon(Pokemon p){
+        activePKM = p;
     }
         
     /**
@@ -446,5 +473,25 @@ public class Model {
             }
         }
         return "Language not found!";
+    }
+    
+    /**
+     * Loads sprite from URL and displays it
+     */
+    public void getImage(JLabel gif) {
+        URL url;
+        try {
+            url = new URL(activePKM.getSprite());
+            BufferedImage img = ImageIO.read(url);
+            ImageIcon icon = new ImageIcon(img);
+            
+            gif.setIcon(icon);
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(MainView.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            System.out.println("Fehler bei Laden des Bildes. Überprüfe die Internetverbindung!");
+        } catch (NullPointerException ex) {
+            
+        }
     }
 }
