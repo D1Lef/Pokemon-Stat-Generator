@@ -249,18 +249,20 @@
               </Group>
               <EmptySpace max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="stsPL" alignment="0" min="-2" pref="232" max="-2" attributes="0"/>
-                  <Component id="evsPL1" min="-2" max="-2" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="ntrPN" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="newWindow" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="generate" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="ntrPN" max="32767" attributes="0"/>
+                          <Component id="stsPL" max="32767" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="newWindow" min="-2" max="-2" attributes="0"/>
+                          <Component id="generate" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
+                  <Component id="evsPL1" min="-2" pref="307" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -399,7 +401,7 @@
                       <Component id="iniLBStat" alignment="0" min="-2" pref="16" max="-2" attributes="0"/>
                       <Component id="InitStageSpinner" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="resetChange" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
@@ -737,24 +739,24 @@
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="1" attributes="0">
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="randEV" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="setZero" alignment="0" max="32767" attributes="0"/>
-                              </Group>
-                              <Component id="totNrLB" alignment="1" min="-2" pref="30" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="randEV" alignment="0" max="32767" attributes="0"/>
+                              <Component id="setZero" alignment="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="spdLBEV" max="32767" attributes="0"/>
-                              <Component id="iniLBEV" pref="50" max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="spdLBEV" max="32767" attributes="0"/>
+                                  <Component id="iniLBEV" pref="50" max="32767" attributes="0"/>
+                              </Group>
+                              <Component id="totLB" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="totNrLB" min="-2" pref="30" max="-2" attributes="0"/>
                               <Component id="spdEV" min="-2" max="-2" attributes="0"/>
                               <Component id="iniEV" min="-2" max="-2" attributes="0"/>
-                              <Component id="totLB" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -1031,7 +1033,7 @@
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="randNTR" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace pref="15" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
