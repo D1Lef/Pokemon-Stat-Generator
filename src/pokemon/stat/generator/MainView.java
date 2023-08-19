@@ -179,10 +179,13 @@ public class MainView extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         abilityDescTA = new javax.swing.JTextArea();
         levelSpinner = new javax.swing.JSpinner();
+        jPanel2 = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        attackList = new javax.swing.JList<>();
         mainMenuBar = new javax.swing.JMenuBar();
         AppsJM = new javax.swing.JMenu();
         OpenAttackSimMI = new javax.swing.JMenuItem();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        OpenPartyManagerMI = new javax.swing.JMenuItem();
         PropertiesJM = new javax.swing.JMenu();
         languageJM = new javax.swing.JMenu();
         jRadioButtonMenuItem1 = new javax.swing.JRadioButtonMenuItem();
@@ -190,6 +193,7 @@ public class MainView extends javax.swing.JFrame {
         jRadioButtonMenuItem3 = new javax.swing.JRadioButtonMenuItem();
         jRadioButtonMenuItem4 = new javax.swing.JRadioButtonMenuItem();
         jRadioButtonMenuItem5 = new javax.swing.JRadioButtonMenuItem();
+        jCheckBoxMenuItem1 = new javax.swing.JCheckBoxMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("MyRPG: Pokémon Stat Calculator");
@@ -588,7 +592,7 @@ public class MainView extends javax.swing.JFrame {
 
         abLB.setText("Ability:");
 
-        abCB.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        abCB.setEnabled(false);
         abCB.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 abilityStateChanged(evt);
@@ -827,6 +831,29 @@ public class MainView extends javax.swing.JFrame {
 
         levelSpinner.setModel(new javax.swing.SpinnerNumberModel(1, 1, 100, 1));
 
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Attacks"));
+
+        attackList.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane2.setViewportView(attackList);
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 263, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane2)
+        );
+
         mainMenuBar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         AppsJM.setText("Apps");
@@ -839,13 +866,13 @@ public class MainView extends javax.swing.JFrame {
         });
         AppsJM.add(OpenAttackSimMI);
 
-        jMenuItem1.setText("Open PartyManager");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        OpenPartyManagerMI.setText("Open PartyManager");
+        OpenPartyManagerMI.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                OpenPartyManagerMIActionPerformed(evt);
             }
         });
-        AppsJM.add(jMenuItem1);
+        AppsJM.add(OpenPartyManagerMI);
 
         mainMenuBar.add(AppsJM);
 
@@ -899,6 +926,9 @@ public class MainView extends javax.swing.JFrame {
 
         PropertiesJM.add(languageJM);
 
+        jCheckBoxMenuItem1.setText("show higher level moves");
+        PropertiesJM.add(jCheckBoxMenuItem1);
+
         mainMenuBar.add(PropertiesJM);
 
         setJMenuBar(mainMenuBar);
@@ -918,13 +948,14 @@ public class MainView extends javax.swing.JFrame {
                                 .addComponent(ntrPN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(stsPL, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
                                 .addComponent(newWindow)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(generate, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(27, 27, 27))))
+                                .addComponent(generate, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(27, 27, 27))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -995,7 +1026,8 @@ public class MainView extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(ntrPN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(stsPL, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(stsPL, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(newWindow)
@@ -1073,6 +1105,8 @@ public class MainView extends javax.swing.JFrame {
         generate.setEnabled(true);
         newWindow.setEnabled(false);                          
         loadButton.setEnabled(true);
+        abCB.setEnabled(true);
+        m.setAttackList(attackList);
     }//GEN-LAST:event_loadButtonActionPerformed
 
     private void resetChangeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetChangeActionPerformed
@@ -1084,9 +1118,9 @@ public class MainView extends javax.swing.JFrame {
         c.openAttackSim();
     }//GEN-LAST:event_OpenAttackSimMIAction
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+    private void OpenPartyManagerMIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OpenPartyManagerMIActionPerformed
         c.openPartyManager();
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+    }//GEN-LAST:event_OpenPartyManagerMIActionPerformed
 
     private void abilityStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_abilityStateChanged
         m.setAbility(abCB.getSelectedItem().toString());
@@ -1139,6 +1173,7 @@ public class MainView extends javax.swing.JFrame {
     private javax.swing.JSpinner DefStageSpinner;
     private javax.swing.JSpinner InitStageSpinner;
     private javax.swing.JMenuItem OpenAttackSimMI;
+    private javax.swing.JMenuItem OpenPartyManagerMI;
     private javax.swing.JMenu PropertiesJM;
     private javax.swing.JSpinner SpAtkStageSpinner;
     private javax.swing.JSpinner SpDefStageSpinner;
@@ -1151,6 +1186,7 @@ public class MainView extends javax.swing.JFrame {
     private javax.swing.JLabel atkLBIV;
     private javax.swing.JLabel atkLBStat;
     private javax.swing.JLabel atkStat;
+    private javax.swing.JList<String> attackList;
     private javax.swing.JSpinner defEV;
     private javax.swing.JSpinner defIV;
     private javax.swing.JLabel defLBEV;
@@ -1176,14 +1212,16 @@ public class MainView extends javax.swing.JFrame {
     private javax.swing.JLabel iniLBStat;
     private javax.swing.JLabel iniStat;
     private javax.swing.JPanel ivsPL;
-    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem1;
     private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem2;
     private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem3;
     private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem4;
     private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem5;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.ButtonGroup langCode;
     private javax.swing.JMenu languageJM;
     private javax.swing.JSpinner levelSpinner;

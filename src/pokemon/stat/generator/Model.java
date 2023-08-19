@@ -16,6 +16,7 @@ import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import javax.swing.JList;
 import javax.swing.JRadioButton;
 
 import javax.swing.JSpinner;
@@ -23,6 +24,7 @@ import models.common.Name;
 import models.evolution.ChainLink;
 import models.evolution.EvolutionChain;
 import models.pokemon.Ability;
+import models.pokemon.PokemonMove;
 import models.pokemon.PokemonSpecies;
 
 
@@ -39,6 +41,7 @@ public class Model {
     private String selectedNature;
     
     private String langCode = "de";
+    private boolean showHigherLevelMoves = false;
     
     /** natMUL
      * 0: ATK
@@ -377,6 +380,26 @@ public class Model {
         }
     }
 
+    public void setShowHigherLevelMoves(boolean b){
+        this.showHigherLevelMoves = b;
+    }
+    
+    public boolean getShowHigherLevelMoves(){
+        return this.showHigherLevelMoves;
+    }
+    
+    public ArrayList<String> setAttackList(JList list){
+        ArrayList<String> alist = new ArrayList<>();
+        ArrayList<PokemonMove> mList = activePKM.getAttackList();
+        list.removeAll();
+        for (PokemonMove move : mList){
+            System.out.println(move.toString());
+        }
+        
+        
+        return alist;
+    }
+    
     /**
      * Sets all stat changes to 0 both in Model and View.
      * 

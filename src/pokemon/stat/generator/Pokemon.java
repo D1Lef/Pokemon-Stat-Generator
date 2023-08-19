@@ -266,4 +266,8 @@ public class Pokemon {
     public int[] getStats() {
         return stats;
     }
+    
+    public ArrayList<models.pokemon.PokemonMove> getAttackList(){
+        return pokemonObj.getMoves();
+    }
 }
