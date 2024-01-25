@@ -32,6 +32,7 @@ public class Pokemon {
     private final String spriteURL;
     private final api.Client pokeApiClient;
     private models.pokemon.Pokemon pokemonObj;
+    ArrayList<models.moves.Move> moves;
     private ArrayList<models.pokemon.PokemonStat> statsList;
     private String nature;
     private Dictionary<String, String> abilities;
@@ -267,7 +268,56 @@ public class Pokemon {
         return stats;
     }
     
-    public ArrayList<models.pokemon.PokemonMove> getAttackList(){
-        return pokemonObj.getMoves();
+    public ArrayList<String> getAttackList(String langCode){
+        ArrayList<String> ret = new ArrayList<>();
+        if (this.moves == null){
+            this.moves = new ArrayList<>();
+            ArrayList<models.pokemon.PokemonMove> pmoves = pokemonObj.getMoves();
+
+            for (models.pokemon.PokemonMove pmove : pmoves) {
+                String[] strsplit = pmove.getMove().getUrl().split("/", 0);
+                int id = Integer.parseInt(strsplit[strsplit.length-1]);
+                this.moves.add(models.moves.Move.getById(id));
+            }
+        }
+        
+        for (models.moves.Move move : moves) {
+            ret.add(getNameFromNamesList(move.getNames(), langCode));
+        }
+        
+        return ret;
+    }
+    
+    /**
+     * Looks through Name-List and searches for the language set in the langCode variable
+     * 
+     * @param nameList ArrayList of Names
+     * @param langCode identifying string of the chosen language
+     * @return String of name in language according to langCode value
+     */
+    public static String getNameFromNamesList(ArrayList<models.common.Name> nameList, String langCode) {
+        for (models.common.Name name : nameList){
+            if (name.getLanguage().getName().equals(langCode)){
+                return name.getName();
+            }
+        }
+        return "Language not found!";
+    }
+    
+    
+    /**
+     * Looks through Name-List and searches for the language set in the langCode variable
+     * 
+     * @param descriptions ArrayList of Descriptions
+     * @param langCode identifying string of the chosen language
+     * @return String of description in language according to langCode value
+     */
+    public static String descLanguageSearch(ArrayList<models.common.VerboseEffect> descriptions, String langCode) {
+        for (models.common.VerboseEffect desc : descriptions){
+            if (desc.getLanguage().getName().equals(langCode)){
+                return desc.getEffect();
+            }
+        }
+        return "Language not found!";
     }
 }

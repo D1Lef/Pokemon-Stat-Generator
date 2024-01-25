@@ -186,8 +186,8 @@ public class Model {
             String url = test.getAbilities().get(i).getAbility().getUrl();
             int abiID = Integer.parseInt(url.substring(url.indexOf("ability/")+8, url.length()-1));
             Ability a = pokeApiClient.getAbilityById(abiID);
-            String name = nameLanguageSearch(a.getNames());
-            String effect = descLanguageSearch(a.getEffectEntries());
+            String name = Pokemon.getNameFromNamesList(a.getNames(), langCode);
+            String effect = Pokemon.descLanguageSearch(a.getEffectEntries(), langCode);
             
             if (test.getAbilities().get(i).isHidden())
                 name += " (HA)";
@@ -218,7 +218,7 @@ public class Model {
      * @param nameLabel label in the view containing the Pokemon name
      */
     void setName(JLabel nameLabel){
-        String name = nameLanguageSearch(pokeApiClient.getPokemonSpeciesById(activePKM.getDexNr()).getNames());
+        String name = Pokemon.getNameFromNamesList(pokeApiClient.getPokemonSpeciesById(activePKM.getDexNr()).getNames(), langCode);
         activePKM.setName(name);
         nameLabel.setText(name);
     }
@@ -388,16 +388,8 @@ public class Model {
         return this.showHigherLevelMoves;
     }
     
-    public ArrayList<String> setAttackList(JList list){
-        ArrayList<String> alist = new ArrayList<>();
-        ArrayList<PokemonMove> mList = activePKM.getAttackList();
-        list.removeAll();
-        for (PokemonMove move : mList){
-            System.out.println(move.toString());
-        }
-        
-        
-        return alist;
+    public ArrayList<String> getPokemonAttackList(){
+        return activePKM.getAttackList(langCode);
     }
     
     /**
@@ -467,37 +459,7 @@ public class Model {
     public int[] getStats(){
         return stats;
     }
-    
-    /**
-     * Looks through Name-List and searches for the language set in the langCode variable
-     * 
-     * @param names ArrayList of Names
-     * @return String of name in language according to langCode value
-     */
-    public String nameLanguageSearch(ArrayList<Name> names) {
-        for (Name name : names){
-            if (name.getLanguage().getName().equals(langCode)){
-                return name.getName();
-            }
-        }
-        return "Language not found!";
-    }
-    
-    /**
-     * Looks through Name-List and searches for the language set in the langCode variable
-     * 
-     * @param description ArrayList of Descriptions
-     * @return String of description in language according to langCode value
-     */
-    public String descLanguageSearch(ArrayList<models.common.VerboseEffect> descriptions) {
-        for (models.common.VerboseEffect desc : descriptions){
-            if (desc.getLanguage().getName().equals(langCode)){
-                return desc.getEffect();
-            }
-        }
-        return "Language not found!";
-    }
-    
+        
     /**
      * Loads sprite from URL and displays it
      */
